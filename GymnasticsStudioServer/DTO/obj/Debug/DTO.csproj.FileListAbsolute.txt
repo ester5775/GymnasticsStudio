@@ -1,0 +1,9 @@
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\bin\Debug\DTO.dll
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\bin\Debug\DTO.pdb
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\bin\Debug\Dal.dll
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\bin\Debug\Dal.pdb
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\obj\Debug\DTO.csproj.CopyComplete
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\obj\Debug\DTO.dll
+F:\Users\משתמש\Desktop\ESTER\GymnasticsStudioServer\DTO\obj\Debug\DTO.pdb

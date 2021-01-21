@@ -1,0 +1,16 @@
+.mat-form-field{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+.student-details-place{
+    position: absolute;
+   
+    top: 20%;
+    left: 12%;
+}
+  
+ 
+  
+  
+  

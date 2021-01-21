@@ -1,0 +1,25 @@
+.example-viewport{
+    display: inline-block;
+    top: 10%;
+    left: 50%;
+    height: 80%;
+    width: 30%;
+    overflow-y: scroll;
+    scrollbar-face-color: crimson;
+}
+.table{
+    height: 100%;
+    width: 100%;
+}
+
+.table-header{
+    height: 50px;
+    width: 50%;
+    font-size: larger;
+    font-weight: 700;
+    color: crimson;
+}
+.table-item{
+    height: 50px;
+    width: 50%;
+}

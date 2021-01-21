@@ -1,0 +1,43 @@
+<mat-card class="student-details-place">
+  <mat-card-content >
+<form class="sign-up-form" [formGroup]="SignUpForm" (ngSubmit)="OnSubmit()"> 
+  
+<mat-form-field class="mat-form-field" appearance="fill">
+  <mat-label>שם פרטי</mat-label>
+  <input matInput placeholder="הכנס שם פרטי" required  formControlName="firstName" >  
+</mat-form-field>
+
+
+<mat-form-field class="mat-form-field" appearance="fill">
+  <mat-label>שם משפחה</mat-label>
+  <input matInput placeholder="הכנס שם משפחה" required formControlName="lastName">
+</mat-form-field>
+
+<mat-form-field class="mat-form-field" appearance="fill">
+  <mat-label>מספר זהות</mat-label>
+  <input matInput  placeholder="הכנס מספר זהות" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required formControlName="identityNumber">   
+</mat-form-field>
+ 
+
+  <mat-form-field class="mat-form-field" appearance="fill">
+    <mat-label>מספר טלפון</mat-label>
+    <input matInput type="tel" placeholder="הכנס מספר טלפון"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" formControlName="phjoneNumber" >
+       <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field class="mat-form-field" appearance="fill">
+    <mat-label>מספר טלפון נייד</mat-label>
+    <input matInput type="tel" placeholder=" הכנס מספר טלפון נייד"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" formControlName="mobilePhjoneNumber" >
+    <!-- <kendo-maskedtextbox [mask]="'(999) 000-00-00-00'" [value]="'359884123321'"></kendo-maskedtextbox> -->
+      <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+ 
+
+<button mat-button type="submit" id="submitButton" >שמור שינוים</button>
+</form>
+
+
+<!-- [disabled]="!SignUpForm.valid" -->
+</mat-card-content>
+</mat-card>
