@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Dal;
+using Bll;
 using DTO;
 using System.Web.Http.Cors;
 
@@ -22,12 +22,8 @@ namespace GymnasticsStudioServer.Controllers
         [Route("GetStudentsList")]
         public IEnumerable<StudentDTO> GetStudentsList()
         {
-            ///במקום שליפה מהטבלה
-            List<Student> studentsList = new List<Student>();
-            studentsList.Add(new Student(1, "ester", "levco", "123456789", "0556730513","025375775",100));
-            studentsList.Add(new Student(1, "david", "levco", "987654321", "0583221423", "029921423", 200));
-            ///
-            return StudentDTO.ConvertListToDTO(studentsList);
+
+            return StudentFunction.GetStudentsList();
         }
 
         // GET: api/Student/5

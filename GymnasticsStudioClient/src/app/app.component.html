@@ -1,0 +1,91 @@
+<body class="body">
+<mat-toolbar class="toolbar">
+    <!-- <embed [src]="...\logo1.pdf" style="width:200px;height:200px;" type="application/pdf" /> -->
+   
+     <button mat-icon-button [matMenuTriggerFor]="Menu"><mat-icon>menu</mat-icon></button>
+    <mat-menu #Menu="matMenu" >
+        <button mat-menu-item>רשימת צינטוקים</button>   
+        <button mat-menu-item>רשימת הקלטות</button>   
+        <button mat-menu-item>מערכת שעות</button> 
+        <button mat-menu-item>פרטי השיעורים</button> 
+        <button mat-menu-item>נתוני שיעורים כללים</button>
+        <button mat-menu-item (click)="ShowStudentsList()">רשימת התלמידים/ות</button>
+        <button mat-menu-item>נתוני תלמידים/ות כללים</button>  
+        <button mat-menu-item >רשימת מורות</button>  
+      <button mat-menu-item [matMenuTriggerFor]="StudentsMenu">פרטי תלמיד/ה</button>  
+        <mat-menu #StudentsMenu="matMenu" >
+            <button mat-menu-item  *ngFor="let student of StudentsList">{{student.FirstName}} {{student.LastName}}</button>  
+        </mat-menu>  
+    </mat-menu>     
+    <form [formGroup]="SearchForm"  (ngSubmit)="OnSubmit()">  
+        <input matInput class="search-box" placeholder=" חיפוש"   formControlName="Search" >
+    </form>  
+    <!-- <mat-toolbar-row></mat-toolbar-row> -->
+   
+  </mat-toolbar>
+  <mat-card class="card">
+    <mat-card-header class="header">      
+      <div class="header-actions">
+        <mat-tab-group class="my-tab-group router-outlet">
+
+            <mat-tab >
+                <ng-template mat-tab-label >
+                    <button mat-icon-button [matMenuTriggerFor]="Menu1" class="cloneIcon">
+                        מערכת קולית
+                    </button>                
+                </ng-template>       
+                <mat-menu #Menu1="matMenu" >
+                    <button mat-menu-item>רשימת צינטוקים</button>   
+                    <button mat-menu-item>רשימת הקלטות</button>        
+                </mat-menu>        
+            </mat-tab>  
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <button mat-icon-button [matMenuTriggerFor]="Menu2" class="cloneIcon">
+                        שיעורים
+                    </button>                    
+                </ng-template>            
+                <mat-menu #Menu2="matMenu">
+                    <button mat-menu-item>מערכת שעות</button> 
+                    <button mat-menu-item>פרטי השיעורים</button> 
+                    <button mat-menu-item>נתונים כללים</button> 
+                </mat-menu>            
+            </mat-tab>
+
+            
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <button mat-icon-button [matMenuTriggerFor]="Menu3" class="cloneIcon">
+                        תלמידים/ות
+                    </button>                      
+                </ng-template>              
+                <mat-menu #Menu3="matMenu">
+                    <button mat-menu-item (click)="ShowStudentsList()">רשימת התלמידים/ות</button>
+                    <button mat-menu-item>נתונים כללים</button> 
+                </mat-menu>             
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <button mat-icon-button [matMenuTriggerFor]="Menu4" class="cloneIcon">
+                        מורות
+                    </button>                      
+                </ng-template>              
+                <mat-menu #Menu4="matMenu">
+                    <button mat-menu-item >רשימת מורות</button>                                  
+                </mat-menu>             
+            </mat-tab>
+           
+    
+          </mat-tab-group>
+
+      </div>
+    </mat-card-header>
+    <mat-card-content class="content">
+ 
+        <router-outlet ></router-outlet>
+      <!-- Insert content here -->
+    </mat-card-content>
+  </mat-card>
+</body>
+
