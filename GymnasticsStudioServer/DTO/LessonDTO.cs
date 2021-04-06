@@ -18,34 +18,31 @@ namespace DTO
         public Nullable<int> MaxStudensNum { get; set; }
         public Nullable<int> MaxSerologersStudensNum { get; set; }
 
-        public static LessonDTO ConvertToDTO(Lesson lesson)
+
+
+        public static LessonDTO Convert(Lesson lesson)
         {
             LessonDTO lessonDTO = new LessonDTO();
             lessonDTO.Id = lesson.Id;
             lessonDTO.Name = lesson.Name;
             lessonDTO.TeacherId = lesson.TeacherId;
             lessonDTO.Day = lesson.Day;
-            lessonDTO.StartHower= lesson.StartHower;
+            lessonDTO.StartHower = lesson.StartHower;
             lessonDTO.FinishHower = lesson.FinishHower;
             lessonDTO.MaxStudensNum = lesson.MaxStudensNum;
             lessonDTO.MaxSerologersStudensNum = lesson.MaxSerologersStudensNum;
-           
+
             return lessonDTO;
         }
 
-        public static List<LessonDTO> ConvertListToDTO(List<Lesson> lessonList)
+        public static List<LessonDTO> Convert(List<Lesson> lessonList)
         {
-            List<LessonDTO> lessonDTOsList = new List<LessonDTO>();
-            for (int i = 0; i < lessonList.Count(); i++)
-            {
-                lessonDTOsList.Add(ConvertToDTO(lessonList[i]));
-            }
-            return lessonDTOsList;
+            return lessonList.Select(x => Convert(x)).ToList();
         }
 
-        public static Lesson ConvertFromDTO(LessonDTO lessonDTO)
+        public static Lesson Convert(LessonDTO lessonDTO)
         {
-           
+
             Lesson lesson = new Lesson();
             lesson.Id = lessonDTO.Id;
             lesson.Name = lessonDTO.Name;
@@ -58,18 +55,15 @@ namespace DTO
 
             return lesson;
 
-            
+
         }
 
-        public static List<Lesson> ConvertListFromDTO(List<LessonDTO> lessonDTOsList)
+        public static List<Lesson> Convert(List<LessonDTO> lessonDTOsList)
         {
-            List<Lesson> lessonList = new List<Lesson>();
-            for (int i = 0; i < lessonDTOsList.Count(); i++)
-            {
-                lessonList.Add(ConvertFromDTO(lessonDTOsList[i]));
-            }
-            return lessonList;
+            return lessonDTOsList.Select(x => Convert(x)).ToList();
 
         }
     }
 }
+
+    

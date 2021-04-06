@@ -17,7 +17,7 @@ namespace DTO
         public Nullable<System.DateTime> FinishDate { get; set; }
 
 
-        public static StudentInLessonDTO ConvertToDTO(StudentInLesson studentInLesson)
+        public static StudentInLessonDTO Convert(StudentInLesson studentInLesson)
         {
             StudentInLessonDTO studentInLessonDTO = new StudentInLessonDTO();
             studentInLessonDTO.Id = studentInLesson.Id;
@@ -25,21 +25,17 @@ namespace DTO
             studentInLessonDTO.LessonId = studentInLesson.LessonId;
             studentInLessonDTO.StartDate = studentInLesson.StartDate;
             studentInLessonDTO.FinishDate = studentInLesson.FinishDate;
-           
+
             return studentInLessonDTO;
         }
 
-        public static List<StudentInLessonDTO> ConvertListToDTO(List<StudentInLesson> studentInLessonList)
+        public static List<StudentInLessonDTO> Convert(List<StudentInLesson> studentInLessonList)
         {
-            List<StudentInLessonDTO> studentInLessonDTOsList = new List<StudentInLessonDTO>();
-            for (int i = 0; i < studentInLessonList.Count(); i++)
-            {
-                studentInLessonDTOsList.Add(ConvertToDTO(studentInLessonList[i]));
-            }
-            return studentInLessonDTOsList;
+            return studentInLessonList.Select(x => Convert(x)).ToList();
+
         }
 
-        public static StudentInLesson ConvertFromDTO(StudentInLessonDTO studentInLessonDTO)
+        public static StudentInLesson Convert(StudentInLessonDTO studentInLessonDTO)
         {
             StudentInLesson studentInLesson = new StudentInLesson();
             studentInLesson.Id = studentInLessonDTO.Id;
@@ -47,19 +43,15 @@ namespace DTO
             studentInLesson.LessonId = studentInLessonDTO.LessonId;
             studentInLesson.StartDate = studentInLessonDTO.StartDate;
             studentInLesson.FinishDate = studentInLessonDTO.FinishDate;
-           
+
 
             return studentInLesson;
         }
 
-        public static List<StudentInLesson> ConvertListFromDTO(List<StudentInLessonDTO> studentInLessonDTOsList)
+        public static List<StudentInLesson> Convert(List<StudentInLessonDTO> studentInLessonDTOsList)
         {
-            List<StudentInLesson> studentInLessonList = new List<StudentInLesson>();
-            for (int i = 0; i < studentInLessonDTOsList.Count(); i++)
-            {
-                studentInLessonList.Add(ConvertFromDTO(studentInLessonDTOsList[i]));
-            }
-            return studentInLessonList;
+            return studentInLessonDTOsList.Select(x => Convert(x)).ToList();
+
 
         }
     }

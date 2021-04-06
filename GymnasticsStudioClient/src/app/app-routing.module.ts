@@ -8,12 +8,14 @@ import { StudentDetailsComponent } from './Components/student-details/student-de
 import { StudentPayDetailsComponent } from './Components/student-pay-details/student-pay-details.component';
 import { StudentScadulComponent } from './Components/student-scadul/student-scadul.component';
 import { StudentAttendanceScadulComponent } from './Components/student-attendance-scadul/student-attendance-scadul.component';
+import { EditStudentDetailsComponent } from './Components/edit-student-details/edit-student-details.component';
 
 
 
 const routes: Routes = [
   
   { path: 'log-in', component: LogInComponent },
+  { path: 'edit-student-details', component: EditStudentDetailsComponent },
   { path: 'students-list', component: StudentsListComponent ,
      children: [{ path: 'student-details/:Id', component: StudentDetailsComponent ,outlet: 'studentOptionsRouterOutlet'},
                 { path: 'student-pay-details/:Id', component: StudentPayDetailsComponent ,outlet: 'studentOptionsRouterOutlet'},

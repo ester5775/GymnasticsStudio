@@ -15,7 +15,9 @@ namespace DTO
         public Nullable<int> WeeksNum { get; set; }
         public Nullable<int> DaysInWeekNum { get; set; }
 
-        public static SubscriptionDTO ConvertToDTO(Subscription subscription)
+
+
+        public static SubscriptionDTO Convert(Subscription subscription)
         {
             SubscriptionDTO subscriptionDTO = new SubscriptionDTO();
             subscriptionDTO.Id = subscription.Id;
@@ -23,21 +25,17 @@ namespace DTO
             subscriptionDTO.Price = subscription.Price;
             subscriptionDTO.WeeksNum = subscription.WeeksNum;
             subscriptionDTO.DaysInWeekNum = subscription.DaysInWeekNum;
-         
+
             return subscriptionDTO;
         }
 
-        public static List<SubscriptionDTO> ConvertListToDTO(List<Subscription> subscriptionList)
+        public static List<SubscriptionDTO> Convert(List<Subscription> subscriptionList)
         {
-            List<SubscriptionDTO> studentDTOsList = new List<SubscriptionDTO>();
-            for (int i = 0; i < subscriptionList.Count(); i++)
-            {
-                studentDTOsList.Add(ConvertToDTO(subscriptionList[i]));
-            }
-            return studentDTOsList;
+            return subscriptionList.Select(x => Convert(x)).ToList();
+
         }
 
-        public static Subscription ConvertFromDTO(SubscriptionDTO subscriptionDTO)
+        public static Subscription Convert(SubscriptionDTO subscriptionDTO)
         {
             Subscription subscription = new Subscription();
             subscription.Id = subscriptionDTO.Id;
@@ -49,16 +47,13 @@ namespace DTO
             return subscription;
         }
 
-        public static List<Subscription> ConvertListFromDTO(List<SubscriptionDTO> subscriptionDTOsList)
+        public static List<Subscription> Convert(List<SubscriptionDTO> subscriptionDTOsList)
         {
-            List<Subscription> subscriptionList = new List<Subscription>();
-            for (int i = 0; i < subscriptionDTOsList.Count(); i++)
-            {
-                subscriptionList.Add(ConvertFromDTO(subscriptionDTOsList[i]));
-            }
-            return subscriptionList;
+            return subscriptionDTOsList.Select(x => Convert(x)).ToList();
+
 
         }
 
     }
 }
+

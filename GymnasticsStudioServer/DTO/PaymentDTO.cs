@@ -18,8 +18,9 @@ namespace DTO
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> FinishDate { get; set; }
 
-        
-        public static PaymentDTO ConvertToDTO(Payment payment)
+
+
+        public static PaymentDTO Convert(Payment payment)
         {
             PaymentDTO paymentDTO = new PaymentDTO();
             paymentDTO.Id = payment.Id;
@@ -28,21 +29,16 @@ namespace DTO
             paymentDTO.FormOfPayment = payment.FormOfPayment;
             paymentDTO.StartDate = payment.StartDate;
             paymentDTO.FinishDate = payment.FinishDate;
-          
+
             return paymentDTO;
         }
 
-        public static List<PaymentDTO> ConvertListToDTO(List<Payment> paymentList)
+        public static List<PaymentDTO> Convert(List<Payment> paymentList)
         {
-            List<PaymentDTO> paymentDTOsList = new List<PaymentDTO>();
-            for (int i = 0; i < paymentList.Count(); i++)
-            {
-                paymentDTOsList.Add(ConvertToDTO(paymentList[i]));
-            }
-            return paymentDTOsList;
+            return paymentList.Select(x => Convert(x)).ToList();
         }
 
-        public static Payment ConvertFromDTO(PaymentDTO paymentDTO)
+        public static Payment Convert(PaymentDTO paymentDTO)
         {
             Payment payment = new Payment();
             payment.Id = paymentDTO.Id;
@@ -55,15 +51,11 @@ namespace DTO
             return payment;
         }
 
-        public static List<Payment> ConvertListFromDTO(List<PaymentDTO> paymentDTOsList)
+        public static List<Payment> Convert(List<PaymentDTO> paymentDTOsList)
         {
-            List<Payment> paymentList = new List<Payment>();
-            for (int i = 0; i < paymentDTOsList.Count(); i++)
-            {
-               paymentList.Add(ConvertFromDTO(paymentDTOsList[i]));
-            }
-            return paymentList;
+            return paymentDTOsList.Select(x => Convert(x)).ToList();
 
         }
+
     }
 }

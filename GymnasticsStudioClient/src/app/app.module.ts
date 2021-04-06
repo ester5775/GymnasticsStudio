@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { StudentScadulComponent } from './Components/student-scadul/student-scadul.component';
 import { StudentAttendanceScadulComponent } from './Components/student-attendance-scadul/student-attendance-scadul.component';
+import { EditStudentDetailsComponent } from './Components/edit-student-details/edit-student-details.component';
 
 
 // import { MaskedTextBoxModule } from '@progress/kendo-angular-inputs';
@@ -50,6 +51,7 @@ import { StudentAttendanceScadulComponent } from './Components/student-attendanc
     StudentPayDetailsComponent,
     StudentScadulComponent,
     StudentAttendanceScadulComponent,
+    EditStudentDetailsComponent,
     
   ],
   imports: [

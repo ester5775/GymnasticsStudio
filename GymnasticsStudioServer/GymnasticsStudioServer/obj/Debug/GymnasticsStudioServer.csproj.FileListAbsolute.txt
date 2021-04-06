@@ -279,3 +279,4 @@ C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Gym
 C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.csproj.CopyComplete
 C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.dll
 C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.pdb
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Bll.dll.config

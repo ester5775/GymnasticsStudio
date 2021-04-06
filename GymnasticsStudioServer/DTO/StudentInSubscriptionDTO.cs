@@ -17,7 +17,7 @@ namespace DTO
         public Nullable<System.DateTime> FinishDate { get; set; }
 
 
-        public static StudentInSubscriptionDTO ConvertToDTO(StudentInSubscription studentInSubscription)
+        public static StudentInSubscriptionDTO Convert(StudentInSubscription studentInSubscription)
         {
             StudentInSubscriptionDTO studentInSubscriptionDTO = new StudentInSubscriptionDTO();
             studentInSubscriptionDTO.Id = studentInSubscription.Id;
@@ -29,17 +29,13 @@ namespace DTO
             return studentInSubscriptionDTO;
         }
 
-        public static List<StudentInSubscriptionDTO> ConvertListToDTO(List<StudentInSubscription> studentInSubscriptionList)
+        public static List<StudentInSubscriptionDTO> Convert(List<StudentInSubscription> studentInSubscriptionList)
         {
-            List<StudentInSubscriptionDTO> studentInSubscriptionDTOList = new List<StudentInSubscriptionDTO>();
-            for (int i = 0; i < studentInSubscriptionDTOList.Count(); i++)
-            {
-                studentInSubscriptionDTOList.Add(ConvertToDTO(studentInSubscriptionList[i]));
-            }
-            return studentInSubscriptionDTOList;
+            return studentInSubscriptionList.Select(x => Convert(x)).ToList();
+
         }
 
-        public static StudentInSubscription ConvertFromDTO(StudentInSubscriptionDTO studentInSubscriptionDTO)
+        public static StudentInSubscription Convert(StudentInSubscriptionDTO studentInSubscriptionDTO)
         {
             StudentInSubscription studentInSubscription = new StudentInSubscription();
             studentInSubscription.Id = studentInSubscriptionDTO.Id;
@@ -51,19 +47,16 @@ namespace DTO
 
             return studentInSubscription;
 
-            
+
         }
 
-        public static List<StudentInSubscription> ConvertListFromDTO(List<StudentInSubscriptionDTO> studentInSubscriptionDTOsList)
+        public static List<StudentInSubscription> Convert(List<StudentInSubscriptionDTO> studentInSubscriptionDTOsList)
         {
-            List<StudentInSubscription> studentInSubscriptionList = new List<StudentInSubscription>();
-            for (int i = 0; i < studentInSubscriptionDTOsList.Count(); i++)
-            {
-                studentInSubscriptionList.Add(ConvertFromDTO(studentInSubscriptionDTOsList[i]));
-            }
-            return studentInSubscriptionList;
+            return studentInSubscriptionDTOsList.Select(x => Convert(x)).ToList();
+
 
         }
 
     }
 }
+

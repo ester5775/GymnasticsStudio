@@ -21,11 +21,12 @@ namespace DTO
         public Nullable<int> CreditDetailsId { get; set; }
 
 
-       
-        public static StudentDTO ConvertToDTO(Student student)
+
+
+        public static StudentDTO Convert(Student student)
         {
             StudentDTO studentDTO = new StudentDTO();
-            studentDTO.Id = student.Id;           
+            studentDTO.Id = student.Id;
             studentDTO.FirstName = student.FirstName;
             studentDTO.LastName = student.LastName;
             studentDTO.IdentityNumber = student.IdentityNumber;
@@ -37,17 +38,13 @@ namespace DTO
             return studentDTO;
         }
 
-        public static List<StudentDTO> ConvertListToDTO(List<Student> studentsList)
+        public static List<StudentDTO> Convert(List<Student> studentsList)
         {
-            List<StudentDTO> studentDTOsList = new List<StudentDTO>();
-            for (int i = 0; i < studentsList.Count(); i++)
-            {
-                studentDTOsList.Add(ConvertToDTO(studentsList[i]));
-            }
-            return studentDTOsList;
+            return studentsList.Select(x => Convert(x)).ToList();
+
         }
 
-        public static Student ConvertFromDTO(StudentDTO studentDTO)
+        public static Student Convert(StudentDTO studentDTO)
         {
             Student student = new Student();
             student.Id = studentDTO.Id;
@@ -63,16 +60,13 @@ namespace DTO
             return student;
         }
 
-        public static List<Student> ConvertListFromDTO(List<StudentDTO> studentDTOsList)
+        public static List<Student> Convert(List<StudentDTO> studentDTOsList)
         {
-            List<Student> studentsList = new List<Student>();
-            for (int i = 0; i < studentDTOsList.Count(); i++)
-            {
-                studentsList.Add(ConvertFromDTO(studentDTOsList[i]));
-            }
-            return studentsList;
+            return studentDTOsList.Select(x => Convert(x)).ToList();
+
 
         }
 
     }
 }
+
