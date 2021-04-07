@@ -60,14 +60,14 @@
     <Compile Include="TeacherFunction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dal\Dal.csproj">
-      <Project>{9E619334-D20C-420E-9C37-A30F6721345F}</Project>
-      <Name>Dal</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dal\Dal.csproj">
+      <Project>{9e619334-d20c-420e-9c37-a30f6721345f}</Project>
+      <Name>Dal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
