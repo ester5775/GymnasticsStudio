@@ -64,7 +64,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dal\Dal.csproj">
+    <ProjectReference Include="..\..\..\..\..\Desktop\Angular\GymnasticsStudio-main\GymnasticsStudioServer\DAL\Dal.csproj">
       <Project>{9e619334-d20c-420e-9c37-a30f6721345f}</Project>
       <Name>Dal</Name>
     </ProjectReference>

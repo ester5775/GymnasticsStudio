@@ -46,10 +46,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Bll\bin\Debug\Bll.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -269,6 +265,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bll\Bll.csproj">
+      <Project>{fecfb991-ecd5-481a-9e4f-1d1a07a2c403}</Project>
+      <Name>Bll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{CF87EE34-A20D-43B2-A14D-54289DB6E0BA}</Project>
       <Name>DTO</Name>

@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using Bll;
 using DTO;
 using System.Web.Http.Cors;
+using Bll;
 
 namespace GymnasticsStudioServer.Controllers
 {
     //[Route("api/[controller]/{action}")]
 
     [RoutePrefix("api/Student")]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class StudentController : ApiController
     {
 
