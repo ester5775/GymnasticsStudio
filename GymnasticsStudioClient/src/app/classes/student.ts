@@ -1,13 +1,11 @@
 export class Student {
-    constructor(
-        public Id:number,
-        public FirstName:string,
-        public LastName:string,
-        public IdentityNumber:string,
-        public PhoneNumber:string,
-        public Pignicher:string,
-        public StudentKind:string,
-        public Balance:number=0,
-        public CreditDetailsId:number=0
-        ){};
+         Id:number
+         FirstName:string
+         LastName:string
+         IdentityNumber:string
+         PhoneNumber:string
+         Pignicher:string
+         StudentKind:string
+         Balance:number=0
+         CreditDetailsId:number=0
 }

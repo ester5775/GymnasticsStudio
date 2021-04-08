@@ -8,11 +8,11 @@ import { StudentDetailsComponent } from './Components/student-details/student-de
 import { StudentPayDetailsComponent } from './Components/student-pay-details/student-pay-details.component';
 import { StudentScadulComponent } from './Components/student-scadul/student-scadul.component';
 import { StudentAttendanceScadulComponent } from './Components/student-attendance-scadul/student-attendance-scadul.component';
-
+import { EditStudentDetailsComponent } from './Components/edit-student-details/edit-student-details.component';
 
 
 const routes: Routes = [
-  
+  { path: 'edit-user/:id', component: EditStudentDetailsComponent},
   { path: 'log-in', component: LogInComponent },
   { path: 'students-list', component: StudentsListComponent ,
      children: [{ path: 'student-details/:Id', component: StudentDetailsComponent ,outlet: 'studentOptionsRouterOutlet'},
