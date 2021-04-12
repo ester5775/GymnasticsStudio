@@ -9,6 +9,12 @@ import { StudentPayDetailsComponent } from './Components/student-pay-details/stu
 import { StudentScadulComponent } from './Components/student-scadul/student-scadul.component';
 import { StudentAttendanceScadulComponent } from './Components/student-attendance-scadul/student-attendance-scadul.component';
 import { EditStudentDetailsComponent } from './Components/edit-student-details/edit-student-details.component';
+import {
+  MatCardModule,
+} from "@angular/material/card";
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const routes: Routes = [
@@ -25,7 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+imports:[[RouterModule.forRoot(routes)]],
   exports: [RouterModule]
   
 })
