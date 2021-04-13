@@ -39,7 +39,6 @@ namespace DTO
         public static List<StudentDTO> Convert(List<Student> studentsList)
         {
             return studentsList.Select(x => Convert(x)).ToList();
-
         }
 
         public static Student Convert(StudentDTO studentDTO)

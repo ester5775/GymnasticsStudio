@@ -15,6 +15,7 @@ export class EditStudentDetailsComponent implements OnInit {
   CurrentStudent=new Student();
   constructor(private studentService: StudentService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((params: Params) => {
+      debugger
       this.id = params.id;
       if (this.id != null && this.id != "") {
         this.studentService.getStudentDetailsByStudentId(this.id)
@@ -28,7 +29,6 @@ export class EditStudentDetailsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-
   }
 
 
