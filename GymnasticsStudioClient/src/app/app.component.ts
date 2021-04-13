@@ -32,8 +32,8 @@ export class AppComponent {
 
 ShowStudentsList()
   {
-    // this.router.navigate(['students-list']);
-    this.router.navigate(['edit-user/:'+1]);
+    this.router.navigate(['students-list']);
+    //this.router.navigate(['edit-user/:'+1]);
 
   }
 
