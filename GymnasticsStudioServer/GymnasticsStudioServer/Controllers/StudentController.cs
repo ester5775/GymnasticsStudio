@@ -11,9 +11,9 @@ using System.Web.Http.Cors;
 namespace GymnasticsStudioServer.Controllers
 {
     //[Route("api/[controller]/{action}")]
-    
+
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Student")]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class StudentController : ApiController
     {
         
@@ -26,10 +26,42 @@ namespace GymnasticsStudioServer.Controllers
             return StudentFunction.GetStudentsList();
         }
 
-        // GET: api/Student/5
-        public string Get(int id)
+        
+        // GetStudentsListByKind: api/Student
+        [HttpGet]
+        [Route("GetStudentsListByKind/{studentKind}")]
+        public IEnumerable<StudentDTO> GetStudentsListByKind(string studentKind)
         {
-            return "value";
+
+            return StudentFunction.GetStudentsListByKind(studentKind);
+        }
+
+
+
+        // POST: api/Student
+        [HttpPost]
+        [Route("EditStudent")]
+        public IHttpActionResult Post([FromBody] StudentDTO student)
+        {
+            return Ok(StudentFunction.EditStudent(student));
+        }
+
+        // GetStudentsList: api/Student
+        [HttpPost]
+        [Route("GetStudentsListByDetails")]
+        public IEnumerable<StudentDTO> GetStudentsListByDetails([FromBody]StudentDTO student)
+        {
+
+            return StudentFunction.GetStudentsListByDetails(student);
+        }
+
+
+        // GetStudentDetailsByStudentId: api/Student/5
+        [HttpGet]
+        [Route("GetStudentDetailsByStudentId/{id}")]
+        public StudentDTO GetStudentDetailsByStudentId(int id)
+        {
+            return StudentFunction.GetStudentDetailsByStudentId(id);
         }
 
         // POST: api/Student

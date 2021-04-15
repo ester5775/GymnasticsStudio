@@ -17,7 +17,15 @@ export class StudentService {
     return this.http.get<Student[]>(this.studentUrl+"GetStudentsList");
   }
 
-  getStudentDetailsByStudentId(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.studentUrl+"getStudentDetailsByStudentId/${Id}");
+  getStudentsListByKind(studentKind:string): Observable<Student[]> {
+    return this.http.get<Student[]>(this.studentUrl+"GetStudentsListByKind/"+studentKind);
+  }
+
+  getStudentsListByDetails(student:Student): Observable<Student[]> {
+    return this.http.post<Student[]>(this.studentUrl+"GetStudentsListByDetails",student);
+  }
+
+  getStudentDetailsByStudentId(id:number): Observable<Student> {
+    return this.http.get<Student>(this.studentUrl+"GetStudentDetailsByStudentId/"+id);
   }
 }

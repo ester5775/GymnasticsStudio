@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class StudentInSubscriptionDTO
+    public class StudentInSubscriptionDTO
     {
 
         public int Id { get; set; }
         public Nullable<int> StudentId { get; set; }
         public Nullable<int> SubscribtionId { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<System.DateTime> FinishDate { get; set; }
+        public string StartDate { get; set; }
+        public string FinishDate { get; set; }
 
 
         public static StudentInSubscriptionDTO ConvertToDTO(StudentInSubscription studentInSubscription)
@@ -23,8 +23,8 @@ namespace DTO
             studentInSubscriptionDTO.Id = studentInSubscription.Id;
             studentInSubscriptionDTO.StudentId = studentInSubscription.StudentId;
             studentInSubscriptionDTO.SubscribtionId = studentInSubscription.SubscribtionId;
-            studentInSubscriptionDTO.StartDate = studentInSubscription.StartDate;
-            studentInSubscriptionDTO.FinishDate = studentInSubscription.FinishDate;
+            studentInSubscriptionDTO.StartDate = studentInSubscription.StartDate.ToString();
+            studentInSubscriptionDTO.FinishDate = studentInSubscription.FinishDate.ToString();
 
             return studentInSubscriptionDTO;
         }
@@ -45,8 +45,8 @@ namespace DTO
             studentInSubscription.Id = studentInSubscriptionDTO.Id;
             studentInSubscription.StudentId = studentInSubscriptionDTO.StudentId;
             studentInSubscription.SubscribtionId = studentInSubscriptionDTO.SubscribtionId;
-            studentInSubscription.StartDate = studentInSubscriptionDTO.StartDate;
-            studentInSubscription.FinishDate = studentInSubscriptionDTO.FinishDate;
+            studentInSubscription.StartDate = Convert.ToDateTime(studentInSubscriptionDTO.StartDate);
+            studentInSubscription.FinishDate = Convert.ToDateTime(studentInSubscriptionDTO.FinishDate);
 
 
             return studentInSubscription;

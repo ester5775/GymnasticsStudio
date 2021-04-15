@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class PaymentDTO
+    public class PaymentDTO
     {
         public int Id { get; set; }
         public Nullable<int> Sum { get; set; }
         public Nullable<int> StudentId { get; set; }
         public string FormOfPayment { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<System.DateTime> FinishDate { get; set; }
+        public string StartDate { get; set; }
+        public string FinishDate { get; set; }
 
-        
+
         public static PaymentDTO ConvertToDTO(Payment payment)
         {
             PaymentDTO paymentDTO = new PaymentDTO();
@@ -26,8 +26,8 @@ namespace DTO
             paymentDTO.Sum = payment.Sum;
             paymentDTO.StudentId = payment.StudentId;
             paymentDTO.FormOfPayment = payment.FormOfPayment;
-            paymentDTO.StartDate = payment.StartDate;
-            paymentDTO.FinishDate = payment.FinishDate;
+            paymentDTO.StartDate = payment.StartDate.ToString();
+            paymentDTO.FinishDate = payment.FinishDate.ToString();
           
             return paymentDTO;
         }
@@ -49,8 +49,14 @@ namespace DTO
             payment.Sum = paymentDTO.Sum;
             payment.StudentId = paymentDTO.StudentId;
             payment.FormOfPayment = paymentDTO.FormOfPayment;
-            payment.StartDate = paymentDTO.StartDate;
-            payment.FinishDate = paymentDTO.FinishDate;
+            if (paymentDTO.StartDate == "")
+                payment.StartDate = default(DateTime);
+            else
+                payment.StartDate = Convert.ToDateTime(paymentDTO.StartDate);
+            if (paymentDTO.FinishDate == "")
+                payment.FinishDate = default(DateTime);
+            else
+                payment.FinishDate = Convert.ToDateTime(paymentDTO.FinishDate);
 
             return payment;
         }

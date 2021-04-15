@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class TeacherDTO
+    public class TeacherDTO
     {
 
         public int Id { get; set; }

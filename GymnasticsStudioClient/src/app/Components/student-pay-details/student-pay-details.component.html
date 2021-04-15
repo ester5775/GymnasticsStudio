@@ -1,7 +1,15 @@
 
 <mat-card class="student-student-card">
-  <mat-card-header>{{Id}}מצב תשלום </mat-card-header>
-    <mat-card-content >
+  <mat-card-header *ngIf="Balance">
+
+  </mat-card-header>
+  <mat-card-content >
+    <h1>
+      :מצב תשלום נוכחי
+    </h1> <br> 
+    <h2>
+    {{state}} של {{Balance}} שקלים
+  </h2>
         <form [formGroup]="PayDetailsForm" (ngSubmit)="OnSubmit()">
             <p>
               <br>
@@ -10,7 +18,7 @@
           </span>
             <br>
            
-            <mat-form-field class="mat-form-field" appearance="fill">
+            <!-- <mat-form-field class="mat-form-field" appearance="fill">
                 
                 <select matNativeControl required  formControlName="manui" >
                   <option >פעמים בשבוע</option>
@@ -21,9 +29,10 @@
         :על פי מנוי של  
           <br/>
           נותרו עוד <span class="pinck-color">{{lessonsCount}}</span> שיעורים 
-    </p>
-    <mat-accordion>
-    <mat-expansion-panel>
+    </p> -->
+    
+    <mat-accordion  *ngIf="Balance">
+    <mat-expansion-panel  >
     <mat-expansion-panel-header>
         <mat-panel-title>
           הסטורית תשלומים
@@ -31,17 +40,30 @@
         <!-- <mat-panel-description>
           
         </mat-panel-description> -->
-      </mat-expansion-panel-header>      
-      <mat-list role="list">
-        <h3>שח 154 בתאריך 24/03</h3>
-        <mat-list-item role="listitem">Item 1</mat-list-item>
-        <mat-list-item role="listitem">Item 2</mat-list-item>
-        <mat-list-item role="listitem">Item 3</mat-list-item>
+
+      </mat-expansion-panel-header>  
+      <mat-expansion-panel-body [collapsedHeight]="'190px'" [expandedHeight]="'190px'">
+      <cdk-virtual-scroll-viewport  itemSize="33" class="viewport">
+            
+      <mat-list role="list" *ngFor="let payment of PaymentList, let i=index">
+        <h3>שולם: {{payment.Sum}} ש"ח
+          <br>
+בתאריך:  {{payment.StartDate}}
+<br>
+:עבור  
+</h3>
+
+    <mat-list-item role="listitem" *ngFor="let studentInSubscriptionName of StudentInSubscriptionNamesListByStudentId[i]">
+           {{studentInSubscriptionName}} 
+    </mat-list-item>
     
       </mat-list>
+    </cdk-virtual-scroll-viewport>
+  </mat-expansion-panel-body>
     </mat-expansion-panel>
   </mat-accordion>
-  
+
+
     </form>  
     
 

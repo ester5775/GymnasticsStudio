@@ -39,16 +39,7 @@ export class StudentDetailsComponent implements OnInit {
 
   LoadClient()
   {
-   this.student=new Student(
-     this.Id,
-    this.Id,
-    this.Id,
-    this.Id,
-    this.Id,
-    this.Id,
-     this.Id,
-    
-   )
+   this.student=new Student()
    
   }
 

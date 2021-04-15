@@ -11,16 +11,7 @@
     background-color: crimson;
     color:black;
   }
-  .search-box{
-    position:absolute;
-    top: 3%;
-    right: 10%;
-    width: inherit;
-    border-radius:17px;
-    text-align: center;
-    border-color: chocolate;
-    background-color: rgb(255, 238, 172);
-  }
+ 
   
   .example-button-row {
     display: table-cell;
@@ -41,8 +32,13 @@
     height: 92.5%;
     width: 100%;
   }
+  .header{
+    height: 10%;
+    display: inline-block;
+  }
   .content{
-    height: 80%;
+   
+    height: 90%;
     width: 100%;
   }
  

@@ -7,15 +7,24 @@ using System.Web.Http;
 
 using DTO;
 using System.Web.Http.Cors;
+using Bll;
 
 namespace GymnasticsStudioServer.Controllers
 {
     //[Route("api/[controller]/{action}")]
     
     [RoutePrefix("api/Payment")]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PaymentController : ApiController
     {
-     
+        [HttpGet]
+        [Route("GetPaymentsListByStudentId/{Id}")]
+        public IEnumerable<PaymentDTO> GetPaymentsListByStudentId(int id)
+        {
+
+            return PaymentFunction.GetStudentPaymentsList(id);
+        }
+
+
     }
 }

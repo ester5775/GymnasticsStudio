@@ -13,6 +13,6 @@ export class PaymentService {
   private studentUrl = 'http://localhost:54092/api/Payment/'; 
 
   getPaymentsListByStudentId(Id:Number): Observable<Payment[]> {
-    return this.http.get<Payment[]>(this.studentUrl+"GetPaymentsListByStudentId/${Id}");
+    return this.http.get<Payment[]>(this.studentUrl+"GetPaymentsListByStudentId/"+Id);
   }
 }

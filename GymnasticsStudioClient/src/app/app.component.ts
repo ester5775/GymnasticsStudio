@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+
 import { StudentService } from './Services/student.service';
 import { Student } from './classes/student';
 
@@ -13,9 +13,7 @@ import { Student } from './classes/student';
 export class AppComponent {
   title = 'GymnasticsStudio'; 
   StudentsList:Array<Student>; 
-  SearchForm = this.formBuilder.group({
-    Search:''
-  });
+  
   ngOnInit(): void {
     this.GetStudentsList()
   }
@@ -28,16 +26,13 @@ export class AppComponent {
         this.StudentsList=studentsList;
       });
   }
-  constructor(private studentService:StudentService,private formBuilder: FormBuilder,private route: ActivatedRoute,private router: Router,public sanitizer: DomSanitizer) { }
+  constructor(private studentService:StudentService,private route: ActivatedRoute,private router: Router,public sanitizer: DomSanitizer) { }
 
-ShowStudentsList()
+ShowStudentsList(studentKind:string)
   {
-    this.router.navigate(['students-list']);
+    this.router.navigate(['']);
+    this.router.navigate(['customers/students-list/'+studentKind]);
   }
 
-  OnSubmit()
-  {
-    
-    console.log(this.SearchForm.valid);
-  }
+  
 }

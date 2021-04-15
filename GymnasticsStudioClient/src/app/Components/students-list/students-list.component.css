@@ -1,19 +1,34 @@
+body
+{
+
+height: 100%;
+}
+
+
 .mat-card{
-    display: inline-block;
-    top: 5%;
+    display:flex;
+    top: 10%;
     left: 50%;
     height: 85%;
     width: 30%;
 }
+.mat-card-content
+{
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}
 
 .viewport{
+    border: 1px solid black;
     display: inline-block;
-    top: 5%;
-    left: 5%;
+    top: 5px;
+    left: 5px;
     height: 90%;
     width: 95%;
     overflow-y: scroll;
-    scrollbar-face-color: crimson;
+    
 }
 .table{
     height: 100%;
@@ -22,18 +37,41 @@
 
 .table-header{
     height: 50px;
-    width: 50%;
+    width:50%;
     font-size: larger;
     font-weight: 700;
-    color: crimson;
+    background-color:  crimson;
 }
 .table-item{
+    left: 0%;;
     height: 50px;
     width: 50%;
+  
 }
+
+
 .block-display{
-    display: block;
+    display: flex;
     top:3%;
     left: 5%;
     width: 95%;
 }
+
+
+.search-box{
+    
+    position: absolute;
+   
+    top: 9%;
+    right: 0%;
+    height: 5%;
+    width: 80%;
+  }
+
+  .input
+  {
+    width:17% !important;
+    top:0%;
+    margin-left: 8px;
+
+  }

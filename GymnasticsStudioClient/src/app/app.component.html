@@ -9,7 +9,7 @@
         <button mat-menu-item>מערכת שעות</button> 
         <button mat-menu-item>פרטי השיעורים</button> 
         <button mat-menu-item>נתוני שיעורים כללים</button>
-        <button mat-menu-item (click)="ShowStudentsList()">רשימת התלמידים/ות</button>
+        <button mat-menu-item (click)="ShowStudentsList('כללי')">רשימת התלמידים/ות</button>
         <button mat-menu-item>נתוני תלמידים/ות כללים</button>  
         <button mat-menu-item >רשימת מורות</button>  
       <button mat-menu-item [matMenuTriggerFor]="StudentsMenu">פרטי תלמיד/ה</button>  
@@ -17,9 +17,7 @@
             <button mat-menu-item  *ngFor="let student of StudentsList">{{student.FirstName}} {{student.LastName}}</button>  
         </mat-menu>  
     </mat-menu>     
-    <form [formGroup]="SearchForm"  (ngSubmit)="OnSubmit()">  
-        <input matInput class="search-box" placeholder=" חיפוש"   formControlName="Search" >
-    </form>  
+   
     <!-- <mat-toolbar-row></mat-toolbar-row> -->
    
   </mat-toolbar>
@@ -28,52 +26,38 @@
       <div class="header-actions">
         <mat-tab-group class="my-tab-group router-outlet">
 
-            <mat-tab >
-                <ng-template mat-tab-label >
-                    <button mat-icon-button [matMenuTriggerFor]="Menu1" class="cloneIcon">
-                        מערכת קולית
-                    </button>                
-                </ng-template>       
-                <mat-menu #Menu1="matMenu" >
-                    <button mat-menu-item>רשימת צינטוקים</button>   
-                    <button mat-menu-item>רשימת הקלטות</button>        
-                </mat-menu>        
-            </mat-tab>  
 
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    <button mat-icon-button [matMenuTriggerFor]="Menu2" class="cloneIcon">
-                        שיעורים
-                    </button>                    
-                </ng-template>            
-                <mat-menu #Menu2="matMenu">
-                    <button mat-menu-item>מערכת שעות</button> 
-                    <button mat-menu-item>פרטי השיעורים</button> 
-                    <button mat-menu-item>נתונים כללים</button> 
-                </mat-menu>            
-            </mat-tab>
-
+            
             
             <mat-tab>
                 <ng-template mat-tab-label>
-                    <button mat-icon-button [matMenuTriggerFor]="Menu3" class="cloneIcon">
-                        תלמידים/ות
+                    <button mat-icon-button [matMenuTriggerFor]="Menu1" class="cloneIcon">
+                        לקוחות
                     </button>                      
-                </ng-template>              
-                <mat-menu #Menu3="matMenu">
-                    <button mat-menu-item (click)="ShowStudentsList()">רשימת התלמידים/ות</button>
-                    <button mat-menu-item>נתונים כללים</button> 
-                </mat-menu>             
+                </ng-template>  
+                
+                <mat-menu #Menu1="matMenu">
+                    <button mat-menu-item (click)="ShowStudentsList('גברים')">גברים</button>
+                    <button mat-menu-item (click)="ShowStudentsList('נשים')">נשים</button>
+                    <button mat-menu-item (click)="ShowStudentsList('נערות')">נערות</button>
+                    <button mat-menu-item (click)="ShowStudentsList('ילדים')">ילדים</button>                     
+                </mat-menu>           
             </mat-tab>
+
+
+
+
+
             <mat-tab>
                 <ng-template mat-tab-label>
                     <button mat-icon-button [matMenuTriggerFor]="Menu4" class="cloneIcon">
-                        מורות
-                    </button>                      
-                </ng-template>              
+                        ניהול
+                    </button>                                          
+                </ng-template>  
                 <mat-menu #Menu4="matMenu">
-                    <button mat-menu-item >רשימת מורות</button>                                  
-                </mat-menu>             
+                    <button mat-menu-item (click)="ShowStudentsList('כללי')"></button>
+                                        
+                </mat-menu>                       
             </mat-tab>
            
     
