@@ -16,3 +16,5 @@ export class PaymentService {
     return this.http.get<Payment[]>(this.studentUrl+"GetPaymentsListByStudentId/"+Id);
   }
 }
+
+

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from 'src/app/classes/student';
@@ -100,6 +101,4 @@ search()
   
   
 
-
- 
 

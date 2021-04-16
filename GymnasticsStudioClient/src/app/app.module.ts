@@ -121,3 +121,5 @@ import { EditStudentDetailsComponent } from './Components/edit-student-details/e
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

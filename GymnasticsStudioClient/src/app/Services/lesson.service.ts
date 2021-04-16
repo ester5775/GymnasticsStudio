@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -14,4 +15,5 @@ export class LessonService {
   getLessonsListByStudentId(Id:Number): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(this.studentUrl+"GetLessonsListByStudentId/"+Id);
   }
+
 }
