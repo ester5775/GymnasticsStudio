@@ -18,7 +18,7 @@ namespace Bll
             {
                 List<Student> studentList = new List<Student>();
                 studentList = GSDE.Students.ToList();
-                return StudentDTO.ConvertListToDTO(studentList);
+                return StudentDTO.Convert(studentList);
 
 
             }
@@ -30,7 +30,7 @@ namespace Bll
             {
                 List<Student> studentList = new List<Student>();
                 studentList = GSDE.Students.Where(x=>x.StudentKind== studentKind).ToList();
-                return StudentDTO.ConvertListToDTO(studentList);
+                return StudentDTO.Convert(studentList);
 
 
             }
@@ -53,7 +53,7 @@ namespace Bll
                 if (studentDTO.IdentityNumber != "")
                     studentList = GetStudentsListByIdentityNumber(studentList, studentDTO.IdentityNumber);
                 
-                return StudentDTO.ConvertListToDTO(studentList);
+                return StudentDTO.Convert(studentList);
 
 
             }
@@ -66,7 +66,7 @@ namespace Bll
             {
                 Student student = new Student();
                 student = GSDE.Students.FirstOrDefault(x => x.Id == id);
-                return StudentDTO.ConvertToDTO(student);
+                return StudentDTO.Convert(student);
 
 
             }

@@ -188,10 +188,8 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Gy
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\GymnasticsStudioServer.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\csc.exe
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\csc.exe.config
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\csc.rsp
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\csi.exe
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\csi.exe.config
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\csi.rsp
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
@@ -229,7 +227,6 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Gy
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\System.Xml.XPath.XDocument.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\vbc.exe
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\vbc.exe.config
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\vbc.rsp
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\VBCSCompiler.exe
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Antlr3.Runtime.dll
@@ -270,7 +267,6 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Gy
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\System.Web.WebPages.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\System.Web.WebPages.Deployment.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\System.Web.WebPages.Razor.xml
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Antlr3.Runtime.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Dal.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Dal.dll.config

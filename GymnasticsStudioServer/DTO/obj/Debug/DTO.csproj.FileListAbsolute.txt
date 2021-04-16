@@ -18,7 +18,6 @@ C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Deb
 C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\EntityFramework.dll
 C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\Dal.dll.config
 C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\EntityFramework.xml
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.pdb
@@ -29,3 +28,4 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DT
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\Dal.dll.config
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\EntityFramework.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\Dal.dll
