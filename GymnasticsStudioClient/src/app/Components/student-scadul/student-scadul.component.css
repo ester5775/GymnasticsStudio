@@ -5,4 +5,23 @@
     left: 10%;
     height: 70%;
     width: 30%;
+    text-align: center;
+}
+
+
+.table
+{
+    text-align: center;
+    position: relative;
+    
+}
+
+tr
+{
+    text-align: center;
+}
+
+td
+{
+    text-align: center;
 }

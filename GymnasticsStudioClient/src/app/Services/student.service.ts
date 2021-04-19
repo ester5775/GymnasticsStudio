@@ -28,4 +28,8 @@ export class StudentService {
   getStudentDetailsByStudentId(id:number): Observable<Student> {
     return this.http.get<Student>(this.studentUrl+"GetStudentDetailsByStudentId/"+id);
   }
+
+  getBalance(id:number): Observable<number> {
+    return this.http.get<number>(this.studentUrl+"GetBalance/"+id);
+  }
 }

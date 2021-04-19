@@ -11,7 +11,6 @@ C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Deb
 C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\DTO.pdb
 C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\EntityFramework.xml
 C:\Users\User1\Desktop\ESTER\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csproj.CopyComplete
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.pdb
@@ -26,3 +25,4 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bl
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\DTO.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\EntityFramework.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csproj.CopyComplete
+C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csprojAssemblyReference.cache

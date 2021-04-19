@@ -31,12 +31,31 @@ namespace GymnasticsStudioServer.Controllers
         // GetStudentInSubscriptionListStudentId: api/StudentInSubscription
         [HttpGet]
         [Route("GetStudentInSubscriptionNamesListByStudentId/{studentId}")]
-        public IEnumerable<string> GetStudentInSubscriptionNamesListByStudentId(int studentId)
+        public IEnumerable<List<string>> GetStudentInSubscriptionNamesListByStudentId(int studentId)
         {
 
             return StudentInSubscriptionFuncrion.GetStudentInSubscriptionNamesListByStudentId(studentId);
         }
 
+
+        // GetCurrentSubscription: api/StudentInSubscription
+        [HttpGet]
+        [Route("GetCurrentSubscription/{studentId}")]
+        public SubscriptionDTO GetCurrentSubscription(int studentId)
+        {
+
+            return StudentInSubscriptionFuncrion.GetCurrentSubscription(studentId);
+        }
+
+        // GetCurrentWeekNum: api/StudentInSubscription
+        [HttpGet]
+        [Route("GetCurrentWeekNum/{studentId}")]
+        public int GetCurrentWeekNum(int studentId)
+        {
+
+            return StudentInSubscriptionFuncrion.GetCurrentWeekNum(studentId);
+        }
+        
 
     }
 }

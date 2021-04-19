@@ -29,3 +29,4 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DT
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\EntityFramework.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\Dal.dll
+C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csprojAssemblyReference.cache

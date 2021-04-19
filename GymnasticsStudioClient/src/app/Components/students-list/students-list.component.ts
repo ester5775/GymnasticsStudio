@@ -53,7 +53,7 @@ export class StudentsListComponent implements OnInit {
   OpenStudentDetails(studentId:number){
     
    // this.student=element;
-    this.router.navigateByUrl("students-list/"+this.studentsKind+"/(studentOptionsRouterOutlet:student-details/"+studentId+")");
+    this.router.navigateByUrl("customers/students-list/"+this.studentsKind+"/(studentOptionsRouterOutlet:edit-user/"+studentId+")");
   }
 
 

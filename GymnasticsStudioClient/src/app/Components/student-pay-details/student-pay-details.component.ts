@@ -49,7 +49,7 @@ export class StudentPayDetailsComponent implements OnInit {
          
          this.Balance=(await this.studentService.getStudentDetailsByStudentId(this.Id ).toPromise()).Balance;
 
-         this.StudentInSubscriptionNamesListByStudentId=(await this.studentInSubscriptionService.getStudentInSubscriptionNamesListByStudentId(this.Id ).toPromise());
+         //this.StudentInSubscriptionNamesListByStudentId=(await this.studentInSubscriptionService.getStudentInSubscriptionNamesListByStudentId(this.Id ).toPromise());
 
         
 

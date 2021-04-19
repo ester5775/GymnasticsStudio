@@ -230,7 +230,6 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Gy
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\VBCSCompiler.exe
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Antlr3.Runtime.dll
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Bll.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\DTO.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\EntityFramework.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\EntityFramework.SqlServer.dll
@@ -270,9 +269,10 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Gy
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Dal.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Dal.dll.config
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.csproj.CopyComplete
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Bll.dll.config
+C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\obj\Debug\GymnasticsStudioServer.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\GymnasticsStudioServer\bin\Bll.dll

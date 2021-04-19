@@ -1,16 +1,31 @@
 <mat-card class="student-student-card">
-<mat-card-header>
+<!-- <mat-card-header>
 {{Id}} :היכן משובצת וסוג מנוי 
-</mat-card-header>
-<mat-card-content>
-   <H1>מנוי נוכחי:{{1}} </H1>
+</mat-card-header> -->
+<mat-card-content *ngIf="CurrentSubscription">
+   <table class="table">
+      <tr>
+         
+         <td> {{CurrentSubscription.Name}} </td>
+         <td>:מנוי נוכחי</td>
+   </tr>
+   <tr>
+     
+      <td *ngIf="WeekNum"> בשבוע {{WeekNum}} מתוך {{CurrentSubscription.WeeksNum}} + {{status}} של {{Balance}} ש'ח  
+       </td>
+       <td>:אוחזת בתוך המנוי </td>
+  
+</tr>
+  
+ 
 
-   <mat-list>
+<!-- <mat-list>
        <mat-list-item *ngFor="let lesson of LessonsList"><H3>{{payment}}</H3>
         {{payment.Day}} : יום
           {{payment.Houer}} : שעה
        <mat-divider></mat-divider>
     </mat-list-item>
-   </mat-list>
+   </mat-list> -->
+</table>
 </mat-card-content>
 </mat-card>

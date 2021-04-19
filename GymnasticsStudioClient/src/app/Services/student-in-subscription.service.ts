@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Student } from '../classes/student';
 import { StudentInSubscription } from '../classes/student-in-subscription';
 
@@ -20,5 +20,14 @@ export class StudentInSubscriptionService {
 
   getStudentInSubscriptionNamesListByStudentId(id:number): Observable<string[][]> {
     return this.http.get<string[][]>(this.studentUrl+"GetStudentInSubscriptionNamesListByStudentId/"+id);
+  }
+
+
+  getCurrentSubscription(id:Number): Observable<Subscription> {
+    return this.http.get<Subscription>(this.studentUrl+"GetCurrentSubscription/"+id);
+  }
+
+  getCurrentWeekNum(id:Number): Observable<number> {
+    return this.http.get<number>(this.studentUrl+"GetCurrentWeekNum/"+id);
   }
 }

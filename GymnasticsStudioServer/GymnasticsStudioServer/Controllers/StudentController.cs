@@ -65,6 +65,18 @@ namespace GymnasticsStudioServer.Controllers
             return StudentFunction.GetStudentDetailsByStudentId(id);
         }
 
+
+        // GetBalance: api/Student/5
+        [HttpGet]
+        [Route("GetBalance/{id}")]
+        public int GetBalance(int id)
+        {
+            return StudentFunction.GetBalance(id);
+        }
+
+        
+
+
         // POST: api/Student
         public void Post([FromBody]string value)
         {

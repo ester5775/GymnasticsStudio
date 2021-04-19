@@ -121,6 +121,22 @@ namespace Bll
         }
 
 
+        public static int GetBalance(int id)
+        {
+            using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
+            {
+                int balance;
+                int? balance1 = GSDE.Students.Where(x => x.Id == id).FirstOrDefault().Balance;
+                if (balance1 == null)
+                    balance = 0;
+                else balance = (int)balance1;
+                return balance;
+                
+
+            }
+        }
+
+
         public static bool EditStudent(StudentDTO student)
         {
             try
