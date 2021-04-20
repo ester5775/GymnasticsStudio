@@ -11,20 +11,20 @@
       </mat-form-field>
   <mat-form-field class="mat-form-field" appearance="outline">
     <mat-label>שם פרטי</mat-label>
-    <input [(ngModel)]="CurrentStudent.FirstName" matInput placeholder="שם פרטי"   >  
+    <input  matInput placeholder="שם פרטי"   >  
   </mat-form-field>
   
   
   <mat-form-field class="mat-form-field" appearance="outline">
     <mat-label>שם משפחה</mat-label>
-    <input [(ngModel)]="CurrentStudent.LastName" matInput placeholder=" שם משפחה"  >
+    <input  matInput placeholder=" שם משפחה"  >
   </mat-form-field>
   
  
   
   <mat-form-field class="mat-form-field" appearance="outline">
     <mat-label>מספר זהות</mat-label>
-    <input [(ngModel)]="CurrentStudent.IdentityNumber" matInput  placeholder=" מספר זהות" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >   
+    <input matInput  placeholder=" מספר זהות" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >   
   </mat-form-field>
    
   <mat-form-field class="mat-form-field" appearance="outline">
@@ -34,7 +34,7 @@
 
     <mat-form-field class="mat-form-field" appearance="outline">
       <mat-label>נייד</mat-label>
-      <input [(ngModel)]="CurrentStudent.PhoneNumber" matInput type="tel" placeholder="נייד"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >
+      <input  matInput type="tel" placeholder="נייד"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >
          <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>
   
@@ -56,7 +56,7 @@
       </mat-form-field>
    
    <button mat-button type="submit" id="submitButton" >שמור שינוים</button>
-   <button mat-button type="submit" id="submitButton" >שנה</button>
+   <button mat-button (click)="Change()" >שנה</button>
     
    
   </form>

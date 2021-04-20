@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
+
+
   constructor( private http: HttpClient) { }
 
   private studentUrl = 'http://localhost:54092/api/Student/'; 
@@ -31,5 +33,8 @@ export class StudentService {
 
   getBalance(id:number): Observable<number> {
     return this.http.get<number>(this.studentUrl+"GetBalance/"+id);
+  }
+  PostStudent(CurrentStudent: Student):Observable<boolean> {
+    return this.http.post<boolean>(this.studentUrl+"EditStudent",CurrentStudent);
   }
 }

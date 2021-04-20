@@ -22,7 +22,7 @@ const routes: Routes = [
 { path: 'customers', component: CustomersComponent,
 children:[{ path: 'students-list/:StudentKind', component: StudentsListComponent ,
      children: [
-                { path: 'edit-user/:Id', component: EditStudentDetailsComponent,outlet: 'studentOptionsRouterOutlet'},
+                { path: 'edit-user/:Id', component: EditStudentDetailsComponent ,outlet: 'studentOptionsRouterOutlet'},
                 { path: 'student-details/:Id', component: StudentDetailsComponent ,outlet: 'studentOptionsRouterOutlet'},
                 { path: 'student-pay-details/:Id', component: StudentPayDetailsComponent ,outlet: 'studentOptionsRouterOutlet'},
                 { path: 'student-scadul/:Id', component: StudentScadulComponent ,outlet: 'studentOptionsRouterOutlet'},
@@ -33,7 +33,7 @@ children:[{ path: 'students-list/:StudentKind', component: StudentsListComponent
               }, 
 ]},
 { path: 'manager', component: ManagerComponent},
-
+// { path: 'edit-user/:Id', component: EditStudentDetailsComponent },
 ];
 
 

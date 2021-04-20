@@ -26,7 +26,10 @@ export class AppComponent {
       .subscribe(studentsList => {
         this.StudentsList=studentsList;
       });
-  }
+      debugger
+      var id='1';
+      this.router.navigate(['edit-user/'+id]);
+    }
   constructor(private studentService:StudentService,private route: ActivatedRoute,private router: Router,public sanitizer: DomSanitizer) { }
 
 ShowStudentsList(studentKind:string)

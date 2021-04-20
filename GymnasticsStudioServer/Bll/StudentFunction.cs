@@ -1,5 +1,5 @@
 
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -29,13 +29,13 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 List<Student> studentList = new List<Student>();
-                studentList = GSDE.Students.Where(x=>x.StudentKind== studentKind).ToList();
+                studentList = GSDE.Students.Where(x => x.StudentKind == studentKind).ToList();
                 return StudentDTO.Convert(studentList);
 
 
             }
         }
-       
+
 
 
         public static List<StudentDTO> GetStudentsListByDetails(StudentDTO studentDTO)
@@ -45,22 +45,22 @@ namespace Bll
                 List<Student> studentList = new List<Student>();
                 studentList = GSDE.Students.ToList();
                 if (studentDTO.FirstName != "")
-                    studentList = GetStudentsListByFirstName(studentList,studentDTO.FirstName);
+                    studentList = GetStudentsListByFirstName(studentList, studentDTO.FirstName);
                 if (studentDTO.LastName != "")
                     studentList = GetStudentsListByLastName(studentList, studentDTO.LastName);
                 if (studentDTO.PhoneNumber != "")
                     studentList = GetStudentsListByBuyPhoneNumber(studentList, studentDTO.PhoneNumber);
                 if (studentDTO.IdentityNumber != "")
                     studentList = GetStudentsListByIdentityNumber(studentList, studentDTO.IdentityNumber);
-                
+
                 return StudentDTO.Convert(studentList);
 
 
             }
         }
 
-        
-            public static StudentDTO GetStudentDetailsByStudentId(int id)
+
+        public static StudentDTO GetStudentDetailsByStudentId(int id)
         {
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
@@ -72,12 +72,12 @@ namespace Bll
             }
         }
 
-        public static List<Student> GetStudentsListByFirstName(List<Student> students,string firstName)
+        public static List<Student> GetStudentsListByFirstName(List<Student> students, string firstName)
         {
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 List<Student> studentList = new List<Student>();
-                studentList = GSDE.Students.Where(x=>x.FirstName==firstName).ToList();
+                studentList = GSDE.Students.Where(x => x.FirstName == firstName).ToList();
                 return studentList;
 
 
@@ -131,7 +131,7 @@ namespace Bll
                     balance = 0;
                 else balance = (int)balance1;
                 return balance;
-                
+
 
             }
         }
@@ -145,16 +145,20 @@ namespace Bll
                 {
 
                     var s = context.Students.FirstOrDefault(x => x.Id == student.Id);
-                    s.FirstName = student.FirstName;
-                    s.LastName = student.LastName;
-                    s.IdentityNumber = student.IdentityNumber;
-                    s.PhoneNumber = student.PhoneNumber;
-                    s.Pignicher = student.Pignicher;
-                    s.StudentKind = student.StudentKind;
-                    s.Balance = student.Balance;
-                    s.CreditDetailsId = student.CreditDetailsId;
-                    context.SaveChanges();
-                    return true;
+                    if (s != null)
+                    {
+                        s.FirstName = student.FirstName;
+                        s.LastName = student.LastName;
+                        s.IdentityNumber = student.IdentityNumber;
+                        s.PhoneNumber = student.PhoneNumber;
+                        s.Pignicher = student.Pignicher;
+                        s.StudentKind = student.StudentKind;
+                        s.Balance = student.Balance;
+                        s.CreditDetailsId = student.CreditDetailsId;
+                        context.SaveChanges();
+                        return true;
+                    }
+                    else return false;
                 }
             }
             catch (Exception e)
