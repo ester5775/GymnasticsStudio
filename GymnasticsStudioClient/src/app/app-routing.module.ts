@@ -33,7 +33,7 @@ children:[{ path: 'students-list/:StudentKind', component: StudentsListComponent
               }, 
 ]},
 { path: 'manager', component: ManagerComponent},
-// { path: 'edit-user/:Id', component: EditStudentDetailsComponent },
+{ path: 'edit-user/:Id', component: EditStudentDetailsComponent },
 ];
 
 

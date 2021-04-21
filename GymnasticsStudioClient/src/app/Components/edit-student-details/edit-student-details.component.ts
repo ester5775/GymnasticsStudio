@@ -18,26 +18,26 @@ export class EditStudentDetailsComponent implements OnInit {
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     identityNumber: new FormControl(''),
-    phjoneNumber: new FormControl(''),
+    phoneNumber: new FormControl(''),
 
 
   });
 
   constructor(private studentService: StudentService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('Id');
     if (this.id != null && this.id != "") {
       this.studentService.getStudentDetailsByStudentId(this.id)
         .subscribe((res: Student) => {
-          debugger;
           console.log("res: " + res)
           this.CurrentStudent = res
+                    debugger;
+          this.BuildStudentDetailsForm();
         }, (error) => console.error)
     }
   }
 
   ngOnInit(): void {
-    this.BuildStudentDetailsForm();
-    this.OnSubmit()
+    this.SignUpForm.disable()
   }
 
 
@@ -50,9 +50,12 @@ export class EditStudentDetailsComponent implements OnInit {
     })
   }
   Change() {
-    this.SignUpForm.disabled;
+    this.SignUpForm.enable();
   }
   OnSubmit(){
-    this.studentService.PostStudent(this.CurrentStudent).subscribe(res=>console.log(res),err=>console.log(err))
+    debugger
+    var stu=new Student(this.SignUpForm.value);
+    stu.Id=this.id;
+    this.studentService.PostStudent(stu).subscribe(res=>console.log(res),err=>console.log(err))
   }
 }

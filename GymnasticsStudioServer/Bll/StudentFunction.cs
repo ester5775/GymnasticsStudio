@@ -154,7 +154,6 @@ namespace Bll
                         s.Pignicher = student.Pignicher;
                         s.StudentKind = student.StudentKind;
                         s.Balance = student.Balance;
-                        s.CreditDetailsId = student.CreditDetailsId;
                         context.SaveChanges();
                         return true;
                     }
@@ -164,7 +163,7 @@ namespace Bll
             catch (Exception e)
             {
 
-                throw e;
+                return false;
             }
         }
 

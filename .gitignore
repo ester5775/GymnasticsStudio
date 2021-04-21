@@ -12,7 +12,7 @@
 *.userprefs
 
 # Build results
-Obj
+**/Obj
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

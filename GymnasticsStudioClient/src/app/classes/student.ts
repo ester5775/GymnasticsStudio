@@ -9,4 +9,7 @@ export class Student {
     StudentKind:string
     Balance:number=0
     CreditDetailsId:number=0
+    public constructor(init?: Partial<Student>) {
+        Object.assign(this, init);
+    }
 }

@@ -17,6 +17,7 @@ export class AppComponent {
   
   ngOnInit(): void {
     this.GetStudentsList()
+    this.router.navigate(['edit-user/'+1]);
   }
 
   GetStudentsList()
@@ -26,9 +27,6 @@ export class AppComponent {
       .subscribe(studentsList => {
         this.StudentsList=studentsList;
       });
-      debugger
-      var id='1';
-      this.router.navigate(['edit-user/'+id]);
     }
   constructor(private studentService:StudentService,private route: ActivatedRoute,private router: Router,public sanitizer: DomSanitizer) { }
 

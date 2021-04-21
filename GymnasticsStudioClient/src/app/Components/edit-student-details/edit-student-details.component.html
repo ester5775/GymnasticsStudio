@@ -1,70 +1,90 @@
-
 <mat-card class="student-student-card">
-    <mat-card-header>{{id}}: פרטים אישים </mat-card-header>
-    <mat-card-content >
-      <mat-grid-list cols="2">
-        <mat-grid-tile rowspan="2">           
-  <form class="sign-up-form" > 
-    <mat-form-field class="mat-form-field" appearance="outline">
-        <mat-label>התחלה</mat-label>
-        <input  matInput placeholder="התחלה"    >  
-      </mat-form-field>
-  <mat-form-field class="mat-form-field" appearance="outline">
-    <mat-label>שם פרטי</mat-label>
-    <input  matInput placeholder="שם פרטי"   >  
-  </mat-form-field>
-  
-  
-  <mat-form-field class="mat-form-field" appearance="outline">
-    <mat-label>שם משפחה</mat-label>
-    <input  matInput placeholder=" שם משפחה"  >
-  </mat-form-field>
-  
- 
-  
-  <mat-form-field class="mat-form-field" appearance="outline">
-    <mat-label>מספר זהות</mat-label>
-    <input matInput  placeholder=" מספר זהות" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >   
-  </mat-form-field>
-   
-  <mat-form-field class="mat-form-field" appearance="outline">
-    <mat-label>תאריך לידה</mat-label>
-    <input matInput placeholder="תאריך לידה" type="date" >
-  </mat-form-field>
+  <mat-card-header>
+    <mat-card-title> פרטים אישים :{{id}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-grid-list cols="3" rowHeight="50px" [gutterSize]="'10px'">
+      <form [formGroup]="SignUpForm" (ngSubmit)="OnSubmit()">
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>שם פרטי</mat-label>
+            <input formControlName="firstName" matInput placeholder="שם פרטי">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>שם משפחה</mat-label>
+            <input formControlName="lastName" matInput placeholder="שם משפחה">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>התחלה</mat-label>
+            <input matInput placeholder="התחלה">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
 
-    <mat-form-field class="mat-form-field" appearance="outline">
-      <mat-label>נייד</mat-label>
-      <input  matInput type="tel" placeholder="נייד"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >
-         <mat-icon matSuffix>phone</mat-icon>
-    </mat-form-field>
-  
-    <mat-form-field class="mat-form-field" appearance="outline">
-        <mat-label>כתובת</mat-label>
-        <input matInput  placeholder="כתובת"   >
-      </mat-form-field>
-      <mat-form-field class="mat-form-field" appearance="outline">
-        <mat-label>קופ"ח</mat-label>
-        <input matInput  placeholder="קופ''ח"    >
-      </mat-form-field>
-      <mat-form-field class="mat-form-field" appearance="outline">
-        <mat-label>אשראי</mat-label>
-        <input matInput  placeholder="אשראי"    >
-      </mat-form-field>
-      <mat-form-field class="mat-form-field" appearance="outline">
-        <mat-label>הערות</mat-label> 
-        <input matInput  placeholder="הערות"   >
-      </mat-form-field>
-   
-   <button mat-button type="submit" id="submitButton" >שמור שינוים</button>
-   <button mat-button (click)="Change()" >שנה</button>
-    
-   
-  </form>
-  </mat-grid-tile>
-  <mat-grid-tile rowspan="2">
-  
-  </mat-grid-tile>
-  </mat-grid-list>
-  <!-- [disabled]="!SignUpForm.valid" -->
+          <mat-form-field appearance="outline">
+            <mat-label>מספר זהות</mat-label>
+            <input matInput formControlName="identityNumber" placeholder=" מספר זהות"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>תאריך לידה</mat-label>
+
+            <input matInput placeholder="תאריך לידה" type="date">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+
+          <mat-form-field appearance="outline">
+            <mat-label>נייד</mat-label>
+
+            <input formControlName="phoneNumber" matInput type="tel" placeholder="נייד"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>כתובת</mat-label>
+
+            <input matInput placeholder="כתובת">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>קופ''ח</mat-label>
+
+            <input matInput placeholder="קופ''ח">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>אשראי</mat-label>
+
+            <input matInput placeholder="אשראי">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>הערות</mat-label>
+
+            <input matInput placeholder="הערות">
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+      </form>
+    </mat-grid-list>
   </mat-card-content>
-  </mat-card>
+  <mat-card-actions align="center">
+    <button mat-raised-button (click)="Change()" color="primary">שנה</button>
+    <button mat-button (click)="OnSubmit()" type="submit" id="submitButton" color="primary">שמור שינויים</button>
+  </mat-card-actions>
+
+
+</mat-card>

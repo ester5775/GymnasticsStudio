@@ -26,3 +26,18 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bl
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\EntityFramework.xml
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csproj.CopyComplete
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csprojAssemblyReference.cache
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\Bll.dll.config
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\Bll.dll
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\Bll.pdb
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\Dal.dll
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\DTO.dll
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\EntityFramework.dll
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\Dal.pdb
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\Dal.dll.config
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\DTO.pdb
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\bin\Debug\EntityFramework.xml
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csprojAssemblyReference.cache
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csproj.CoreCompileInputs.cache
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.csproj.CopyComplete
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.dll
+C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\Bll\obj\Debug\Bll.pdb
