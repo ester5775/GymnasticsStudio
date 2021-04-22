@@ -1,5 +1,5 @@
 
-﻿using Dal;
+using Dal;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 StudentInSubscription CurrentstudentInSubscription = new StudentInSubscription();
-                CurrentstudentInSubscription = GSDE.StudentInSubscriptions.Where(x => x.StudentId == studentId && x.StartDate <= DateTime.Now && x.FinishDate>=DateTime.Now).FirstOrDefault();
+                CurrentstudentInSubscription = GSDE.StudentInSubscriptions.Where(x => x.StudentId == studentId && x.StartDate <= DateTime.Now && x.FinishDate >= DateTime.Now).FirstOrDefault();
                 Subscription currentSubscriptin = new Subscription();
                 if (CurrentstudentInSubscription != default)
                     currentSubscriptin = GSDE.Subscriptions.Where(x => x.Id == CurrentstudentInSubscription.SubscribtionId).FirstOrDefault();
@@ -74,6 +74,19 @@ namespace Bll
 
         }
 
+
+
+        public static StudentInSubscriptionDTO GetCurrentStudentInSubscription(int studentId)
+        {
+            using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
+            {
+                StudentInSubscription CurrentstudentInSubscription = new StudentInSubscription();
+                CurrentstudentInSubscription = GSDE.StudentInSubscriptions.Where(x => x.StudentId == studentId && x.StartDate <= DateTime.Now && x.FinishDate >= DateTime.Now).FirstOrDefault();
+                return StudentInSubscriptionDTO.ConvertToDTO(CurrentstudentInSubscription);
+            }
+
+
+        }
 
         public static int GetCurrentWeekNum(int studentId)
         {
@@ -93,5 +106,76 @@ namespace Bll
 
 
         }
+
+
+
+        public static bool EditStudentInSubscription(StudentInSubscriptionDTO studentInSubscription)
+        {
+            try
+            {
+                using (Gymnastics_Studio_DataEntities context = new Gymnastics_Studio_DataEntities())
+                {
+
+                    var s = context.StudentInSubscriptions.FirstOrDefault(x => x.Id == studentInSubscription.Id);
+                    if (s != null)
+                    {
+                        s.Id = studentInSubscription.Id;
+                        s.StudentId = studentInSubscription.StudentId;
+                        s.SubscribtionId = studentInSubscription.SubscribtionId;
+                        s.StartDate = Convert.ToDateTime(studentInSubscription.StartDate);
+                        s.FinishDate = Convert.ToDateTime(studentInSubscription.FinishDate);
+                        context.SaveChanges();
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+
+        public static bool AddStudentInSubscription(StudentInSubscriptionDTO studentInSubscriptionDTO)
+        {
+           
+            try
+            {
+                using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
+                {
+                    
+                    StudentInSubscription studentInSubscription = StudentInSubscriptionDTO.ConvertFromDTO(studentInSubscriptionDTO);
+                    Subscription subscription = GSDE.Subscriptions.Where(x => x.Id == studentInSubscription.SubscribtionId).FirstOrDefault();
+
+         
+         
+
+                          if (studentInSubscription != default)
+                    {
+                        Convert.ToDateTime(studentInSubscription.StartDate);
+                        studentInSubscription.FinishDate = studentInSubscription.StartDate;
+                        studentInSubscription.FinishDate=Convert.ToDateTime(studentInSubscription.FinishDate).AddDays(7 * (double)subscription.WeeksNum);
+                    }
+                    var lastStudentInSubscriptions = GSDE.StudentInSubscriptions.Where(x => x.StartDate == studentInSubscription.StartDate).FirstOrDefault();
+                    if (lastStudentInSubscriptions != default)
+                    {
+                        studentInSubscription.Id = lastStudentInSubscriptions.Id;
+                        return EditStudentInSubscription(StudentInSubscriptionDTO.ConvertToDTO(studentInSubscription));
+                    }
+
+                    GSDE.StudentInSubscriptions.Add(studentInSubscription);
+                    GSDE.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
     }
 }

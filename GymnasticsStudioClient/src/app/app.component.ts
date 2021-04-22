@@ -16,8 +16,8 @@ export class AppComponent {
   StudentsList:Array<Student>; 
   
   ngOnInit(): void {
-    this.GetStudentsList()
-    this.router.navigate(['edit-user/'+1]);
+    // this.GetStudentsList()
+    // this.router.navigate(['edit-user/'+1]);
   }
 
   GetStudentsList()

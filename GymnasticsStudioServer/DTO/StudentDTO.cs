@@ -44,7 +44,8 @@ namespace DTO
         public static Student Convert(StudentDTO studentDTO)
         {
             Student student = new Student();
-            student.Id = studentDTO.Id;
+            if (studentDTO.Id != default)
+                student.Id = studentDTO.Id;
             student.FirstName = studentDTO.FirstName;
             student.LastName = studentDTO.LastName;
             student.IdentityNumber = studentDTO.IdentityNumber;

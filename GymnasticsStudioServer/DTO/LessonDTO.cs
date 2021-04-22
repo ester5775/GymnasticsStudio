@@ -48,7 +48,8 @@ namespace DTO
         {
            
             Lesson lesson = new Lesson();
-            lesson.Id = lessonDTO.Id;
+            if (lessonDTO.Id!=default)
+                lesson.Id = lessonDTO.Id;
             lesson.Name = lessonDTO.Name;
             lesson.TeacherId = lessonDTO.TeacherId;
             lesson.Day = lessonDTO.Day;

@@ -46,6 +46,18 @@ namespace GymnasticsStudioServer.Controllers
             return StudentInSubscriptionFuncrion.GetCurrentSubscription(studentId);
         }
 
+
+
+        // GetCurrentStudentInSubscription: api/StudentInSubscription
+        [HttpGet]
+        [Route("GetCurrentStudentInSubscription/{studentId}")]
+        public StudentInSubscriptionDTO GetCurrentStudentInSubscription(int studentId)
+        {
+
+            return StudentInSubscriptionFuncrion.GetCurrentStudentInSubscription(studentId);
+        }
+
+
         // GetCurrentWeekNum: api/StudentInSubscription
         [HttpGet]
         [Route("GetCurrentWeekNum/{studentId}")]
@@ -54,7 +66,25 @@ namespace GymnasticsStudioServer.Controllers
 
             return StudentInSubscriptionFuncrion.GetCurrentWeekNum(studentId);
         }
-        
 
+
+        // POST: api/Student
+        [HttpPost]
+        [Route("EditStudentInSubscription")]
+        public IHttpActionResult EditStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
+        {
+            return Ok(StudentInSubscriptionFuncrion.EditStudentInSubscription(studentInSubscription));
+        }
+
+
+
+        // AddStudentInSubscription: api/Student/5
+        [HttpPut]
+        [Route("AddStudentInSubscription")]
+        public IHttpActionResult AddStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
+        {
+
+            return Ok(StudentInSubscriptionFuncrion.AddStudentInSubscription(studentInSubscription));
+        }
     }
 }

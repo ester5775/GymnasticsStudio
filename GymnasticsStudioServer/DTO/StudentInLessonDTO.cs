@@ -43,7 +43,8 @@ namespace DTO
         public static StudentInLesson ConvertFromDTO(StudentInLessonDTO studentInLessonDTO)
         {
             StudentInLesson studentInLesson = new StudentInLesson();
-            studentInLesson.Id = studentInLessonDTO.Id;
+            if (studentInLessonDTO.Id != default)
+                studentInLesson.Id = studentInLessonDTO.Id;
             studentInLesson.StudentId = studentInLessonDTO.StudentId;
             studentInLesson.LessonId = studentInLessonDTO.LessonId;
             studentInLesson.StartDate = studentInLessonDTO.StartDate;
