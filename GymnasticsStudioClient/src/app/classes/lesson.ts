@@ -1,11 +1,15 @@
 export class Lesson {
-    constructor(
-        public Id:number,
-        public Name:string,
-        public TeacherId:string,       
-        public Day:string,        
-        public Time:string,
-        public MaxStudensNum:number,
-        public CorrentStudensNum:number,
-        ){};
+    
+        public Id:number;
+        public Name:string;
+        public TeacherId:string;     
+        public Day:string; 
+        public StartHower:string;
+        public FinishHower:string;
+        public MaxStudensNum:number;
+        public MaxSerologersStudensNum:number;
+        public LessonKind:number;
+
+      
+        
 }

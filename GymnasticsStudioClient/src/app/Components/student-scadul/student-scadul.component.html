@@ -18,12 +18,22 @@
    </tr>
    
    <tr>
-      <button  mat-icon-button [matMenuTriggerFor]="Menu" class="cloneIcon" (click)="FullMenue()">
+      <button  mat-icon-button [matMenuTriggerFor]="Menu" class="cloneIcon" (click)="FullSubscriptionMenue()">
          שינוי מנוי </button>
        
       
        <mat-menu #Menu="matMenu">
         <button mat-menu-item *ngFor="let subscription of SubscriptionList" (click)="EditSubscription(subscription)">{{subscription.Name}}</button>
+                                    
+        </mat-menu>  
+   </tr>
+   <tr>
+      <button  mat-icon-button [matMenuTriggerFor]="Menu2" class="cloneIcon" (click)="FullLessonMenue()">
+         שינוי שיבוץ </button>
+       
+      
+       <mat-menu #Menu2="matMenu">
+        <button mat-menu-item *ngFor="let lesson of LessonsList" (click)="EditLesson(lesson)">{{lesson.Name}} יום {{lesson.Day}} {{lesson.StartHower}}-{{lesson.FinishHower}}</button>
                                     
         </mat-menu>  
    </tr>

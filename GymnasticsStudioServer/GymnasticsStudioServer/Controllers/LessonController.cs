@@ -7,6 +7,7 @@ using System.Web.Http;
 
 using DTO;
 using System.Web.Http.Cors;
+using Bll;
 
 namespace GymnasticsStudioServer.Controllers
 {
@@ -16,6 +17,13 @@ namespace GymnasticsStudioServer.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LessonController : ApiController
     {
-    
+        // GetLessonsListBySubscriptionId: api/Lesson
+        [HttpGet]
+        [Route("GetLessonsListBySubscriptionId/{subscriptionId}")]
+        public IEnumerable<LessonDTO> GetLessonsListBySubscriptionId(int subscriptionId)
+        {
+
+            return LessonFunction.GetLessonsListBySubscriptionId(subscriptionId);
+        }
     }
 }

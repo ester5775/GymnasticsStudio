@@ -1,5 +1,4 @@
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\bin\Debug\Dal.dll.config
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\bin\Debug\Dal.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\bin\Debug\Dal.pdb
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\bin\Debug\EntityFramework.dll
@@ -17,4 +16,4 @@ C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudio\Gymnasti
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudio\GymnasticsStudioServer\Dal\obj\Debug\Dal.csproj.CopyComplete
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudio\GymnasticsStudioServer\Dal\obj\Debug\Dal.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudio\GymnasticsStudioServer\Dal\obj\Debug\Dal.pdb
-C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\Dal\bin\Debug\Dal.dll.config

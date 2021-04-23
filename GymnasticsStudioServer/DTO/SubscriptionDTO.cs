@@ -15,7 +15,7 @@ namespace DTO
         public Nullable<int> Price { get; set; }
         public Nullable<int> WeeksNum { get; set; }
         public Nullable<int> DaysInWeekNum { get; set; }
-
+        public Nullable<int> LessonKind { get; set; }
         public static SubscriptionDTO ConvertToDTO(Subscription subscription)
         {
             SubscriptionDTO subscriptionDTO = new SubscriptionDTO();
@@ -24,6 +24,7 @@ namespace DTO
             subscriptionDTO.Price = subscription.Price;
             subscriptionDTO.WeeksNum = subscription.WeeksNum;
             subscriptionDTO.DaysInWeekNum = subscription.DaysInWeekNum;
+            subscriptionDTO.LessonKind = subscription.LessonKind;
          
             return subscriptionDTO;
         }
@@ -47,6 +48,7 @@ namespace DTO
             subscription.Price = subscriptionDTO.Price;
             subscription.WeeksNum = subscriptionDTO.WeeksNum;
             subscription.DaysInWeekNum = subscriptionDTO.DaysInWeekNum;
+            subscription.LessonKind = subscriptionDTO.LessonKind;
 
             return subscription;
         }

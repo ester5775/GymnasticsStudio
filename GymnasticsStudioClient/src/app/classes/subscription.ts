@@ -5,5 +5,5 @@ export class Subscription {
     public Price :number;
     public WeeksNum:number;
     public DaysInWeekNum :number;
-
+    public LessonKind:number;
 }
