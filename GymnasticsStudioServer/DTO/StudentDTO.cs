@@ -19,7 +19,14 @@ namespace DTO
         public string StudentKind { get; set; }
         public Nullable<int> Balance { get; set; }
         public Nullable<int> CreditDetailsId { get; set; }
-
+        public string Addrees { get; set; }
+        public Nullable<System.DateTime> BirthDay { get; set; }
+        public string HMO { get; set; }
+        public string Comments { get; set; }
+        public string StartDate { get; set; }
+        public string CreditCardNumber { get; set; }
+        public Nullable<DateTime> CreditCardValidity { get; set; }
+        public string CreditCardBackDigitis { get; set; }
 
         public static StudentDTO Convert(Student student)
         {
@@ -32,7 +39,15 @@ namespace DTO
             studentDTO.Pignicher = student.Pignicher;
             studentDTO.StudentKind = student.StudentKind;
             studentDTO.Balance = student.Balance;
+            studentDTO.Addrees = student.Addrees;
+            studentDTO.BirthDay = student.BirthDay;
+            studentDTO.HMO = student.HMO;
+            studentDTO.Comments = student.Comments;
+            studentDTO.StartDate = student.StartDate;
             studentDTO.CreditDetailsId = student.CreditDetailsId;
+            studentDTO.CreditCardBackDigitis = student.CreditDetail?.BackDigits;
+            studentDTO.CreditCardValidity = student.CreditDetail?.Validity;
+            studentDTO.CreditCardNumber = student.CreditDetail.CreditNumber;
             return studentDTO;
         }
 

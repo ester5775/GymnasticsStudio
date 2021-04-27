@@ -147,13 +147,17 @@ namespace Bll
                     var s = context.Students.FirstOrDefault(x => x.Id == student.Id);
                     if (s != null)
                     {
-                        s.FirstName = student.FirstName;
-                        s.LastName = student.LastName;
-                        s.IdentityNumber = student.IdentityNumber;
-                        s.PhoneNumber = student.PhoneNumber;
-                        s.Pignicher = student.Pignicher;
-                        s.StudentKind = student.StudentKind;
-                        s.Balance = student.Balance;
+                        s.FirstName = student.FirstName?.TrimStart().TrimEnd();
+                        s.LastName = student.LastName?.TrimStart().TrimEnd();
+                        s.IdentityNumber = student.IdentityNumber?.TrimStart().TrimEnd();
+                        s.PhoneNumber = student.PhoneNumber?.TrimStart().TrimEnd();
+                        s.Pignicher = student.Pignicher?.TrimStart().TrimEnd();
+                        s.Comments = student.Comments?.TrimStart().TrimEnd();
+                        s.CreditDetail.CreditNumber = student.CreditCardNumber?.TrimStart().TrimEnd();
+                        s.HMO = student.HMO?.TrimStart().TrimEnd();
+                        s.Addrees = student.Addrees?.TrimStart().TrimEnd();
+                        s.BirthDay = student?.BirthDay;
+                        s.StartDate = student?.StartDate.TrimStart().TrimEnd();
                         context.SaveChanges();
                         return true;
                     }

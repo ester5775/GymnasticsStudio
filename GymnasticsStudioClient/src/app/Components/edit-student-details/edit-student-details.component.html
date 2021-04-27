@@ -20,7 +20,7 @@
         <mat-grid-tile>
           <mat-form-field appearance="outline">
             <mat-label>התחלה</mat-label>
-            <input matInput placeholder="התחלה">
+            <input formControlName="StartDate" matInput placeholder="התחלה">
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -35,7 +35,7 @@
           <mat-form-field appearance="outline">
             <mat-label>תאריך לידה</mat-label>
 
-            <input matInput placeholder="תאריך לידה" type="date">
+            <input formControlName="BirthDay" matInput placeholder="תאריך לידה" type="date">
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -52,28 +52,28 @@
           <mat-form-field appearance="outline">
             <mat-label>כתובת</mat-label>
 
-            <input matInput placeholder="כתובת">
+            <input formControlName="Addrees" matInput placeholder="כתובת">
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field appearance="outline">
             <mat-label>קופ''ח</mat-label>
 
-            <input matInput placeholder="קופ''ח">
+            <input formControlName="HMO" matInput placeholder="קופ''ח">
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field appearance="outline">
             <mat-label>אשראי</mat-label>
 
-            <input matInput placeholder="אשראי">
+            <input formControlName="CreditCardNumber" matInput placeholder="אשראי">
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field appearance="outline">
             <mat-label>הערות</mat-label>
 
-            <input matInput placeholder="הערות">
+            <input formControlName="Comments" matInput placeholder="הערות">
           </mat-form-field>
         </mat-grid-tile>
 

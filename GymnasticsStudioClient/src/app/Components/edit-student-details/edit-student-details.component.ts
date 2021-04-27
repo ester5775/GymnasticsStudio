@@ -19,8 +19,12 @@ export class EditStudentDetailsComponent implements OnInit {
     lastName: new FormControl(''),
     identityNumber: new FormControl(''),
     phoneNumber: new FormControl(''),
-
-
+    HMO: new FormControl(''),
+    CreditCardNumber: new FormControl(''),
+    Comments: new FormControl(''),
+    Addrees: new FormControl(''),
+    BirthDay: new FormControl(''),
+    StartDate: new FormControl(''),
   });
 
   constructor(private studentService: StudentService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {
@@ -29,8 +33,9 @@ export class EditStudentDetailsComponent implements OnInit {
       this.studentService.getStudentDetailsByStudentId(this.id)
         .subscribe((res: Student) => {
           console.log("res: " + res)
+          debugger;
           this.CurrentStudent = res
-                    debugger;
+          debugger;
           this.BuildStudentDetailsForm();
         }, (error) => console.error)
     }
@@ -47,15 +52,22 @@ export class EditStudentDetailsComponent implements OnInit {
       lastName: this.CurrentStudent.LastName,
       identityNumber: this.CurrentStudent.IdentityNumber,
       phoneNumber: this.CurrentStudent.PhoneNumber,
+      HMO: this.CurrentStudent.HMO,
+      CreditCardNumber: this.CurrentStudent.CreditCardNumber,
+      Comments: this.CurrentStudent.Comments,
+      Addrees: this.CurrentStudent.Addrees,
+      BirthDay: this.CurrentStudent.BirthDay,
+      StartDate: this.CurrentStudent.StartDate,
+
     })
   }
   Change() {
     this.SignUpForm.enable();
   }
-  OnSubmit(){
+  OnSubmit() {
     debugger
-    var stu=new Student(this.SignUpForm.value);
-    stu.Id=this.id;
-    this.studentService.PostStudent(stu).subscribe(res=>console.log(res),err=>console.log(err))
+    var stu = new Student(this.SignUpForm.value);
+    stu.Id = this.id;
+    this.studentService.PostStudent(stu).subscribe(res => console.log(res), err => console.log(err))
   }
 }
