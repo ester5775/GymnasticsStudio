@@ -43,7 +43,8 @@ namespace DTO
         public static StudentInSubscription ConvertFromDTO(StudentInSubscriptionDTO studentInSubscriptionDTO)
         {
             StudentInSubscription studentInSubscription = new StudentInSubscription();
-            studentInSubscription.Id = studentInSubscriptionDTO.Id;
+            if (studentInSubscriptionDTO.Id != default)
+                studentInSubscription.Id = studentInSubscriptionDTO.Id;
             studentInSubscription.StudentId = studentInSubscriptionDTO.StudentId;
             studentInSubscription.SubscribtionId = studentInSubscriptionDTO.SubscribtionId;
             studentInSubscription.StartDate = Convert.ToDateTime(studentInSubscriptionDTO.StartDate);

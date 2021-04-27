@@ -46,7 +46,8 @@ namespace DTO
         public static Payment ConvertFromDTO(PaymentDTO paymentDTO)
         {
             Payment payment = new Payment();
-            payment.Id = paymentDTO.Id;
+            if (paymentDTO.Id != default)
+                payment.Id = paymentDTO.Id;
             payment.Sum = paymentDTO.Sum;
             payment.StudentId = paymentDTO.StudentId;
             payment.FormOfPayment = paymentDTO.FormOfPayment;

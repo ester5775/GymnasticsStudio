@@ -19,6 +19,7 @@ namespace DTO
         public Nullable<int> MaxStudensNum { get; set; }
         public Nullable<int> MaxSerologersStudensNum { get; set; }
 
+        public Nullable<int> LessonKind { get; set; }
         public static LessonDTO ConvertToDTO(Lesson lesson)
         {
             LessonDTO lessonDTO = new LessonDTO();
@@ -30,7 +31,7 @@ namespace DTO
             lessonDTO.FinishHower = lesson.FinishHower;
             lessonDTO.MaxStudensNum = lesson.MaxStudensNum;
             lessonDTO.MaxSerologersStudensNum = lesson.MaxSerologersStudensNum;
-           
+            lessonDTO.LessonKind = lesson.LessonKind;
             return lessonDTO;
         }
 
@@ -48,7 +49,8 @@ namespace DTO
         {
            
             Lesson lesson = new Lesson();
-            lesson.Id = lessonDTO.Id;
+            if (lessonDTO.Id!=default)
+                lesson.Id = lessonDTO.Id;
             lesson.Name = lessonDTO.Name;
             lesson.TeacherId = lessonDTO.TeacherId;
             lesson.Day = lessonDTO.Day;
@@ -56,6 +58,7 @@ namespace DTO
             lesson.FinishHower = lessonDTO.FinishHower;
             lesson.MaxStudensNum = lessonDTO.MaxStudensNum;
             lesson.MaxSerologersStudensNum = lessonDTO.MaxSerologersStudensNum;
+            lesson.LessonKind = lessonDTO.LessonKind;
 
             return lesson;
 

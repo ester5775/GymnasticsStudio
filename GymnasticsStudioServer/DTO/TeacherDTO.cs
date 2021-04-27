@@ -44,7 +44,8 @@ namespace DTO
         public static Teacher1 ConvertFromDTO(TeacherDTO teacherDTO)
         {
             Teacher1 teacher = new Teacher1();
-            teacher.Id = teacherDTO.Id;
+            if(teacherDTO.Id!=default)
+                teacher.Id = teacherDTO.Id;
             teacher.LastName = teacherDTO.LastName;
             teacher.FirstName = teacherDTO.FirstName;
             teacher.IdentityNumber = teacherDTO.IdentityNumber;
