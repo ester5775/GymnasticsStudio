@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Lesson } from 'src/app/classes/lesson';
 import { StudentInSubscription } from 'src/app/classes/student-in-subscription';
@@ -9,6 +10,7 @@ import { StudentInSubscriptionService } from 'src/app/Services/student-in-subscr
 import { StudentService } from 'src/app/Services/student.service';
 import { SubscriptionService } from 'src/app/Services/subscription.service';
 import { TeacherService } from 'src/app/Services/teacher.service';
+import { DateDialogBoxComponent } from '../date-dialog-box/date-dialog-box.component';
 
 @Component({
   selector: 'app-student-scadul',
@@ -24,13 +26,16 @@ export class StudentScadulComponent implements OnInit {
   CurrentSubscription:Subscription;
   CurrentStudentInSubscription:StudentInSubscription;
   NewStudentInSubscription:StudentInSubscription;
+  SubsctiptionId:number;
   WeekNum:number;
   Balance:number;
   status:string="זכות";
+  TeacherIdList:number[];
   TeacherNameList:string[];
+  Date:string;
   constructor(private route: ActivatedRoute,private studentInSubscriptionService:StudentInSubscriptionService,
     private studentService:StudentService,private subscriptionService:SubscriptionService,private lessonService:LessonService,
-    private teacherService:TeacherService) {
+    private teacherService:TeacherService,public dialog: MatDialog) {
     
     this.Id=route.snapshot.paramMap.get('Id');}
     
@@ -63,14 +68,27 @@ export class StudentScadulComponent implements OnInit {
     this.studentInSubscriptionService.AddStudentInSubscription(this.NewStudentInSubscription).subscribe(res=>console.log(res),err=>console.log(err))
    
   }
+ 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DateDialogBoxComponent, {
+      width: '250px',
+      data: {Date:this.Date},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.Date = result;
+      this.FullLessonMenue();
+    });
+  }
 
   async FullLessonMenue()
   {
     
-    this.LessonsList = await this.lessonService.getLessonsListBySubscriptionId(this.Id).toPromise();
-    this.LessonsList 
+    this.LessonsList = await this.lessonService.getLessonsListBySubscriptionByStudentIdEndDate(parseInt(this.Id),this.Date).toPromise();
+    this.TeacherIdList=new Array<number>();
+    this.LessonsList.forEach(lesson=>this.TeacherIdList.push(lesson.TeacherId));
 
-    this.TeacherNameList = await this.teacherService.getTeacherNameList().toPromise();
+    this.TeacherNameList = await this.teacherService.getTeacherNameList(this.TeacherIdList).toPromise();
 
   }
 

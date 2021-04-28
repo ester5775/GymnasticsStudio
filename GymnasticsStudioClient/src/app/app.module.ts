@@ -30,6 +30,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -42,6 +43,9 @@ import { ManagerComponent } from './Components/manager/manager.component';
 
 import { StudentsFilesComponent } from './Components/students-files/students-files.component';
 import { EditStudentDetailsComponent } from './Components/edit-student-details/edit-student-details.component';
+
+import { from } from 'rxjs';
+import { DateDialogBoxComponent } from './Components/date-dialog-box/date-dialog-box.component';
 
 
 // import { MaskedTextBoxModule } from '@progress/kendo-angular-inputs';
@@ -62,7 +66,7 @@ import { EditStudentDetailsComponent } from './Components/edit-student-details/e
     StudentsFilesComponent,
     
     EditStudentDetailsComponent,
-    
+    DateDialogBoxComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -90,6 +94,7 @@ import { EditStudentDetailsComponent } from './Components/edit-student-details/e
     MatTreeModule,
     CommonModule,
     MatListModule,
+    MatDialogModule,
     //MaskedTextBoxModule,
     HttpClientModule,
 
@@ -114,7 +119,8 @@ import { EditStudentDetailsComponent } from './Components/edit-student-details/e
     MatExpansionModule,
     MatTreeModule,
     CommonModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
  
   providers: [],

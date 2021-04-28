@@ -17,13 +17,13 @@ namespace GymnasticsStudioServer.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LessonController : ApiController
     {
-        // GetLessonsListBySubscriptionId: api/Lesson
+        // GetLessonsListBySubscriptionByStudentIdEndDate: api/Lesson
         [HttpGet]
-        [Route("GetLessonsListBySubscriptionId/{subscriptionId}")]
-        public IEnumerable<LessonDTO> GetLessonsListBySubscriptionId(int subscriptionId)
+        [Route("GetLessonsListBySubscriptionByStudentIdEndDate/{studentId}/{date}")]
+        public IEnumerable<LessonDTO> GetLessonsListBySubscriptionByStudentIdEndDate(int studentId,string date)
         {
 
-            return LessonFunction.GetLessonsListBySubscriptionId(subscriptionId);
+            return LessonFunction.GetLessonsListBySubscriptionByStudentIdEndDate(studentId,date);
         }
     }
 }

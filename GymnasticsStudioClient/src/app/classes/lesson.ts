@@ -2,7 +2,7 @@ export class Lesson {
     
         public Id:number;
         public Name:string;
-        public TeacherId:string;     
+        public TeacherId:number;     
         public Day:string; 
         public StartHower:string;
         public FinishHower:string;

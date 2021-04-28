@@ -12,8 +12,8 @@ export class LessonService {
 
   private studentUrl = 'http://localhost:54092/api/Lesson/'; 
 
-  getLessonsListBySubscriptionId(Id:Number): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>(this.studentUrl+"GetLessonsListBySubscriptionId/"+Id);
+  getLessonsListBySubscriptionByStudentIdEndDate(StudentId:Number,Date:string): Observable<Lesson[]> {
+    return this.http.get<Lesson[]>(this.studentUrl+"GetLessonsListBySubscriptionByStudentIdEndDate/"+StudentId+"/"+Date);
   }
 
 }
