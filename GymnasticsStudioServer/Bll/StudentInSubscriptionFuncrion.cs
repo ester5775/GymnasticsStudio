@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bll
 {
-    public class StudentInSubscriptionFuncrion
+    public class ParticularSubscriptionFuncrion
     {
 
         public static List<StudentInSubscriptionDTO> GetStudentInSubscriptionListByStudentId(int studentId)

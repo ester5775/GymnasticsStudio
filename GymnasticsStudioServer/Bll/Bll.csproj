@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LessonFunction.cs" />
+    <Compile Include="ParticularSubscriptionFunction.cs" />
     <Compile Include="PaymentFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentFunction.cs" />

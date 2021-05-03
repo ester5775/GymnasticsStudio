@@ -24,10 +24,10 @@ namespace Bll
                 if (studentInSubscription == default)
                     return null;
                  subscriptin = GSDE.Subscriptions.Where(x => x.Id == studentInSubscription.SubscribtionId).FirstOrDefault();         
-                var lesson= GSDE.Subscriptions.Where(x => x.Id == subscriptin.Id).FirstOrDefault();
-                if (lesson.LessonKind == default)
+                var subscription= GSDE.Subscriptions.Where(x => x.Id == subscriptin.Id).FirstOrDefault();
+                if (subscriptin.LessonKind == default)
                     return null;
-                int lessonKind = (int)lesson.LessonKind;                  
+                string lessonKind = subscriptin.LessonKind;                  
                 LessonList = GSDE.Lessons.Where(x => x.LessonKind == lessonKind).ToList();
                 
                 return LessonDTO.ConvertListToDTO(LessonList);

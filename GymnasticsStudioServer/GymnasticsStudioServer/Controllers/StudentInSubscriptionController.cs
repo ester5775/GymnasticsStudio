@@ -24,7 +24,7 @@ namespace GymnasticsStudioServer.Controllers
         public IEnumerable<StudentInSubscriptionDTO> GetStudentInSubscriptionListByStudentId(int studentId)
         {
 
-            return StudentInSubscriptionFuncrion.GetStudentInSubscriptionListByStudentId(studentId);
+            return ParticularSubscriptionFuncrion.GetStudentInSubscriptionListByStudentId(studentId);
         }
 
         // GetStudentInSubscriptionListStudentId: api/StudentInSubscription
@@ -33,7 +33,7 @@ namespace GymnasticsStudioServer.Controllers
         public IEnumerable<List<string>> GetStudentInSubscriptionNamesListByStudentId(int studentId)
         {
 
-            return StudentInSubscriptionFuncrion.GetStudentInSubscriptionNamesListByStudentId(studentId);
+            return ParticularSubscriptionFuncrion.GetStudentInSubscriptionNamesListByStudentId(studentId);
         }
 
 
@@ -43,7 +43,7 @@ namespace GymnasticsStudioServer.Controllers
         public SubscriptionDTO GetCurrentSubscription(int studentId)
         {
 
-            return StudentInSubscriptionFuncrion.GetCurrentSubscription(studentId);
+            return ParticularSubscriptionFuncrion.GetCurrentSubscription(studentId);
         }
 
 
@@ -54,7 +54,7 @@ namespace GymnasticsStudioServer.Controllers
         public StudentInSubscriptionDTO GetCurrentStudentInSubscription(int studentId)
         {
 
-            return StudentInSubscriptionFuncrion.GetCurrentStudentInSubscription(studentId);
+            return ParticularSubscriptionFuncrion.GetCurrentStudentInSubscription(studentId);
         }
 
 
@@ -64,7 +64,7 @@ namespace GymnasticsStudioServer.Controllers
         public int GetCurrentWeekNum(int studentId)
         {
 
-            return StudentInSubscriptionFuncrion.GetCurrentWeekNum(studentId);
+            return ParticularSubscriptionFuncrion.GetCurrentWeekNum(studentId);
         }
 
 
@@ -73,7 +73,7 @@ namespace GymnasticsStudioServer.Controllers
         [Route("EditStudentInSubscription")]
         public IHttpActionResult EditStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
         {
-            return Ok(StudentInSubscriptionFuncrion.EditStudentInSubscription(studentInSubscription));
+            return Ok(ParticularSubscriptionFuncrion.EditStudentInSubscription(studentInSubscription));
         }
 
 
@@ -84,7 +84,7 @@ namespace GymnasticsStudioServer.Controllers
         public IHttpActionResult AddStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
         {
 
-            return Ok(StudentInSubscriptionFuncrion.AddStudentInSubscription(studentInSubscription));
+            return Ok(ParticularSubscriptionFuncrion.AddStudentInSubscription(studentInSubscription));
         }
     }
 }

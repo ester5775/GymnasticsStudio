@@ -1,0 +1,19 @@
+
+
+  
+<div mat-dialog-content>
+    <p>פרטי מנוי חריג:</p>
+    <mat-form-field>
+      <mat-label>השרות</mat-label>
+      <input matInput [(ngModel)]="data.Name" >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>המחיר</mat-label>
+      <input matInput [(ngModel)]="data.Price" >
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+   
+    <button mat-button>ביטול</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>אישור</button>
+  </div>

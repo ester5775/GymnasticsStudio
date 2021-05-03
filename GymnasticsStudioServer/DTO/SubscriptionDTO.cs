@@ -15,7 +15,7 @@ namespace DTO
         public Nullable<int> Price { get; set; }
         public Nullable<int> WeeksNum { get; set; }
         public Nullable<int> DaysInWeekNum { get; set; }
-        public Nullable<int> LessonKind { get; set; }
+        public string LessonKind { get; set; }
         public static SubscriptionDTO ConvertToDTO(Subscription subscription)
         {
             SubscriptionDTO subscriptionDTO = new SubscriptionDTO();

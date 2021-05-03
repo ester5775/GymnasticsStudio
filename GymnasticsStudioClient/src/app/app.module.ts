@@ -46,6 +46,7 @@ import { EditStudentDetailsComponent } from './Components/edit-student-details/e
 
 import { from } from 'rxjs';
 import { DateDialogBoxComponent } from './Components/date-dialog-box/date-dialog-box.component';
+import { ParticularSubscriptionDialgBoxComponent } from './Components/particular-subscription-dialg-box/particular-subscription-dialg-box.component';
 
 
 // import { MaskedTextBoxModule } from '@progress/kendo-angular-inputs';
@@ -67,6 +68,7 @@ import { DateDialogBoxComponent } from './Components/date-dialog-box/date-dialog
     
     EditStudentDetailsComponent,
     DateDialogBoxComponent,
+    ParticularSubscriptionDialgBoxComponent,
   ],
   imports: [
     AppRoutingModule,

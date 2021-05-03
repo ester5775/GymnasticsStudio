@@ -25,9 +25,12 @@
       
        <mat-menu #Menu="matMenu">
         <button mat-menu-item *ngFor="let subscription of SubscriptionList" (click)="EditSubscription(subscription)">{{subscription.Name}}</button>
-                                    
-        </mat-menu>  
+        <button mat-menu-item (click)="OpenParticularSubscriptionDialg()">אחר</button>
+       </mat-menu>  
    </tr>
+  <!-- <tr *ngIf="ParticularSubscription">
+     {{ParticularSubscription.Name}}
+  </tr> -->
    <tr>
       <button  mat-icon-button [matMenuTriggerFor]="Menu2" class="cloneIcon" (click)="openDialog()">
          שינוי שיבוץ </button>
@@ -38,9 +41,7 @@
                                     
         </mat-menu>  
    </tr>
-   <tr>
-     <p *ngIf="Date">{{Date}}</p>
-   </tr>
+   
      
     
    

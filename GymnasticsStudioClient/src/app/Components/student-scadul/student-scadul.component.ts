@@ -2,15 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Lesson } from 'src/app/classes/lesson';
+import { ParticularSubscription } from 'src/app/classes/particular-subscription';
 import { StudentInSubscription } from 'src/app/classes/student-in-subscription';
 import { Subscription } from 'src/app/classes/subscription';
 import { Teacher } from 'src/app/classes/teacher';
 import { LessonService } from 'src/app/Services/lesson.service';
+import { ParticularSubscriptionService } from 'src/app/Services/particular-subscription.service';
+import { StudentInLessonService } from 'src/app/Services/student-in-lesson.service';
 import { StudentInSubscriptionService } from 'src/app/Services/student-in-subscription.service';
 import { StudentService } from 'src/app/Services/student.service';
 import { SubscriptionService } from 'src/app/Services/subscription.service';
 import { TeacherService } from 'src/app/Services/teacher.service';
 import { DateDialogBoxComponent } from '../date-dialog-box/date-dialog-box.component';
+import { ParticularSubscriptionDialgBoxComponent } from '../particular-subscription-dialg-box/particular-subscription-dialg-box.component';
 
 @Component({
   selector: 'app-student-scadul',
@@ -33,9 +37,13 @@ export class StudentScadulComponent implements OnInit {
   TeacherIdList:number[];
   TeacherNameList:string[];
   Date:string;
+  ParticularSubscription:ParticularSubscription;
+  FullLesson:boolean=false;
   constructor(private route: ActivatedRoute,private studentInSubscriptionService:StudentInSubscriptionService,
-    private studentService:StudentService,private subscriptionService:SubscriptionService,private lessonService:LessonService,
-    private teacherService:TeacherService,public dialog: MatDialog) {
+    private studentService:StudentService,private subscriptionService:SubscriptionService,
+    private lessonService:LessonService,private teacherService:TeacherService,
+    private studentInLessonService:StudentInLessonService,public dialog: MatDialog,
+    private particularSubscriptionService:ParticularSubscriptionService) {
     
     this.Id=route.snapshot.paramMap.get('Id');}
     
@@ -69,7 +77,35 @@ export class StudentScadulComponent implements OnInit {
    
   }
  
+
+  OpenParticularSubscriptionDialg(): void {
+    this.ParticularSubscription=new ParticularSubscription();
+    this.ParticularSubscription.Name='';
+    this.ParticularSubscription.Price;
+    this.ParticularSubscription.StartDate='';
+    this.ParticularSubscription.FinishDate='';
+    this.ParticularSubscription.LessonKind='';
+    const dialogRef = this.dialog.open(ParticularSubscriptionDialgBoxComponent, {
+      width: '250px',
+      data: ParticularSubscription,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');  
+      this.ParticularSubscription.Name=result.Name;
+      this.ParticularSubscription.Price=result.Price;
+      this.ParticularSubscription.StartDate=result.StartDate;
+      this.ParticularSubscription.FinishDate=result.FinishDate;
+      this.ParticularSubscription.LessonKind=result.LessonKind;    
+      this.particularSubscriptionService.AddParticularSubscription(this.ParticularSubscription).subscribe(res=>console.log(res),err=>console.log(err))
+   
+    });
+  }
+
+
+
   openDialog(): void {
+   
     const dialogRef = this.dialog.open(DateDialogBoxComponent, {
       width: '250px',
       data: {Date:this.Date},
@@ -78,8 +114,11 @@ export class StudentScadulComponent implements OnInit {
       console.log('The dialog was closed');
       this.Date = result;
       this.FullLessonMenue();
+      this.FullLesson=true;
     });
   }
+
+
 
   async FullLessonMenue()
   {
@@ -95,7 +134,9 @@ export class StudentScadulComponent implements OnInit {
 
   EditLesson(lesson)
   {
-    console.log("res")
+    this.studentInLessonService.PostStudentInLessons(lesson,parseInt(this.Id),this.Date).subscribe(res=>console.log(res),err=>console.log(err));
+   
+    
   }
 }
 

@@ -7,16 +7,23 @@ using System.Web.Http;
 
 using DTO;
 using System.Web.Http.Cors;
+using Bll;
 
 namespace GymnasticsStudioServer.Controllers
 {
     //[Route("api/[controller]/{action}")]
-    
-    [RoutePrefix("api/ StudentInLesson")]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/StudentInLesson")]  
     public class StudentInLessonController : ApiController
     {
-        
-     
+        // PostStudentInLessons: api/StudentInLesson
+        [HttpPost]
+        [Route("PostStudentInLessons/{studentId}/{date}")]
+        public IHttpActionResult PostStudentInLessons( int studentId, string date, [FromBody] LessonDTO lessonDTO)
+        {
+            return Ok(StudentInLessonFunction.PostStudentInLessons(lessonDTO, studentId, date));
+        }
+
     }
 }
