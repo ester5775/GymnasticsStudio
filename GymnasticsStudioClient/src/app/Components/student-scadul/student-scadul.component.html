@@ -5,15 +5,15 @@
    <mat-card-content *ngIf="CurrentSubscription">
       <table class="table">
          <tr>
-            
+            <td>מנוי נוכחי:</td>
             <td> {{CurrentSubscription.Name}} </td>
-            <td>:מנוי נוכחי</td>
+           
       </tr>
       <tr>
-        
+         <td>אוחזת בתוך המנוי: </td>
          <td *ngIf="WeekNum"> בשבוע {{WeekNum}} מתוך {{CurrentSubscription.WeeksNum}} + {{status}} של {{Balance}} ש'ח  
           </td>
-          <td>:אוחזת בתוך המנוי </td>
+          
      
    </tr>
    

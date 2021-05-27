@@ -1,8 +1,13 @@
 <mat-card class="student-student-card">
 <mat-card-header>
-{{Id}} :מצב נוכחות
+מצב נוכחות:
 </mat-card-header>
 <mat-card-content>
 
+<mat-list role="list">
+    <div mat-subheader>חיסורים:</div>
+    <mat-list-item role="listitem" *ngFor="let Absence of AbsencesList">{{Absence.Date}}      {{Absence.LessonName}}</mat-list-item>
+    
+  </mat-list>
 </mat-card-content>
 </mat-card>

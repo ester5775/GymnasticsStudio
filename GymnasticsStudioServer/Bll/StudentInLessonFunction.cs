@@ -53,8 +53,8 @@ namespace Bll
                     for (int i = 0; i < studentInLessonList.Count(); i++)
                     {
                         var s=studentInLessonList[i];
-                        s.StartDate=Convert.ToDateTime(s.StartDate).AddDays(reminder);
-                        s.FinishDate = Convert.ToDateTime(s.FinishDate).AddDays(reminder);
+                        s.Date=Convert.ToDateTime(s.Date).AddDays(reminder);
+                        
                         GSDE.SaveChanges();
                     }
                        
@@ -68,6 +68,25 @@ namespace Bll
 
                 throw e;
             }
+        }
+        public static List<LessonInDateDTO> GetAbsencesListByStudentId( int studentId)
+        {
+            List<LessonInDateDTO> lessonInDateDTOList = new List<LessonInDateDTO>();
+            List<StudentInLesson> studentInLessonList = new List<StudentInLesson>();
+            using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
+            {
+                studentInLessonList = GSDE.StudentInLessons.Where(x => x.StudentId == studentId && x.Attendance==false).ToList();
+           
+                for(int i=0;i<studentInLessonList.Count();i++)
+                {
+                    LessonInDateDTO lessonInDateDTO = new LessonInDateDTO();                    
+                    lessonInDateDTO.Date = studentInLessonList[i].Date.ToString();
+                    var studentInLessonId=studentInLessonList[i].LessonId;
+                    lessonInDateDTO.LessonName = GSDE.Lessons.Where(x => x.Id == studentInLessonId).First().Name;
+                    lessonInDateDTOList.Add(lessonInDateDTO);
+                }
+            }
+            return lessonInDateDTOList;
         }
     }
 }

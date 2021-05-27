@@ -23,6 +23,7 @@
     "@angular/router": "~11.0.6",
     "@progress/kendo-angular-inputs": "^7.0.0",
     "@rxweb/reactive-dynamic-forms": "0.0.4",
+    "ng2-pdf-viewer": "^7.0.1",
     "ngx-mask": "^11.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

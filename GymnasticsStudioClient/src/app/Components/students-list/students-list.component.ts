@@ -71,10 +71,13 @@ export class StudentsListComponent implements OnInit {
     
     this.router.navigateByUrl("customers/students-list/"+this.studentsKind+"/(studentOptionsRouterOutlet:student-attendance-scadul/"+studentId+")");
   }
-  OpenStudentFiels(studentId:number){
+  OpenStudentFiels (studentId:number){
     
-    this.router.navigateByUrl("customers/students-fiels/"+this.studentsKind+"/(studentOptionsRouterOutlet:student-attendance-scadul/"+studentId+")");
+    this.router.navigateByUrl("customers/students-list/"+this.studentsKind+"/(studentOptionsRouterOutlet:student-files/"+studentId+")");
   }
+  
+    
+   
   logIn(){
     
     this.router.navigateByUrl("customers/log-in/(studentOptionsRouterOutlet:student-attendance-scadul)");
@@ -95,7 +98,7 @@ search()
     this.StudentsList=studentsList;
   });
 
-};
+}
 }
   
   

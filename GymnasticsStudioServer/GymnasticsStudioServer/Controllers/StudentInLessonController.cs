@@ -17,7 +17,7 @@ namespace GymnasticsStudioServer.Controllers
     [RoutePrefix("api/StudentInLesson")]  
     public class StudentInLessonController : ApiController
     {
-        // PostStudentInLessons: api/StudentInLesson
+        // PostStudentInLessons: api/StudentInLesson/1
         [HttpPost]
         [Route("PostStudentInLessons/{studentId}/{date}")]
         public IHttpActionResult PostStudentInLessons( int studentId, string date, [FromBody] LessonDTO lessonDTO)
@@ -25,5 +25,14 @@ namespace GymnasticsStudioServer.Controllers
             return Ok(StudentInLessonFunction.PostStudentInLessons(lessonDTO, studentId, date));
         }
 
+
+
+        // GetAbsencesListByStudentId: api/StudentInLesson/2
+        [HttpGet]
+        [Route("GetAbsencesListByStudentId/{id}")]
+        public IEnumerable<LessonInDateDTO> GetAbsencesListByStudentId(int id)
+        {
+            return StudentInLessonFunction.GetAbsencesListByStudentId(id);
+        }
     }
 }

@@ -139,8 +139,6 @@ namespace Bll
 
         public static bool EditStudent(StudentDTO student)
         {
-            try
-            {
                 using (Gymnastics_Studio_DataEntities context = new Gymnastics_Studio_DataEntities())
                 {
 
@@ -163,12 +161,8 @@ namespace Bll
                     }
                     else return false;
                 }
-            }
-            catch (Exception e)
-            {
-
-                return false;
-            }
+            
+           
         }
 
 

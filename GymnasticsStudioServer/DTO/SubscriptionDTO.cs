@@ -19,6 +19,7 @@ namespace DTO
         public static SubscriptionDTO ConvertToDTO(Subscription subscription)
         {
             SubscriptionDTO subscriptionDTO = new SubscriptionDTO();
+            if(subscription.Id!=default)
             subscriptionDTO.Id = subscription.Id;
             subscriptionDTO.Name = subscription.Name;
             subscriptionDTO.Price = subscription.Price;

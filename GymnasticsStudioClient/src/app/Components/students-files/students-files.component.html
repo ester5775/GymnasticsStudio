@@ -1,1 +1,15 @@
-<p>students-files works!</p>
+<mat-card class="student-student-card">
+
+ 
+  
+  <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+  <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+
+
+    <!-- <embed src="C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioClient\src\app\Fiels\מסכים לתכנות 28.2.21.pdf" 
+    style="width: 100%;height: 500px" 
+    type="application/pdf"> -->
+    <pdf-viewer [src]="pdfSource"
+              [original-size]="false"
+  ></pdf-viewer>
+</mat-card>

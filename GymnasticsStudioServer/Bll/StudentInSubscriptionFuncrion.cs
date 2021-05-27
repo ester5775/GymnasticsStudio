@@ -65,10 +65,13 @@ namespace Bll
                 CurrentstudentInSubscription = GSDE.StudentInSubscriptions.Where(x => x.StudentId == studentId && x.StartDate <= DateTime.Now && x.FinishDate >= DateTime.Now).FirstOrDefault();
                 Subscription currentSubscriptin = new Subscription();
                 if (CurrentstudentInSubscription != default)
+                {
                     currentSubscriptin = GSDE.Subscriptions.Where(x => x.Id == CurrentstudentInSubscription.SubscribtionId).FirstOrDefault();
+                    return SubscriptionDTO.ConvertToDTO(currentSubscriptin);
+                }
                 else
-                    currentSubscriptin = null;
-                return SubscriptionDTO.ConvertToDTO(currentSubscriptin);
+                    return null;
+                
             }
 
 
