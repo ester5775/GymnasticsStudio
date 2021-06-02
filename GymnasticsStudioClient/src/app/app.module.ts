@@ -27,10 +27,11 @@ import { MatSelectModule} from '@angular/material/select';
 import { MatInputModule} from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatExpansionModule} from '@angular/material/expansion';
+
 import {MatTreeModule} from '@angular/material/tree';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -48,7 +49,9 @@ import { from } from 'rxjs';
 import { DateDialogBoxComponent } from './Components/date-dialog-box/date-dialog-box.component';
 import { ParticularSubscriptionDialgBoxComponent } from './Components/particular-subscription-dialg-box/particular-subscription-dialg-box.component';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
-
+import { ScadulComponent } from './Components/scadul/scadul.component';
+import { SubscriptionsOfStudentsDetailsComponent } from './Components/subscriptions-of-students-details/subscriptions-of-students-details.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 // import { MaskedTextBoxModule } from '@progress/kendo-angular-inputs';
 
 
@@ -69,6 +72,8 @@ import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
     EditStudentDetailsComponent,
     DateDialogBoxComponent,
     ParticularSubscriptionDialgBoxComponent,
+    ScadulComponent,
+    SubscriptionsOfStudentsDetailsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -97,6 +102,7 @@ import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
     CommonModule,
     MatListModule,
     MatDialogModule,
+    MatCheckboxModule,
     //MaskedTextBoxModule,
     HttpClientModule,
     PdfViewerModule,
@@ -125,7 +131,7 @@ import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
     CommonModule,
     MatListModule,
     MatDialogModule,
-   
+    MatCheckboxModule,
     
   ],
  

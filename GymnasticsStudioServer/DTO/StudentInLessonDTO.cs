@@ -16,6 +16,7 @@ namespace DTO
         public Nullable<int> LessonId { get; set; }
         public string Date { get; set; }
         public Nullable<bool> Attendance { get; set; }
+        public Nullable<int> WeekId { get; set; }
 
         public static StudentInLessonDTO ConvertToDTO(StudentInLesson studentInLesson)
         {
@@ -25,6 +26,7 @@ namespace DTO
             studentInLessonDTO.LessonId = studentInLesson.LessonId;
             studentInLessonDTO.Date = studentInLesson.Date.ToString();
             studentInLessonDTO.Attendance = studentInLesson.Attendance;
+            studentInLessonDTO.WeekId = studentInLesson.WeekId;
 
             return studentInLessonDTO;
         }
@@ -48,8 +50,8 @@ namespace DTO
             studentInLesson.LessonId = studentInLessonDTO.LessonId;
             studentInLesson.Date = Convert.ToDateTime(studentInLessonDTO.Date);
             studentInLesson.Attendance = studentInLessonDTO.Attendance;
-           
-
+            studentInLesson.WeekId = studentInLessonDTO.WeekId;
+            
             return studentInLesson;
         }
 

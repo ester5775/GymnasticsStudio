@@ -56,8 +56,11 @@
     <Compile Include="StudentDTO.cs" />
     <Compile Include="StudentInLessonDTO.cs" />
     <Compile Include="StudentInSubscriptionDTO.cs" />
+    <Compile Include="StudentInSubscripyionDetailsDTO.cs" />
+    <Compile Include="StudentInSubscriptionDetailsListDTO.cs" />
     <Compile Include="SubscriptionDTO.cs" />
     <Compile Include="TeacherDTO.cs" />
+    <Compile Include="WeekDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,7 +59,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentFunction.cs" />
     <Compile Include="StudentInLessonFunction.cs" />
+    <Compile Include="StudentInSubscriptionDetailsListFunction.cs" />
     <Compile Include="StudentInSubscriptionFuncrion.cs" />
+    <Compile Include="StudentInSubscripyionDetailsFunction.cs" />
     <Compile Include="SubscriptionFunction.cs" />
     <Compile Include="TeacherFunction.cs" />
   </ItemGroup>

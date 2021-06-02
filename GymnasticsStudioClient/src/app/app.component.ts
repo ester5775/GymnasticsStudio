@@ -36,5 +36,8 @@ ShowStudentsList(studentKind:string)
     this.router.navigate(['customers/students-list/'+studentKind]);
   }
 
-  
+  ShowSubscriptionsOfStudentsDetails()
+  {
+    this.router.navigate(['customers/subscriptions-of-students-details/'+"נשים"]);
+  }
 }

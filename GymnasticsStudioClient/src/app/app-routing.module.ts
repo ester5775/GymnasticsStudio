@@ -13,6 +13,7 @@ import { CustomersComponent } from './Components/customers/customers.component';
 import { ManagerComponent } from './Components/manager/manager.component';
 import { StudentsFilesComponent } from './Components/students-files/students-files.component';
 import { EditStudentDetailsComponent } from './Components/edit-student-details/edit-student-details.component';
+import { SubscriptionsOfStudentsDetailsComponent } from './Components/subscriptions-of-students-details/subscriptions-of-students-details.component';
 
 
 
@@ -28,10 +29,11 @@ children:[{ path: 'students-list/:StudentKind', component: StudentsListComponent
                 { path: 'student-scadul/:Id', component: StudentScadulComponent ,outlet: 'studentOptionsRouterOutlet'},
                 { path: 'student-attendance-scadul/:Id', component: StudentAttendanceScadulComponent ,outlet: 'studentOptionsRouterOutlet'},
                 { path: 'student-files/:Id', component: StudentsFilesComponent ,outlet: 'studentOptionsRouterOutlet'},
-                { path: 'log-in', component: LogInComponent ,outlet: 'studentOptionsRouterOutlet'},]
-                
-              }, 
-]},
+                { path: 'log-in', component: LogInComponent ,outlet: 'studentOptionsRouterOutlet'},
+               ]
+          }, 
+          {  path: 'subscriptions-of-students-details/:StudentKind', component: SubscriptionsOfStudentsDetailsComponent} ,  
+         ]},
 { path: 'manager', component: ManagerComponent},
 { path: 'edit-user/:Id', component: EditStudentDetailsComponent },
 ];

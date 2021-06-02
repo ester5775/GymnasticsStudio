@@ -1,0 +1,63 @@
+
+      
+
+<table class="table" *ngIf="studentInSubscriptionDetailsList" mat-table [dataSource]="studentInSubscriptionDetailsList[0].studentInSubscriptionDetailsDTOList" class="mat-elevation-z8">
+   
+   
+    <ng-container  matColumnDef="Date">
+        <th  mat-header-cell *matHeaderCellDef> תאריך </th>
+   
+        <td class="mat-cell"  mat-cell *matCellDef="let element;let i = index"  [attr.rowspan]="getDRowSpan(i)">
+            <div *ngIf="dRowSpan==1||i==dCorrIndex"> {{element.WeekStartDate}} - {{element.WeekFinishDate}} 
+            <br>
+            {{element.WeeklyPortion}}</div>
+        </td>
+  
+
+      </ng-container>
+
+      <ng-container matColumnDef="Lesson">
+        <th mat-header-cell *matHeaderCellDef> אמורה להיות בשיעור </th>
+        <td class="mat-cell" mat-cell *matCellDef="let element">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{element.LessonName}}
+                  </mat-panel-title>         
+            </mat-expansion-panel-header>
+           
+            יום  {{element.LessonDay}} 
+             <br>
+              {{element.LessonStartHower}} - {{element.LessonFinishHower}}
+         </mat-expansion-panel>
+       
+        </mat-accordion> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Attendence">
+        <th mat-header-cell *matHeaderCellDef> נוכחות </th>
+        <td class="mat-cell" mat-cell *matCellDef="let element"> 
+            <mat-checkbox class="example-margin"></mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Subscription">
+        <th mat-header-cell *matHeaderCellDef> מנוי </th>
+        <td class="mat-cell" mat-cell *matCellDef="let element;let i = index" [attr.rowspan]="getSRowSpan(i)" > 
+            <div *ngIf="sRowSpan==1||i==sCorrIndex" >  {{element.SubscriptionName}}</div>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="Payment">
+        <th mat-header-cell *matHeaderCellDef> תשלום </th>
+        <td class="mat-cell" mat-cell *matCellDef="let element;let i = index" [attr.rowspan]="getPRowSpan(i)"> 
+            <div *ngIf="pRowSpan==1||i==pCorrIndex" >  {{element.PaymentSum}} שולם ב{{element.PaymentStartDate}}</div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+</table>
