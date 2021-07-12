@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class WeekDTO
+    public class WeekDTO
     {
         public string WeeklyPortion { get; set; }
         public string Note { get; set; }

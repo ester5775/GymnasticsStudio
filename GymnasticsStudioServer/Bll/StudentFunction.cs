@@ -126,7 +126,7 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 int balance;
-                int? balance1 = GSDE.Students.Where(x => x.Id == id).FirstOrDefault().Balance;
+                double? balance1 = GSDE.Students.Where(x => x.Id == id).FirstOrDefault().Balance;
                 if (balance1 == null)
                     balance = 0;
                 else balance = (int)balance1;
@@ -151,7 +151,12 @@ namespace Bll
                         s.PhoneNumber = student.PhoneNumber?.TrimStart().TrimEnd();
                         s.Pignicher = student.Pignicher?.TrimStart().TrimEnd();
                         s.Comments = student.Comments?.TrimStart().TrimEnd();
-                        s.CreditDetail.CreditNumber = student.CreditCardNumber?.TrimStart().TrimEnd();
+                    if (s.CreditDetail == null)
+                    {
+                        CreditDetail creditDetail = new CreditDetail();
+                        creditDetail.Students.Add(s);
+                    }
+                        s.CreditDetail.CreditNumber = student.CreditCardNumber;
                         s.HMO = student.HMO?.TrimStart().TrimEnd();
                         s.Addrees = student.Addrees?.TrimStart().TrimEnd();
                         s.BirthDay = student?.BirthDay;
@@ -163,6 +168,41 @@ namespace Bll
                 }
             
            
+        }
+
+        public static int AddStudent(StudentDTO studentDTO)
+        {
+            try
+            {
+                using (Gymnastics_Studio_DataEntities context = new Gymnastics_Studio_DataEntities())
+                {
+
+
+
+                    Student student = new Student();
+                    student.FirstName = studentDTO.FirstName?.TrimStart().TrimEnd();
+                    student.LastName = studentDTO.LastName?.TrimStart().TrimEnd();
+                    student.IdentityNumber = studentDTO.IdentityNumber?.TrimStart().TrimEnd();
+                    student.PhoneNumber = studentDTO.PhoneNumber?.TrimStart().TrimEnd();
+                    student.Pignicher = studentDTO.Pignicher?.TrimStart().TrimEnd();
+                    student.Comments = studentDTO.Comments?.TrimStart().TrimEnd();
+  //
+                    student.HMO = studentDTO.HMO?.TrimStart().TrimEnd();
+                    student.Addrees = studentDTO.Addrees?.TrimStart().TrimEnd();
+                    student.BirthDay = studentDTO?.BirthDay;
+                    //
+                    student.StudentKind = studentDTO?.StudentKind;
+                    context.Students.Add(student);
+                    context.SaveChanges();
+                    
+                    return context.Students.Max(o => o.Id); 
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Student } from '../classes/student';
 import { StudentInSubscription } from '../classes/student-in-subscription';
 import { Subscription } from '../classes/subscription';
+import { ExceptionsEnum } from '../Enums/exceptions-enum.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -43,4 +44,22 @@ export class StudentInSubscriptionService {
   AddStudentInSubscription(studentInSubscription: StudentInSubscription):Observable<boolean> {
     return this.http.put<boolean>(this.studentUrl+"AddStudentInSubscription", studentInSubscription);
   }
+
+  
+  AddStudentInSubscriptionUpToNowForEvryStudent():Observable<boolean> {
+    return this.http.get<boolean>(this.studentUrl+"AddStudentInSubscriptionUpToNowForEvryStudent");
+  }
+
+  EditSubscription(CurrentStudentInSubscriptionId:number,subscriptionId:number):Observable<boolean> {
+    return this.http.get<boolean>(this.studentUrl+"EditSubscription/"+CurrentStudentInSubscriptionId+"/"+subscriptionId);
+  }
+
+  CreateStudentInSubscription(StudetInSubsctiption:StudentInSubscription):Observable<boolean> {
+    return this.http.post<boolean>(this.studentUrl+"CreateStudentInSubscription",StudetInSubsctiption);
+  }
+
+  StopSubscriptionByDate(date:string):Observable<ExceptionsEnum> {
+    return this.http.get<ExceptionsEnum>(this.studentUrl+"StopSubscriptionByDate/"+date);
+  }
+
 }

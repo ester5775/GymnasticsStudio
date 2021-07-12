@@ -15,6 +15,8 @@ import { SubscriptionService } from 'src/app/Services/subscription.service';
 import { TeacherService } from 'src/app/Services/teacher.service';
 import { DateDialogBoxComponent } from '../date-dialog-box/date-dialog-box.component';
 import { ParticularSubscriptionDialgBoxComponent } from '../particular-subscription-dialg-box/particular-subscription-dialg-box.component';
+import { MatSnackBar,MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import { ExceptionsEnum } from 'src/app/Enums/exceptions-enum.enum';
 
 @Component({
   selector: 'app-student-scadul',
@@ -39,11 +41,19 @@ export class StudentScadulComponent implements OnInit {
   Date:string;
   ParticularSubscription:ParticularSubscription;
   FullLesson:boolean=false;
+  LessonOfSubscriptionList:Array<Lesson>;
+  StudentInSubscreption:StudentInSubscription;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+
   constructor(private route: ActivatedRoute,private studentInSubscriptionService:StudentInSubscriptionService,
     private studentService:StudentService,private subscriptionService:SubscriptionService,
     private lessonService:LessonService,private teacherService:TeacherService,
     private studentInLessonService:StudentInLessonService,public dialog: MatDialog,
-    private particularSubscriptionService:ParticularSubscriptionService) {
+    private particularSubscriptionService:ParticularSubscriptionService,
+    private LessonService:LessonService,
+    private _snackBar: MatSnackBar) {
     
     this.Id=route.snapshot.paramMap.get('Id');}
     
@@ -52,6 +62,7 @@ export class StudentScadulComponent implements OnInit {
   async ngOnInit(): Promise<void> {
 
     this.CurrentSubscription= await this.studentInSubscriptionService.getCurrentSubscription(this.Id).toPromise();
+    
     this.CurrentStudentInSubscription=await this.studentInSubscriptionService.getCurrentStudentInSubscription(this.Id).toPromise();
     this.WeekNum = await this.studentInSubscriptionService.getCurrentWeekNum(this.Id).toPromise();
     this.Balance= await this.studentService.getBalance(this.Id).toPromise();
@@ -64,17 +75,19 @@ export class StudentScadulComponent implements OnInit {
   async FullSubscriptionMenue()
   {
     
-    this.SubscriptionList = await this.subscriptionService.getSubscriptionList(this.Id).toPromise();
+    this.SubscriptionList = await this.subscriptionService.getSubscriptionListByStudent(this.Id).toPromise();
   }
 
-  EditSubscription(subscription:Subscription)
+  EditSubscription(SubsctiptionId:number)
+  {  
+    this.studentInSubscriptionService.EditSubscription(this.CurrentStudentInSubscription.Id,SubsctiptionId)
+    .subscribe(res=>console.log(res),err=>console.log(err))
+  }
+
+  async FullLessonOfSubscriptionMenue(LessonKind:string,SubscreptionId:number)
   {
-    this.NewStudentInSubscription=new StudentInSubscription();
-    this.NewStudentInSubscription.StartDate=this.CurrentStudentInSubscription.FinishDate;
-    this.NewStudentInSubscription.StudentId=this.CurrentStudentInSubscription.StudentId;
-    this.NewStudentInSubscription.SubscribtionId=subscription.Id;
-    this.studentInSubscriptionService.AddStudentInSubscription(this.NewStudentInSubscription).subscribe(res=>console.log(res),err=>console.log(err))
-   
+    this.SubsctiptionId=SubscreptionId;
+    this.LessonOfSubscriptionList=await this.LessonService.getLessonListByLessonKind(LessonKind).toPromise();
   }
  
 
@@ -113,22 +126,26 @@ export class StudentScadulComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.Date = result;
-      this.FullLessonMenue();
+      this.FullSpesificLessonMenue();
       this.FullLesson=true;
     });
   }
 
 
 
-  async FullLessonMenue()
+  async FullSpesificLessonMenue()
   {
-    
+    if(this.Date)
+    {
     this.LessonsList = await this.lessonService.getLessonsListBySubscriptionByStudentIdEndDate(parseInt(this.Id),this.Date).toPromise();
+    if(this.LessonsList==null)this.openSnackBar("לא נימצאו שיעורים שניתן להירשם אליהם בתאריך המבוקש!!!") ;
+    else{
     this.TeacherIdList=new Array<number>();
     this.LessonsList.forEach(lesson=>this.TeacherIdList.push(lesson.TeacherId));
 
     this.TeacherNameList = await this.teacherService.getTeacherNameList(this.TeacherIdList).toPromise();
-
+  }
+   }
   }
 
 
@@ -138,8 +155,69 @@ export class StudentScadulComponent implements OnInit {
    
     
   }
+
+  CreateStudentInSubscription(SubsctiptionId:number)
+  {
+    const dialogRef = this.dialog.open(DateDialogBoxComponent, {
+      width: '250px',
+      data: {Date:this.Date},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result!=undefined){
+          this.StudentInSubscreption=new StudentInSubscription();
+          this.StudentInSubscreption.StartDate= result;
+          this.StudentInSubscreption.FinishDate= result;
+          this.StudentInSubscreption.Stop=false;
+          this.StudentInSubscreption.StudentId=this.Id;
+          this.StudentInSubscreption.SubscribtionId=SubsctiptionId;
+          this.studentInSubscriptionService.CreateStudentInSubscription(this.StudentInSubscreption)
+        .subscribe((res)=>{console.log(res);
+        if(res==false)this.openSnackBar('!!! לא ניתן ליצור מנוי זה, מאחר וכבר קיים מנוי אחר בתאריך המבוקש');},
+        (err)=>{console.log(err);})
+      }
+      else
+      this.openSnackBar('!!! לא הוגדר תאריך');
+    });
+  }
+
+  openSnackBar(messege:string) {
+    this._snackBar.open(messege, 'X', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+  }
+
+
+
+
+  CreateStudentInLesson(LessonId:number)
+  {
+
+    this.studentInLessonService.CreateLessonListByDate(this.Id,LessonId,this.Date).subscribe((res)=>{console.log(res.toString());
+      if(res!=ExceptionsEnum.True)this.openSnackBar("!!! לא ניתן לקבוע שיעור זה, מאחר ומספר השיעורים הקבועים עובר את התואם למנוי זה ");},
+      (err)=>{console.log(err);});
+   
+    console.log('create');
+  }
+
+
+
+  StopStudentInSubscription()
+  {
+  const dialogRef = this.dialog.open(DateDialogBoxComponent, {
+    width: '250px',
+    data: {Date:this.Date},
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    if(result!=undefined)
+    this.studentInSubscriptionService.StopSubscriptionByDate(result).subscribe(res=>console.log(res.toString()));
+    else
+    this.openSnackBar('!!! לא הוגדר תאריך');
+  });
 }
 
 
-
+}
 

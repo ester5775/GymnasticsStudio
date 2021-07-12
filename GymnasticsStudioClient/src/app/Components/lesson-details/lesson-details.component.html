@@ -1,0 +1,68 @@
+<mat-card class="student-student-card">
+    <mat-card-header>
+      <mat-card-title> פרטים אישים :{{id}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="50px" [gutterSize]="'10px'">
+        <form [formGroup]="SignUpForm" (ngSubmit)="OnSubmit()">
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>שם השיעור</mat-label>
+              <input formControlName="Name" matInput placeholder="שם השיעור">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>שם המורה</mat-label>
+              <input formControlName="TeacherId" matInput placeholder="שם המורה">
+            </mat-form-field>
+          </mat-grid-tile>
+         
+          <mat-grid-tile>  
+            <mat-form-field appearance="outline">
+              <mat-label>יום</mat-label>
+              <input matInput formControlName="Day" placeholder=" יום">
+            </mat-form-field>
+          </mat-grid-tile> 
+
+          <mat-grid-tile>  
+            <mat-form-field appearance="outline">
+              <mat-label>שעת התחלה</mat-label>  
+              <input formControlName="StartHower" matInput type="tel" placeholder="שעת התחלה">              
+            </mat-form-field>
+          </mat-grid-tile>
+
+          
+          <mat-grid-tile>  
+            <mat-form-field appearance="outline">
+              <mat-label>שעת סיום</mat-label>  
+              <input formControlName="FinishHower" matInput type="tel" placeholder="שעת סיום">              
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>  
+            <mat-form-field appearance="outline">
+              <mat-label>מספר משתתפות מקסימלי</mat-label>  
+              <input formControlName="MaxStudensNum" matInput type="tel" placeholder="מספר משתתפות מקסימלי">              
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>  
+            <mat-form-field appearance="outline">
+              <mat-label>סוג השיעור</mat-label>  
+              <input formControlName="LessonKind" matInput type="tel" placeholder="סוג השיעור">              
+            </mat-form-field>
+          </mat-grid-tile>
+         
+       
+  
+        </form>
+      </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <button mat-raised-button (click)="Change()" color="primary">שנה</button>
+      <button mat-button (click)="OnSubmit()" type="submit" id="submitButton" color="primary">שמור שינויים</button>
+    </mat-card-actions>
+  
+  
+  </mat-card>

@@ -5,23 +5,14 @@
     left: 10%;
     height: 70%;
     width: 30%;
-    text-align: center;
+    text-align: right;
 }
 
-
-.table
-{
-    text-align: center;
-    position: relative;
-    
+button{
+    margin: 10px !important;
 }
 
-tr
-{
-    text-align: center;
-}
+mat-stroked-button {
+    direction: rtl;
+  }
 
-td
-{
-    text-align: center;
-}

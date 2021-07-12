@@ -15,7 +15,7 @@ namespace DTO
         public string StartDate { get; set; }
         public string FinishDate { get; set; }
         public string LessonKind { get; set; }
-        public Nullable<int> Price { get; set; }
+        public Nullable<double> Price { get; set; }
 
         public static ParticularSubScriptionDTO Convert(ParticularSubscription particularSubscription)
         {

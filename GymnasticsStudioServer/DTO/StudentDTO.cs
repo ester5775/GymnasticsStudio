@@ -17,7 +17,7 @@ namespace DTO
         public string PhoneNumber { get; set; }
         public string Pignicher { get; set; }
         public string StudentKind { get; set; }
-        public Nullable<int> Balance { get; set; }
+        public Nullable<double> Balance { get; set; }
         public Nullable<int> CreditDetailsId { get; set; }
         public string Addrees { get; set; }
         public Nullable<System.DateTime> BirthDay { get; set; }
@@ -47,7 +47,7 @@ namespace DTO
             studentDTO.CreditDetailsId = student.CreditDetailsId;
             studentDTO.CreditCardBackDigitis = student.CreditDetail?.BackDigits;
             studentDTO.CreditCardValidity = student.CreditDetail?.Validity;
-            studentDTO.CreditCardNumber = student.CreditDetail.CreditNumber;
+            studentDTO.CreditCardNumber = student.CreditDetail?.CreditNumber;
             return studentDTO;
         }
 

@@ -24,8 +24,8 @@ namespace DTO
         public int PaymentId { get; set; }
         public string PaymentStartDate { get; set; }
         public string PaymentFinishDate { get; set; }
-        public Nullable<int> PaymentSum { get; set; }
+        public Nullable<double> PaymentSum { get; set; }
         public int StudntId { get; set; }
-        public Nullable<int> Balance { get; set; }
+        public Nullable<double> Balance { get; set; }
     }
 }

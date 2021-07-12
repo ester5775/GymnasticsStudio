@@ -1,0 +1,52 @@
+<mat-card class="student-student-card">
+    <mat-card-header>
+      <mat-card-title> פרטים אישים :{{id}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="50px" [gutterSize]="'10px'">
+        <form [formGroup]="SignUpForm" (ngSubmit)="OnSubmit()">
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>שם פרטי</mat-label>
+              <input formControlName="firstName" matInput placeholder="שם פרטי">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>שם משפחה</mat-label>
+              <input formControlName="lastName" matInput placeholder="שם משפחה">
+            </mat-form-field>
+          </mat-grid-tile>
+         
+          <mat-grid-tile>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>מספר זהות</mat-label>
+              <input matInput formControlName="identityNumber" placeholder=" מספר זהות"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </mat-form-field>
+          </mat-grid-tile>
+         
+          <mat-grid-tile>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>נייד</mat-label>
+  
+              <input formControlName="phoneNumber" matInput type="tel" placeholder="נייד"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+          </mat-grid-tile>
+         
+       
+  
+        </form>
+      </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <button mat-raised-button (click)="Change()" color="primary">שנה</button>
+      <button mat-button (click)="OnSubmit()" type="submit" id="submitButton" color="primary">שמור שינויים</button>
+    </mat-card-actions>
+  
+  
+  </mat-card>

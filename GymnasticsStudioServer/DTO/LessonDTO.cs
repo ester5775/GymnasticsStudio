@@ -18,8 +18,9 @@ namespace DTO
         public string FinishHower { get; set; }
         public Nullable<int> MaxStudensNum { get; set; }
         public Nullable<int> MaxSerologersStudensNum { get; set; }
-
         public string LessonKind { get; set; }
+
+
         public static LessonDTO ConvertToDTO(Lesson lesson)
         {
             LessonDTO lessonDTO = new LessonDTO();

@@ -6,4 +6,9 @@ export class Subscription {
     public WeeksNum:number;
     public DaysInWeekNum :number;
     public LessonKind:number;
+    public StudensKind:number;
+    
+    constructor(init?: Partial<Subscription>) {
+        Object.assign(this, init);
+    }
 }

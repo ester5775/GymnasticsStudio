@@ -10,6 +10,8 @@ export class Lesson {
         public MaxSerologersStudensNum:number;
         public LessonKind:number;
 
-      
+        constructor(init?: Partial<Lesson>) {
+                Object.assign(this, init);
+            }
         
 }

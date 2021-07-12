@@ -12,10 +12,11 @@ namespace DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Price { get; set; }
+        public Nullable<double> Price { get; set; }
         public Nullable<int> WeeksNum { get; set; }
         public Nullable<int> DaysInWeekNum { get; set; }
         public string LessonKind { get; set; }
+        public string StudensKind { get; set; }
         public static SubscriptionDTO ConvertToDTO(Subscription subscription)
         {
             SubscriptionDTO subscriptionDTO = new SubscriptionDTO();
@@ -26,7 +27,8 @@ namespace DTO
             subscriptionDTO.WeeksNum = subscription.WeeksNum;
             subscriptionDTO.DaysInWeekNum = subscription.DaysInWeekNum;
             subscriptionDTO.LessonKind = subscription.LessonKind;
-         
+            subscriptionDTO.StudensKind = subscription.StudensKind;
+
             return subscriptionDTO;
         }
 
@@ -50,7 +52,7 @@ namespace DTO
             subscription.WeeksNum = subscriptionDTO.WeeksNum;
             subscription.DaysInWeekNum = subscriptionDTO.DaysInWeekNum;
             subscription.LessonKind = subscriptionDTO.LessonKind;
-
+            subscription.StudensKind = subscriptionDTO.StudensKind;
             return subscription;
         }
 

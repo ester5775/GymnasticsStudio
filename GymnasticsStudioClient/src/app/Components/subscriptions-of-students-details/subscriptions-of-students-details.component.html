@@ -1,25 +1,38 @@
+<cdk-virtual-scroll-viewport  itemSize="33" class="viewport">
 
-      
 
-<table class="table" *ngIf="studentInSubscriptionDetailsList" mat-table [dataSource]="studentInSubscriptionDetailsList[0].studentInSubscriptionDetailsDTOList" class="mat-elevation-z8">
-   
-   
-    <ng-container  matColumnDef="Date">
-        <th  mat-header-cell *matHeaderCellDef> תאריך </th>
-   
-        <td class="mat-cell"  mat-cell *matCellDef="let element;let i = index"  [attr.rowspan]="getDRowSpan(i)">
-            <div *ngIf="dRowSpan==1||i==dCorrIndex"> {{element.WeekStartDate}} - {{element.WeekFinishDate}} 
-            <br>
-            {{element.WeeklyPortion}}</div>
-        </td>
+<table class="table" *ngIf="studentInSubscriptionDetailsList" class="mat-elevation-z8">
   
+  
+    <th *ngFor="let element1 of studentInSubscriptionDetailsList" > {{element1.StudentName}} </th>
+      <tr >
+        <td *ngFor="let element1 of studentInSubscriptionDetailsList" class="mat-cell" >
+          <ng-container >
+            <table class="table" *ngIf="element1" mat-table [dataSource]="element1.studentInSubscriptionDetailsDTOList" class="mat-elevation-z8">
+   
+   
+              <ng-container  matColumnDef="Date">
+                <th  mat-header-cell *matHeaderCellDef> תאריך </th>
+        <!-- [attr.rowspan]="getDRowSpan(i)" -->
+                <td class="mat-cell"  mat-cell *matCellDef="let element;let i = index"  >
+          <!-- *ngIf="dRowSpan==1||i==dCorrIndex" -->
+                  <div > 
+                    <button mat-icon-button  class="cloneIcon"  (click)="OpenWeekDetails(element)">*</button>
+                    {{element.WeekStartDate}} - {{element.WeekFinishDate}} 
+                  <br>
+                    {{element.WeeklyPortion}}
+            
+                  </div>
+     
+                </td>
 
+    
       </ng-container>
 
       <ng-container matColumnDef="Lesson">
         <th mat-header-cell *matHeaderCellDef> אמורה להיות בשיעור </th>
         <td class="mat-cell" mat-cell *matCellDef="let element">
-            <mat-accordion>
+            <mat-accordion *ngIf="element.LessonId">
                 <mat-expansion-panel (opened)="panelOpenState = true"
                 (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
@@ -40,24 +53,41 @@
       <ng-container matColumnDef="Attendence">
         <th mat-header-cell *matHeaderCellDef> נוכחות </th>
         <td class="mat-cell" mat-cell *matCellDef="let element"> 
-            <mat-checkbox class="example-margin"></mat-checkbox>
+          <!-- [checked]="element.Attendance" -->
+            <mat-checkbox [checked]="element.Attendance" *ngIf="element.LessonId"   (change)="UpdateAttendence($event.checked,element)" class="example-margin"></mat-checkbox>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="Subscription">
         <th mat-header-cell *matHeaderCellDef> מנוי </th>
-        <td class="mat-cell" mat-cell *matCellDef="let element;let i = index" [attr.rowspan]="getSRowSpan(i)" > 
-            <div *ngIf="sRowSpan==1||i==sCorrIndex" >  {{element.SubscriptionName}}</div>
+        <!-- [attr.rowspan]="getSRowSpan(i)" -->
+        <td class="mat-cell" mat-cell *matCellDef="let element;let i = index"  > 
+          <!-- *ngIf="sRowSpan==1||i==sCorrIndex" -->
+          <div *ngIf="element.LessonId" >  {{element.SubscriptionName}}</div>
         </td>
       </ng-container>
       
       <ng-container matColumnDef="Payment">
         <th mat-header-cell *matHeaderCellDef> תשלום </th>
-        <td class="mat-cell" mat-cell *matCellDef="let element;let i = index" [attr.rowspan]="getPRowSpan(i)"> 
-            <div *ngIf="pRowSpan==1||i==pCorrIndex" >  {{element.PaymentSum}} שולם ב{{element.PaymentStartDate}}</div>
+        <!-- [attr.rowspan]="getPRowSpan(i)" -->
+        <td class="mat-cell" mat-cell *matCellDef="let element;let i = index" > 
+          <!-- *ngIf="pRowSpan==1||i==pCorrIndex" -->
+            <div  *ngIf="element.LessonId">  {{element.PaymentSum}} שולם ב{{element.PaymentStartDate}}</div>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
 </table>
+
+</ng-container>
+</td>
+</tr>
+
+
+
+
+</table>
+</cdk-virtual-scroll-viewport>
+<router-outlet ></router-outlet>
+<router-outlet  name='studentOptionsRouterOutlet' ></router-outlet>

@@ -179,6 +179,7 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\WeekController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +241,7 @@
     <Folder Include="Models\" />
     <Folder Include="Views\ParticularSubScription\" />
     <Folder Include="Views\StudentInSubscriptionDetails\" />
+    <Folder Include="Views\Week\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

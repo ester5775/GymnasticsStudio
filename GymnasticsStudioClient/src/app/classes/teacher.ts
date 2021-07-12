@@ -6,4 +6,8 @@ export class Teacher {
     public IdentityNumber:string;
     public PhoneNumber:string;
 
+
+    constructor(init?: Partial<Teacher>) {
+        Object.assign(this, init);
+    }
 }

@@ -6,66 +6,51 @@
   <mat-card-content >
     <h1>
       מצב תשלום נוכחי:
-    </h1> <br> 
+    </h1> 
     <h2>
     {{state}} של {{Balance}} שקלים
-  </h2>
-        <form [formGroup]="PayDetailsForm" (ngSubmit)="OnSubmit()">
-            <p>
-              <br>
-              <span class="light">
-            <!-- {{}} של {{student.Balance}} שקלים -->
-          </span>
-            <br>
+    </h2>
+    
+    <p>
+      <br>
+      <span class="light">
+    
+      </span>
+      <br>
            
-            <!-- <mat-form-field class="mat-form-field" appearance="fill">
-                
-                <select matNativeControl required  formControlName="manui" >
-                  <option >פעמים בשבוע</option>
-                  <option >פעם בשבוע</option>                 
-                </select>
-            </mat-form-field>
+      
+    
+      <mat-accordion  *ngIf="Balance">
+        <mat-expansion-panel  >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              הסטורית תשלומים
+            </mat-panel-title>
         
-        :על פי מנוי של  
-          <br/>
-          נותרו עוד <span class="pinck-color">{{lessonsCount}}</span> שיעורים 
-    </p> -->
-    
-    <mat-accordion  *ngIf="Balance">
-    <mat-expansion-panel  >
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-          הסטורית תשלומים
-        </mat-panel-title>
-        <!-- <mat-panel-description>
-          
-        </mat-panel-description> -->
 
-      </mat-expansion-panel-header>  
-      <mat-expansion-panel-body [collapsedHeight]="'190px'" [expandedHeight]="'190px'">
-      <cdk-virtual-scroll-viewport  itemSize="33" class="viewport">
+          </mat-expansion-panel-header>  
+          <mat-expansion-panel-body [collapsedHeight]="'190px'" [expandedHeight]="'190px'">
+            <cdk-virtual-scroll-viewport  itemSize="33" class="viewport">
             
-      <mat-list role="list" *ngFor="let payment of PaymentList, let i=index">
-        <h3>שולם: {{payment.Sum}} ש"ח
-          <br>
-בתאריך:  {{payment.StartDate}}
-<br>
-:עבור  
-</h3>
+            <mat-list role="list" *ngFor="let SubscreptionOfPayment of SubscreptionOfPaymentList, let i=index">
+              <h3>
+                שולם: {{SubscreptionOfPayment.Sum}} ש"ח
+                <br>
+                בתאריך:  {{SubscreptionOfPayment.StartDate}}
+                <br>
+                :עבור  
+              </h3>
+              <mat-list role="list" *ngFor="let StudentInSubscreptionDescription of SubscreptionOfPayment.StudentInSubscreptionDescriptionList, let i=index">
+                {{StudentInSubscreptionDescription.SubscreptionName}}  {{StudentInSubscreptionDescription.SubscreptionPrice}}
+              </mat-list>
 
-    <!-- <mat-list-item role="listitem" *ngFor="let studentInSubscriptionName of StudentInSubscriptionNamesListByStudentId[i]">
-           {{studentInSubscriptionName}} 
-    </mat-list-item> -->
-    
-      </mat-list>
-    </cdk-virtual-scroll-viewport>
-  </mat-expansion-panel-body>
-    </mat-expansion-panel>
-  </mat-accordion>
+            </mat-list> 
+          </cdk-virtual-scroll-viewport>
+        </mat-expansion-panel-body>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <button mat-button class="block-display" (click)="AddPayment()">הוסף תשלום</button>
+  </mat-card-content>
+</mat-card>
 
-
-    </form>  
-    
-
-
-</mat-card-content>
+<router-outlet></router-outlet>

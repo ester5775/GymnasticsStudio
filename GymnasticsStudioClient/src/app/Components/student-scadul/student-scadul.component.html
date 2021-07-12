@@ -1,57 +1,79 @@
 <mat-card class="student-student-card">
-   <!-- <mat-card-header>
-   {{Id}} :היכן משובצת וסוג מנוי 
-   </mat-card-header> -->
-   <mat-card-content *ngIf="CurrentSubscription">
-      <table class="table">
-         <tr>
-            <td>מנוי נוכחי:</td>
-            <td> {{CurrentSubscription.Name}} </td>
-           
-      </tr>
-      <tr>
-         <td>אוחזת בתוך המנוי: </td>
-         <td *ngIf="WeekNum"> בשבוע {{WeekNum}} מתוך {{CurrentSubscription.WeeksNum}} + {{status}} של {{Balance}} ש'ח  
-          </td>
-          
+ 
+   <mat-card-content >
+     <div *ngIf="CurrentSubscription">
+      <h1>
+     מנוי נוכחי:
+            {{CurrentSubscription.Name}} 
+           <br>
+           <span *ngIf="WeekNum!=undefined">
+     אוחזת בתוך המנוי:
      
-   </tr>
-   
-   <tr>
-      <button  mat-icon-button [matMenuTriggerFor]="Menu" class="cloneIcon" (click)="FullSubscriptionMenue()">
+          בשבוע {{WeekNum}} מתוך {{CurrentSubscription.WeeksNum}} 
+          
+            + {{status}} של {{Balance}} ש'ח 
+          </span>
+          <span *ngIf="WeekNum==undefined">
+           לא רשומה לשיעורים למנוי זה
+                 </span>
+        </h1>
+        </div>
+          <div *ngIf="!CurrentSubscription"><h1>לא קיים מנוי נוכחי.</h1></div>
+        </mat-card-content>
+          <mat-card-actions align="left">
+
+      <button  mat-raised-button [matMenuTriggerFor]="Menu1" color="primary" (click)="FullSubscriptionMenue()">
          שינוי מנוי </button>
       
          
       
-       <mat-menu #Menu="matMenu">
-        <button mat-menu-item *ngFor="let subscription of SubscriptionList" (click)="EditSubscription(subscription)">{{subscription.Name}}</button>
-        <button mat-menu-item (click)="OpenParticularSubscriptionDialg()">אחר</button>
+       <mat-menu #Menu1="matMenu">
+          
+        <button mat-menu-item  *ngFor="let subscription of SubscriptionList" (click)="EditSubscription(subscription.Id)">{{subscription.Name}}</button>
+        <button mat-menu-item (click)="OpenParticularSubscriptionDialg()">אחר</button>        
        </mat-menu>  
-   </tr>
-  <!-- <tr *ngIf="ParticularSubscription">
-     {{ParticularSubscription.Name}}
-  </tr> -->
-   <tr>
-      <button  mat-icon-button [matMenuTriggerFor]="Menu2" class="cloneIcon" (click)="openDialog()">
-         שינוי שיבוץ </button>
-       
+
+       <!-- <mat-menu #Menu11="matMenu">
+         <button mat-menu-item *ngFor="let lesson of LessonOfSubscriptionList" (click)="EditSubscription(lesson.Id)">{{lesson.Name}} יום {{lesson.Day}} {{lesson.StartHower}}-{{lesson.FinishHower}} </button>
+              
+        </mat-menu>   -->
+
+  
+
       
+      <button  mat-raised-button [matMenuTriggerFor]="Menu2" color="primary" (click)="openDialog()">שינוי שיבוץ </button>      
        <mat-menu #Menu2="matMenu">
-        <button mat-menu-item *ngFor="let lesson of LessonsList; let i = index" (click)="EditLesson(lesson)">{{lesson.Name}} יום {{lesson.Day}} {{lesson.StartHower}}-{{lesson.FinishHower}} {{TeacherNameList[i]}}</button>
-                                    
-        </mat-menu>  
-   </tr>
-   
-     
+       
+        <button mat-menu-item *ngFor="let lesson of LessonsList; let i = index" (click)="EditLesson(lesson)">{{lesson.Name}} יום {{lesson.Day}} {{lesson.StartHower}}-{{lesson.FinishHower}} </button>
+                           
+        </mat-menu> 
+        <br>
+        
+        
+      <button  mat-raised-button [matMenuTriggerFor]="Menu3" color="primary" (click)="FullSubscriptionMenue()" >הרשמה למנוי חדש  </button> 
     
+      <mat-menu #Menu3="matMenu">
+          
+        <button mat-menu-item  *ngFor="let subscription of SubscriptionList" (click)="CreateStudentInSubscription(subscription.Id)">{{subscription.Name}}</button>
+        <button mat-menu-item (click)="OpenParticularSubscriptionDialg()">אחר</button>        
+       </mat-menu> 
+       
+       
+
+        <button  mat-raised-button [matMenuTriggerFor]="Menu4" color="primary" (click)="openDialog()" >הרשמה לשיעור </button> 
+        
+        <mat-menu #Menu4="matMenu">       
+          <button mat-menu-item *ngFor="let lesson of LessonsList; let i = index" (click)="CreateStudentInLesson(lesson.Id)">{{lesson.Name}} יום {{lesson.Day}} {{lesson.StartHower}}-{{lesson.FinishHower}}</button>
+        </mat-menu>
+
+        <br> 
+        <button  mat-raised-button  color="primary" (click)="StopStudentInSubscription()">עצירת מנוי </button>     
+
+        
+       
+        
+       
+
+      </mat-card-actions>
    
-   <!-- <mat-list>
-          <mat-list-item *ngFor="let lesson of LessonsList"><H3>{{payment}}</H3>
-           {{payment.Day}} : יום
-             {{payment.Houer}} : שעה
-          <mat-divider></mat-divider>
-       </mat-list-item>
-      </mat-list> -->
-   </table>
-   </mat-card-content>
    </mat-card>

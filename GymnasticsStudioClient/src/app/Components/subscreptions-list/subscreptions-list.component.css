@@ -1,0 +1,60 @@
+
+body
+{
+
+height: 100%;
+}
+
+
+.mat-card{
+    display:flex;
+    top: 10%;
+    right: 15%;
+    height: 80%;
+    width: 30%;
+}
+.mat-card-content
+{
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+.viewport{
+    border: 1px solid black;
+    display: inline-block;
+    top: 5px;
+    right: 5px;
+    height: 90%;
+    width: 95%;
+    overflow-y: scroll;
+    
+}
+.table{
+    height: 100%;
+    width: 100%;
+}
+
+.table-header{
+    height: 50px;
+    width:100%;
+    font-size: larger;
+    font-weight: 700;
+    background-color:  crimson;
+}
+.table-item{
+   
+    height: 50px;
+    width: 100%;
+  
+}
+
+
+.block-display{
+    display: flex;
+    top:3%;
+    left: 5%;
+    width: 95%;
+}
+ 

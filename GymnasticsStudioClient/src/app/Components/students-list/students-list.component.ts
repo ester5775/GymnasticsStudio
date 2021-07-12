@@ -24,7 +24,7 @@ export class StudentsListComponent implements OnInit {
    
    }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.studentsKind=this.route.snapshot.paramMap.get('StudentKind');
     this.GetStudentsListByKind(this.studentsKind);
    
@@ -78,9 +78,9 @@ export class StudentsListComponent implements OnInit {
   
     
    
-  logIn(){
+  AddStudent(){
     
-    this.router.navigateByUrl("customers/log-in/(studentOptionsRouterOutlet:student-attendance-scadul)");
+    this.router.navigateByUrl("customers/students-list/"+this.studentsKind+"/(studentOptionsRouterOutlet:edit-user/0");
   }
 
 

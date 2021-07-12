@@ -59,11 +59,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentFunction.cs" />
     <Compile Include="StudentInLessonFunction.cs" />
+    <Compile Include="StudentInSubscreptionDescriptionFunction.cs" />
     <Compile Include="StudentInSubscriptionDetailsListFunction.cs" />
     <Compile Include="StudentInSubscriptionFuncrion.cs" />
     <Compile Include="StudentInSubscripyionDetailsFunction.cs" />
+    <Compile Include="SubscreptionOfPaymentFunction.cs" />
     <Compile Include="SubscriptionFunction.cs" />
     <Compile Include="TeacherFunction.cs" />
+    <Compile Include="WeekFunction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

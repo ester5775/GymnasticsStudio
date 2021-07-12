@@ -6,6 +6,7 @@ import { Lesson } from '../classes/lesson';
 import { LessonInDate } from '../classes/lesson-in-date';
 import { StudentInLesson } from '../classes/student-in-lesson';
 import { StudentInSubscription } from '../classes/student-in-subscription';
+import { ExceptionsEnum } from '../Enums/exceptions-enum.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,15 @@ export class StudentInLessonService {
   getAbsencesListByStudentId(StudentId:number): Observable<LessonInDate[]> {
     return this.http.get<LessonInDate[]>(this.studentUrl+"GetAbsencesListByStudentId/"+StudentId);
   }
+
+  
+  UpdateAttendence(studentInLessonId:number,attendence:boolean): Observable<boolean> {
+    return this.http.get<boolean>(this.studentUrl+"UpdateAttendence/"+studentInLessonId+"/"+attendence);
+  }
+
+
+  CreateLessonListByDate(StudentId:number,LessonId:number,Date:string): Observable<ExceptionsEnum> {
+    return this.http.get<ExceptionsEnum>(this.studentUrl+"CreateLessonListByDate/"+StudentId+"/"+LessonId+"/"+Date);
+  }
+ 
   }

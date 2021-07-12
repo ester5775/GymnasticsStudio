@@ -1,5 +1,6 @@
 ﻿
 using Bll;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,43 @@ namespace GymnasticsStudioServer.Controllers
         {
 
             return TeacherFunction.GetTeacherNameList(teacherIdList);
+        }
+
+
+        // POST: api/Student
+        [HttpPost]
+        [Route("EditTeacher")]
+        public IHttpActionResult Post([FromBody] TeacherDTO teacher)
+        {
+            return Ok(TeacherFunction.EditTeacher(teacher));
+        }
+
+        // POST: api/Student
+        [HttpPut]
+        [Route("AddTeacher")]
+        public IHttpActionResult AddTeacher([FromBody] TeacherDTO teacher)
+        {
+            return Ok(TeacherFunction.AddTeacher(teacher));
+        }
+
+
+        // GetTeacherDetailsByTeacherId: api/Teacher
+        [HttpGet]
+        [Route("GetTeacherDetailsByTeacherId/{id}")]
+        public TeacherDTO GetTeacherDetailsByTeacherId(int id)
+        {
+            return TeacherFunction.GetTeacherDetailsByTeacherId(id);
+        }
+
+
+
+        // getTeacherList: api/Taecher
+        [HttpGet]
+        [Route("getTeacherList")]
+        public IEnumerable<TeacherDTO> getTeacherList()
+        {
+
+            return TeacherFunction.getTeacherList();
         }
     }
 }

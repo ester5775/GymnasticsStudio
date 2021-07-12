@@ -48,6 +48,14 @@ namespace GymnasticsStudioServer.Controllers
             return Ok(StudentFunction.EditStudent(student));
         }
 
+        // AddStudent: api/Student
+        [HttpPut]
+        [Route("AddStudent")]
+        public IHttpActionResult AddStudent([FromBody] StudentDTO student)
+        {
+            return Ok(StudentFunction.AddStudent(student));
+        }
+
         // GetStudentsList: api/Student
         [HttpPost]
         [Route("GetStudentsListByDetails")]

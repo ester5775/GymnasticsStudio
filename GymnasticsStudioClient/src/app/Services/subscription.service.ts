@@ -13,8 +13,30 @@ export class SubscriptionService {
   private studentUrl = 'http://localhost:54092/api/Subscription/';
   
 
-  getSubscriptionList(StudentId:number):Observable<Subscription[]>
+  getSubscriptionListByStudent(StudentId:number):Observable<Subscription[]>
   {
-     return this.http.get<Subscription[]>(this.studentUrl+"GetSubscriptionList/"+StudentId);
+     return this.http.get<Subscription[]>(this.studentUrl+"getSubscriptionListByStudent/"+StudentId);
+  }
+
+
+  
+
+  getSubscriptionDetailsBySubscriptionId(id:number): Observable<Subscription> {
+    return this.http.get<Subscription>(this.studentUrl+"GetSubscriptionDetailsBySubscriptionId/"+id);
+  }
+
+ 
+  PostSubscription(Subscription:Subscription):Observable<boolean> {
+    return this.http.post<boolean>(this.studentUrl+"EditSubscription",Subscription);
+  }
+
+  AddSubscription(Subscription:Subscription):Observable<number> {
+    return this.http.put<number>(this.studentUrl+"AddSubscription",Subscription);
+  }
+
+  
+  getSubscriptionList(): Observable<Subscription[]> {
+    return this.http.get<Subscription[]>(this.studentUrl+"getSubscriptionList");
   }
 }
+

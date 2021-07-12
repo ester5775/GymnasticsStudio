@@ -13,12 +13,12 @@ namespace DTO
     public class PaymentDTO
     {
         public int Id { get; set; }
-        public Nullable<int> Sum { get; set; }
+        public Nullable<double> Sum { get; set; }
         public Nullable<int> StudentId { get; set; }
         public string FormOfPayment { get; set; }
         public string StartDate { get; set; }
         public string FinishDate { get; set; }
-
+        public Nullable<double> Balance { get; set; }
 
         public static PaymentDTO ConvertToDTO(Payment payment)
         {
@@ -29,6 +29,7 @@ namespace DTO
             paymentDTO.FormOfPayment = payment.FormOfPayment;
             paymentDTO.StartDate = payment.StartDate.ToString();
             paymentDTO.FinishDate = payment.FinishDate.ToString();
+            paymentDTO.Balance = payment.Balance;
           
             return paymentDTO;
         }
@@ -59,6 +60,7 @@ namespace DTO
                 payment.FinishDate = default(DateTime);
             else
                 payment.FinishDate = Convert.ToDateTime(paymentDTO.FinishDate);
+            payment.Balance = paymentDTO.Balance;
 
             return payment;
         }

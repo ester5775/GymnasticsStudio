@@ -1,0 +1,24 @@
+.student-student-card{
+    position: absolute;
+   text-align: center;
+    top: 20%;
+    left: 20%;
+    height: 67%;
+    width: 60%;
+   
+}
+
+
+
+
+
+.mat-form-field{
+
+    display: inline-block;
+    flex-direction: column;
+    align-items: flex-start;
+    left:5%;
+    width: 80%;
+    
+    }
+    

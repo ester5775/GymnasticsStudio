@@ -52,15 +52,41 @@
 
             <mat-tab>
                 <ng-template mat-tab-label>
-                    <button mat-icon-button [matMenuTriggerFor]="Menu4" class="cloneIcon">
-                        ניהול
+                    <button mat-icon-button (click)="ShowTeachersList()" class="cloneIcon">
+                        מורות
                     </button>                                          
                 </ng-template>  
-                <mat-menu #Menu4="matMenu">
-                    <button mat-menu-item (click)="ShowStudentsList('כללי')"></button>
-                                        
-                </mat-menu>                       
+               
             </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                  <button mat-icon-button (click)="ShowLessonsList()" class="cloneIcon">
+                      שיעורים
+                  </button>                                          
+              </ng-template>  
+                        
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+                <button mat-icon-button (click)="ShowSubscreptionsList()" class="cloneIcon">
+                    מנויים
+                </button>                                          
+            </ng-template>  
+                         
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <button mat-icon-button (click)="AddPaymentList()" class="cloneIcon">
+                    תשלומים
+                </button>                                          
+            </ng-template>  
+                         
+        </mat-tab>
+       
+         
            
     
           </mat-tab-group>

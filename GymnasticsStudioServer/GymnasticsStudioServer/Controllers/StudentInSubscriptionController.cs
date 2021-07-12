@@ -25,7 +25,7 @@ namespace GymnasticsStudioServer.Controllers
         public IEnumerable<StudentInSubscriptionDTO> GetStudentInSubscriptionListByStudentId(int studentId)
         {
 
-            return ParticularSubscriptionFuncrion.GetStudentInSubscriptionListByStudentId(studentId);
+            return StudentInSubscriptionFuncrion.GetStudentInSubscriptionListByStudentId(studentId);
         }
 
         // GetStudentInSubscriptionListStudentId: api/StudentInSubscription
@@ -34,7 +34,7 @@ namespace GymnasticsStudioServer.Controllers
         public IEnumerable<List<string>> GetStudentInSubscriptionNamesListByStudentId(int studentId)
         {
 
-            return ParticularSubscriptionFuncrion.GetStudentInSubscriptionNamesListByStudentId(studentId);
+            return StudentInSubscriptionFuncrion.GetStudentInSubscriptionNamesListByStudentId(studentId);
         }
 
 
@@ -44,7 +44,7 @@ namespace GymnasticsStudioServer.Controllers
         public SubscriptionDTO GetCurrentSubscription(int studentId)
         {
 
-            return ParticularSubscriptionFuncrion.GetCurrentSubscription(studentId);
+            return StudentInSubscriptionFuncrion.GetCurrentSubscription(studentId);
         }
 
 
@@ -55,7 +55,7 @@ namespace GymnasticsStudioServer.Controllers
         public StudentInSubscriptionDTO GetCurrentStudentInSubscription(int studentId)
         {
 
-            return ParticularSubscriptionFuncrion.GetCurrentStudentInSubscription(studentId);
+            return StudentInSubscriptionFuncrion.GetCurrentStudentInSubscription(studentId);
         }
 
 
@@ -65,27 +65,80 @@ namespace GymnasticsStudioServer.Controllers
         public int GetCurrentWeekNum(int studentId)
         {
 
-            return ParticularSubscriptionFuncrion.GetCurrentWeekNum(studentId);
+            return StudentInSubscriptionFuncrion.GetCurrentWeekNum(studentId);
         }
 
 
-        // POST: api/Student
+        // POST: api/StudentInSubscription
         [HttpPost]
         [Route("EditStudentInSubscription")]
         public IHttpActionResult EditStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
         {
-            return Ok(ParticularSubscriptionFuncrion.EditStudentInSubscription(studentInSubscription));
+            return Ok(StudentInSubscriptionFuncrion.EditStudentInSubscription(studentInSubscription));
         }
 
 
 
-        // AddStudentInSubscription: api/Student/5
+        // AddStudentInSubscription: api/StudentInSubscription
         [HttpPut]
         [Route("AddStudentInSubscription")]
         public IHttpActionResult AddStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
         {
 
-            return Ok(ParticularSubscriptionFuncrion.AddStudentInSubscription(studentInSubscription));
+            return Ok(StudentInSubscriptionFuncrion.AddStudentInSubscription(studentInSubscription));
         }
+
+
+        // AddStudentInSubscriptionUpToNow: api/StudentInSubscription
+        [HttpGet]
+        [Route("AddStudentInSubscriptionUpToNow/{studentId}")]
+        public IHttpActionResult AddStudentInSubscriptionUpToNow(int studentId)
+        {
+
+            return Ok(StudentInSubscriptionFuncrion.AddStudentInSubscriptionUpToNow(studentId));
+        }
+
+
+        // AddStudentInSubscriptionUpToNowForEvryStudent: api/StudentInSubscription
+        [HttpGet]
+        [Route("AddStudentInSubscriptionUpToNowForEvryStudent")]
+        public IHttpActionResult AddStudentInSubscriptionUpToNowForEvryStudent()
+        {
+
+            return Ok(StudentInSubscriptionFuncrion.AddStudentInSubscriptionUpToNowForEvryStudent());
+        }
+
+        // EditSubscription: api/StudentInSubscription
+        [HttpGet]
+        [Route("EditSubscription/{CurrentStudentInSubscriptionId}/{subscriptionId}")]
+        public IHttpActionResult EditSubscription(int CurrentStudentInSubscriptionId,int subscriptionId)
+        {
+
+            return Ok(StudentInSubscriptionFuncrion.EditSubscription(CurrentStudentInSubscriptionId,subscriptionId));
+        }
+
+
+
+        // CreateStudentInSubscription: api/StudentInSubscription
+        [HttpPost]
+        [Route("CreateStudentInSubscription")]
+        public IHttpActionResult CreateStudentInSubscription([FromBody] StudentInSubscriptionDTO studentInSubscription)
+        {
+
+            return Ok(StudentInSubscriptionFuncrion.CreateStudentInSubscription(studentInSubscription));
+        }
+
+
+
+        // StopSubscriptionByDate: api/StudentInSubscription
+        [HttpGet]
+        [Route("StopSubscriptionByDate/{date}")]
+        public IHttpActionResult StopSubscriptionByDate(string date)
+        {
+
+            return Ok(StudentInSubscriptionFuncrion.StopSubscriptionByDate(date));
+        }
+
+
     }
 }

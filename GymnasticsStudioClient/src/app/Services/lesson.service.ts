@@ -16,4 +16,30 @@ export class LessonService {
     return this.http.get<Lesson[]>(this.studentUrl+"GetLessonsListBySubscriptionByStudentIdEndDate/"+StudentId+"/"+Date);
   }
 
+  getLessonListByLessonKind(LessonKind:string): Observable<Lesson[]> {
+    return this.http.get<Lesson[]>(this.studentUrl+"GetLessonListByLessonKind/"+LessonKind);
+  }
+
+  
+
+  getLessonDetailsByLessonId(id:number): Observable<Lesson> {
+    return this.http.get<Lesson>(this.studentUrl+"GetLessonDetailsByLessonId/"+id);
+  }
+
+ 
+  PostLesson(Lesson:Lesson):Observable<boolean> {
+    return this.http.post<boolean>(this.studentUrl+"EditLesson",Lesson);
+  }
+
+  AddLesson(Lesson:Lesson):Observable<number> {
+    return this.http.put<number>(this.studentUrl+"AddLesson",Lesson);
+  }
+
+  
+  getLessonList(): Observable<Lesson[]> {
+    return this.http.get<Lesson[]>(this.studentUrl+"getLessonList");
+  }
 }
+
+
+

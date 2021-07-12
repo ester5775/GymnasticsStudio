@@ -1,5 +1,31 @@
 
+table {
+  width: 100%;
+}
+.viewport{
+  border: 1px solid black;
+  display: inline-block;
+  top: 5px;
+  right: 5px;
+  height: 90%;
+  width: 95%;
+  overflow-y: scroll;
+  
+}
 
-.example-margin {
-    margin: 0 12px;
+
+  th,td
+  {
+    
+    text-align: center !important;
+    background-color:darkgoldenrod;
   }
+
+  /* #highlight:target {
+    background-color: #FF9900;
+    -webkit-transition: all 1s linear;
+  } */
+
+  
+
+  

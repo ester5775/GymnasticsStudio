@@ -10,6 +10,7 @@ import { promise } from 'selenium-webdriver';
 import { StudentService } from 'src/app/Services/student.service';
 import { StudentInSubscriptionService } from 'src/app/Services/student-in-subscription.service';
 import { StudentInSubscription } from 'src/app/classes/student-in-subscription';
+import { SubscreptionOfPaymentDTO } from 'src/app/classes/subscreption-of-payment-dto';
 
 
 
@@ -23,18 +24,20 @@ import { StudentInSubscription } from 'src/app/classes/student-in-subscription';
 export class StudentPayDetailsComponent implements OnInit {
   PaymentList:Payment[];
   StudentInSubscriptionNamesListByStudentId:string[][];
-  Id;
+  
   lessonsCount:number=5;
   state:string="יתרה";
   Balance:number;
   lastPayment:Payment;
-  PayDetailsForm = this.formBuilder.group({
-    manui:"פעם בשבוע",
-    
-  });
+  SubscreptionOfPaymentList:SubscreptionOfPaymentDTO[];
+  Payment:Payment;
+  studentsKind;
+  studentId
 
   constructor(private formBuilder: FormBuilder,private router: Router,private route: ActivatedRoute,private studentService:StudentService,private paymentService:PaymentService,private studentInSubscriptionService:StudentInSubscriptionService){
-    this.Id=route.snapshot.paramMap.get('Id');}
+    this.studentId=route.snapshot.paramMap.get('Id');
+    this.studentsKind=route.snapshot.paramMap.get('StudentKind');
+  }
 
   ngOnInit(): void {
     this.GetPaymentListByStudentId();
@@ -45,28 +48,34 @@ export class StudentPayDetailsComponent implements OnInit {
     
      
       
-         this.PaymentList=await this.paymentService.getPaymentsListByStudentId(this.Id).toPromise();
+         this.PaymentList=await this.paymentService.getPaymentsListByStudentId(this.studentId).toPromise();
          
-         this.Balance=(await this.studentService.getStudentDetailsByStudentId(this.Id ).toPromise()).Balance;
-
-         //this.StudentInSubscriptionNamesListByStudentId=(await this.studentInSubscriptionService.getStudentInSubscriptionNamesListByStudentId(this.Id ).toPromise());
-
+         this.Balance=(await this.studentService.getStudentDetailsByStudentId(this.studentId ).toPromise()).Balance;
+         
+         this.SubscreptionOfPaymentList=await this.paymentService.getSubscreptionOfPaymentListByStudentId(this.studentId).toPromise();
+         
         
 
          if(this.Balance<0)
          {
          status="חוב";
          }
-        // this.lastPayment = this.PaymentList.filter(
-        //         payment => payment.FinishDate === '')[0];
-        //         if (this.lastPayment.sum>)
+        
   }
-      
+
+  
+  async AddPayment()
+  {
+    this.router.navigateByUrl("customers/students-list/"+this.studentsKind+"/(studentOptionsRouterOutlet:student-pay-details/"+this.studentId+"/edit-payment)");
+  }
+   
+   
+  
 
   OnSubmit()
   {
     
-    console.log(this.PayDetailsForm.valid);
+   
   }
 }
 

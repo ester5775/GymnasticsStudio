@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionsEnum.cs" />
     <Compile Include="LessonInDateDTO.cs" />
     <Compile Include="ParticularSubScriptionDTO.cs" />
     <Compile Include="PaymentDTO.cs" />
@@ -55,9 +56,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentDTO.cs" />
     <Compile Include="StudentInLessonDTO.cs" />
+    <Compile Include="StudentInSubscreptionDescriptionDTO.cs" />
     <Compile Include="StudentInSubscriptionDTO.cs" />
     <Compile Include="StudentInSubscripyionDetailsDTO.cs" />
     <Compile Include="StudentInSubscriptionDetailsListDTO.cs" />
+    <Compile Include="SubscreptionOfPaymentDTO.cs" />
     <Compile Include="SubscriptionDTO.cs" />
     <Compile Include="TeacherDTO.cs" />
     <Compile Include="WeekDTO.cs" />

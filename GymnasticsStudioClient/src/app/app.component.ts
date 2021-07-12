@@ -36,8 +36,33 @@ ShowStudentsList(studentKind:string)
     this.router.navigate(['customers/students-list/'+studentKind]);
   }
 
+  ShowTeachersList()
+  {
+    this.router.navigate(['']);
+    this.router.navigate(['employees/teachers-list']);
+  }
+
+  ShowLessonsList()
+  {
+    this.router.navigate(['']);
+    this.router.navigate(['lesson/lessons-list']);
+  }
+
+  ShowSubscreptionsList()
+  {
+    this.router.navigate(['']);
+    this.router.navigate(['subscreption/subscreptions-list']);
+  }
+
+
   ShowSubscriptionsOfStudentsDetails()
   {
     this.router.navigate(['customers/subscriptions-of-students-details/'+"נשים"]);
   }
+
+  AddPaymentList()
+  {
+    this.router.navigate(['add-payment-list']);
+  }
+
 }

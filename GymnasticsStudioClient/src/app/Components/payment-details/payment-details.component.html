@@ -1,0 +1,56 @@
+<mat-card class="student-student-card">
+    <mat-card-header>
+       פרטי תשלום 
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="50px" [gutterSize]="'10px'">
+        <form [formGroup]="SignUpForm" (ngSubmit)="OnSubmit()">
+         
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>סכום</mat-label>      
+                  <input formControlName="Sum" matInput placeholder="סכום" type="number">
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>יתרה</mat-label>      
+                  <input formControlName="Balance" matInput placeholder="יתרה" type="number">
+                </mat-form-field>
+              </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>תאריך</mat-label>      
+                  <input formControlName="StartDate" matInput placeholder="תאריך" type="date">
+                </mat-form-field>
+              </mat-grid-tile>
+
+
+
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>שם התלמידה</mat-label>      
+                  <input formControlName="StudentId" matInput placeholder="שם התלמידה">
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>מקור התשלום</mat-label>      
+                  <input formControlName="FormOfPayment" matInput placeholder="מקור התשלום">
+                </mat-form-field>
+              </mat-grid-tile>
+  
+  
+        </form>
+      </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions align="center">
+        <button mat-raised-button (click)="Change()" color="primary">שנה</button>
+      <button mat-button (click)="OnSubmit()" type="submit" id="submitButton" color="primary">שמור</button>
+    </mat-card-actions>
+  
+  
+  </mat-card>

@@ -16,16 +16,19 @@ namespace DTO
         public Nullable<int> SubscribtionId { get; set; }
         public string StartDate { get; set; }
         public string FinishDate { get; set; }
+        public Nullable<bool> Stop { get; set; }
 
 
         public static StudentInSubscriptionDTO ConvertToDTO(StudentInSubscription studentInSubscription)
         {
             StudentInSubscriptionDTO studentInSubscriptionDTO = new StudentInSubscriptionDTO();
+           
             studentInSubscriptionDTO.Id = studentInSubscription.Id;
             studentInSubscriptionDTO.StudentId = studentInSubscription.StudentId;
             studentInSubscriptionDTO.SubscribtionId = studentInSubscription.SubscribtionId;
             studentInSubscriptionDTO.StartDate = studentInSubscription.StartDate.ToString();
             studentInSubscriptionDTO.FinishDate = studentInSubscription.FinishDate.ToString();
+            studentInSubscriptionDTO.Stop = studentInSubscription.Stop;
 
             return studentInSubscriptionDTO;
         }
@@ -49,7 +52,7 @@ namespace DTO
             studentInSubscription.SubscribtionId = studentInSubscriptionDTO.SubscribtionId;
             studentInSubscription.StartDate = Convert.ToDateTime(studentInSubscriptionDTO.StartDate);
             studentInSubscription.FinishDate = Convert.ToDateTime(studentInSubscriptionDTO.FinishDate);
-
+            studentInSubscription.Stop = studentInSubscriptionDTO.Stop;
 
             return studentInSubscription;
 

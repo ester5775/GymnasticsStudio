@@ -1,0 +1,66 @@
+<mat-card class="student-student-card">
+    <mat-card-header>
+      <mat-card-title> פרטים אישים :{{id}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="50px" [gutterSize]="'10px'">
+        <form [formGroup]="SignUpForm" (ngSubmit)="OnSubmit()">
+
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>שם</mat-label>
+              <input formControlName="Name" matInput placeholder="שם">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>מחיר </mat-label>
+              <input formControlName="Price" matInput placeholder="מחיר">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>מספר שבועות במנוי </mat-label>
+                  <input formControlName="WeeksNum" matInput placeholder="מספר שבועות במנוי ">
+                </mat-form-field>
+              </mat-grid-tile>
+    
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>מספר שיעורים בשבוע </mat-label>
+                  <input formControlName="DaysInWeekNum" matInput placeholder="מספר שיעורים בשבוע">
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>סוג התלמידות בשיעור </mat-label>
+                  <input formControlName="StudensKind" matInput placeholder="סוג התלמידות בשיעור ">
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>סוג השיעור</mat-label>
+                  <input formControlName="LessonKind" matInput placeholder="סוג השיעור">
+                </mat-form-field>
+              </mat-grid-tile>
+    
+             
+    
+
+
+ 
+        </form>
+      </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <button mat-raised-button (click)="Change()" color="primary">שנה</button>
+      <button mat-button (click)="OnSubmit()" type="submit" id="submitButton" color="primary">שמור שינויים</button>
+    </mat-card-actions>
+  
+  
+  </mat-card>

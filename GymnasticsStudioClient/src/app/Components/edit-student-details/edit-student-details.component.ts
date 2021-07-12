@@ -13,6 +13,7 @@ import { FormBuilder, FormControl } from '@angular/forms';
 })
 export class EditStudentDetailsComponent implements OnInit {
   id;
+  student:Student;
   CurrentStudent = new Student();
   SignUpForm = this.formBuilder.group({
     firstName: new FormControl(''),
@@ -29,7 +30,17 @@ export class EditStudentDetailsComponent implements OnInit {
 
   constructor(private studentService: StudentService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {
     this.id = this.route.snapshot.paramMap.get('Id');
+    this.getStudentDetailsByStudentId();
+  }
+
+  async getStudentDetailsByStudentId()
+  {
     if (this.id != null && this.id != "") {
+      if (this.id == "0")
+      { 
+        this.student= new Student();
+        this.id= await this.studentService.AddStudent(this.student).toPromise();
+      }
       this.studentService.getStudentDetailsByStudentId(this.id)
         .subscribe((res: Student) => {
           console.log("res: " + res)
@@ -40,7 +51,7 @@ export class EditStudentDetailsComponent implements OnInit {
         }, (error) => console.error)
     }
   }
-
+    
   ngOnInit(): void {
     this.SignUpForm.disable()
   }

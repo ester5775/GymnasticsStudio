@@ -37,4 +37,8 @@ export class StudentService {
   PostStudent(CurrentStudent: Student):Observable<boolean> {
     return this.http.post<boolean>(this.studentUrl+"EditStudent",CurrentStudent);
   }
+
+  AddStudent(CurrentStudent: Student):Observable<number> {
+    return this.http.put<number>(this.studentUrl+"AddStudent",CurrentStudent);
+  }
 }

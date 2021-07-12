@@ -22,6 +22,7 @@ namespace DTO
         public static TeacherDTO ConvertToDTO(Teacher1 teacher)
         {
             TeacherDTO teacherDTO = new TeacherDTO();
+            
             teacherDTO.Id = teacher.Id;
             teacherDTO.LastName = teacher.LastName;
             teacherDTO.FirstName = teacher.FirstName;
