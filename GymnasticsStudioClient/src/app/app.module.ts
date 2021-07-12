@@ -48,6 +48,7 @@ import { from } from 'rxjs';
 import { DateDialogBoxComponent } from './Components/date-dialog-box/date-dialog-box.component';
 import { ParticularSubscriptionDialgBoxComponent } from './Components/particular-subscription-dialg-box/particular-subscription-dialg-box.component';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
+import { UpLoadFilesComponent } from './Components/up-load-files/up-load-files.component';
 
 // import { MaskedTextBoxModule } from '@progress/kendo-angular-inputs';
 
@@ -69,6 +70,7 @@ import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
     EditStudentDetailsComponent,
     DateDialogBoxComponent,
     ParticularSubscriptionDialgBoxComponent,
+    UpLoadFilesComponent,
   ],
   imports: [
     AppRoutingModule,
