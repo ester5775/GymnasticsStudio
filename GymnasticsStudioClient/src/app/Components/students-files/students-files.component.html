@@ -2,8 +2,8 @@
 
  
   
-  <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-  <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+  <button type="button" mat-raised-button (click)="file.click()">Choose File</button>
+  <input hidden  value="" #file (change)="onFileChange($event)" type="file" id="file">
 
 
     <!-- <embed src="C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioClient\src\app\Fiels\מסכים לתכנות 28.2.21.pdf" 

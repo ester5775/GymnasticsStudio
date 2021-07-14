@@ -35,7 +35,6 @@ C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\DTO
 C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.dll
 C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.pdb
-C:\Users\Rubinstein\Documents\GitHub\GymnasticsStudio\GymnasticsStudioServer\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\Dal.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\EntityFramework.dll
 C:\Users\User\Desktop\Ester Levcovich\GymnasticsStudio\GymnasticsStudioServer\DTO\bin\Debug\Dal.pdb

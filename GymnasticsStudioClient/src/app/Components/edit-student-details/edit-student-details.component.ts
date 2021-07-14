@@ -76,7 +76,6 @@ export class EditStudentDetailsComponent implements OnInit {
     this.SignUpForm.enable();
   }
   OnSubmit() {
-    debugger
     var stu = new Student(this.SignUpForm.value);
     stu.Id = this.id;
     this.studentService.PostStudent(stu).subscribe(res => console.log(res), err => console.log(err))

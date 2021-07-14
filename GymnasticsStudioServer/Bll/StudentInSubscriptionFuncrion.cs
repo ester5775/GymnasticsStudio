@@ -393,7 +393,7 @@ namespace Bll
 
                             //מחיקת שיעורים קודמים
                           
-                            GSDE.StudentInLessons.RemoveRange(LessonsToRemove);
+                            GSDE.StudentInLessons.ToList().RemoveAll(x=>LessonsToRemove.Contains(x));
                             GSDE.SaveChanges();
                             newStudentInSubscription.SubscribtionId = SubscriptionId;
                             GSDE.SaveChanges();
@@ -481,7 +481,7 @@ namespace Bll
                         if (studentInSubscription != default)
                         {
                             //מחיקת כל השיעורים שלו
-                            GSDE.StudentInLessons.RemoveRange(GSDE.StudentInLessons.Where(x => x.StudentInSubscriptionId == studentInSubscription.Id));
+                            GSDE.StudentInLessons.ToList().RemoveAll(x => x.StudentInSubscriptionId == studentInSubscription.Id);
                             GSDE.SaveChanges();
                             finishDate = Convert.ToDateTime(studentInSubscription.FinishDate);
                             SubscribtionId = (int)studentInSubscription.SubscribtionId;
