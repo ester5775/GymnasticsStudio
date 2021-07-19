@@ -35,9 +35,10 @@ namespace GymnasticsStudioServer.Controllers
                         {
                             Directory.CreateDirectory(HttpContext.Current.Server.MapPath($"~/App_Data/uploads"));
                         }
+                        var StudentId = httpRequest.Form.GetValues(0).First();
                         var filePath = HttpContext.Current.Server.MapPath($"~/App_Data/uploads/{postedFile.FileName}");
                         postedFile.SaveAs(filePath);
-                        return Ok(FilesService.UploadFile(filePath, postedFile.FileName));
+                        return Ok(FilesService.UploadFile(filePath, postedFile.FileName,StudentId));
                     }
 
                 }
@@ -51,6 +52,11 @@ namespace GymnasticsStudioServer.Controllers
 
             return Ok(false);
         }
-
+        [HttpGet]
+        [Route("GetFilesPerStudent")]
+        public IHttpActionResult GetFilesPerStudent(int Id)
+        {
+            return Ok(FilesService.GetFilesPerStudent(Id));
+        }
     }
 }
