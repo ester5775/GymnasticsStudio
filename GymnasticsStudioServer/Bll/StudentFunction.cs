@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -42,16 +43,19 @@ namespace Bll
         {
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
-                List<Student> studentList = new List<Student>();
-                studentList = GSDE.Students.ToList();
-                if (studentDTO.FirstName != "")
-                    studentList = GetStudentsListByFirstName(studentList, studentDTO.FirstName);
-                if (studentDTO.LastName != "")
-                    studentList = GetStudentsListByLastName(studentList, studentDTO.LastName);
-                if (studentDTO.PhoneNumber != "")
-                    studentList = GetStudentsListByBuyPhoneNumber(studentList, studentDTO.PhoneNumber);
-                if (studentDTO.IdentityNumber != "")
-                    studentList = GetStudentsListByIdentityNumber(studentList, studentDTO.IdentityNumber);
+                List<Student> studentList = GSDE.Students.Where(x =>
+                (!string.IsNullOrEmpty(studentDTO.FirstName) && x.FirstName == studentDTO.FirstName)
+                || (!string.IsNullOrEmpty(studentDTO.LastName) && x.LastName == studentDTO.LastName)
+                || (!string.IsNullOrEmpty(studentDTO.PhoneNumber) && x.PhoneNumber == studentDTO.PhoneNumber)
+                || (!string.IsNullOrEmpty(studentDTO.IdentityNumber) && x.PhoneNumber == studentDTO.IdentityNumber)).ToList();
+                //if (studentDTO.FirstName != "")
+                //    studentList = GetStudentsListByFirstName(studentList, studentDTO.FirstName);
+                //if (studentDTO.LastName != "")
+                //    studentList = GetStudentsListByLastName(studentList, studentDTO.LastName);
+                //if (studentDTO.PhoneNumber != "")
+                //    studentList = GetStudentsListByBuyPhoneNumber(studentList, studentDTO.PhoneNumber);
+                //if (studentDTO.IdentityNumber != "")
+                //    studentList = GetStudentsListByIdentityNumber(studentList, studentDTO.IdentityNumber);
 
                 return StudentDTO.Convert(studentList);
 
@@ -89,7 +93,7 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 List<Student> studentList = new List<Student>();
-                studentList = GSDE.Students.Where(x => x.LastName == lastName).ToList();
+                studentList = GSDE.Students.Where(x => x.LastName == lastName).Include(x => x.CreditDetail).ToList();
                 return studentList;
 
 
@@ -101,7 +105,7 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 List<Student> studentList = new List<Student>();
-                studentList = GSDE.Students.Where(x => x.PhoneNumber == phoneNumber).ToList();
+                studentList = GSDE.Students.Where(x => x.PhoneNumber == phoneNumber).Include(x => x.CreditDetail).ToList();
                 return studentList;
 
 
@@ -113,7 +117,7 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 List<Student> studentList = new List<Student>();
-                studentList = GSDE.Students.Where(x => x.IdentityNumber == identityNumber).ToList();
+                studentList = GSDE.Students.Where(x => x.IdentityNumber == identityNumber).Include(x => x.CreditDetail).ToList();
                 return studentList;
 
 
@@ -139,35 +143,35 @@ namespace Bll
 
         public static bool EditStudent(StudentDTO student)
         {
-                using (Gymnastics_Studio_DataEntities context = new Gymnastics_Studio_DataEntities())
-                {
+            using (Gymnastics_Studio_DataEntities context = new Gymnastics_Studio_DataEntities())
+            {
 
-                    var s = context.Students.FirstOrDefault(x => x.Id == student.Id);
-                    if (s != null)
-                    {
-                        s.FirstName = student.FirstName?.TrimStart().TrimEnd();
-                        s.LastName = student.LastName?.TrimStart().TrimEnd();
-                        s.IdentityNumber = student.IdentityNumber?.TrimStart().TrimEnd();
-                        s.PhoneNumber = student.PhoneNumber?.TrimStart().TrimEnd();
-                        s.Pignicher = student.Pignicher?.TrimStart().TrimEnd();
-                        s.Comments = student.Comments?.TrimStart().TrimEnd();
+                var s = context.Students.FirstOrDefault(x => x.Id == student.Id);
+                if (s != null)
+                {
+                    s.FirstName = student.FirstName?.TrimStart().TrimEnd();
+                    s.LastName = student.LastName?.TrimStart().TrimEnd();
+                    s.IdentityNumber = student.IdentityNumber?.TrimStart().TrimEnd();
+                    s.PhoneNumber = student.PhoneNumber?.TrimStart().TrimEnd();
+                    s.Pignicher = student.Pignicher?.TrimStart().TrimEnd();
+                    s.Comments = student.Comments?.TrimStart().TrimEnd();
                     if (s.CreditDetail == null)
                     {
                         CreditDetail creditDetail = new CreditDetail();
                         creditDetail.Students.Add(s);
                     }
-                        s.CreditDetail.CreditNumber = student.CreditCardNumber;
-                        s.HMO = student.HMO?.TrimStart().TrimEnd();
-                        s.Addrees = student.Addrees?.TrimStart().TrimEnd();
-                        s.BirthDay = student?.BirthDay;
-                        s.StartDate = student?.StartDate.TrimStart().TrimEnd();
-                        context.SaveChanges();
-                        return true;
-                    }
-                    else return false;
+                    s.CreditDetail.CreditNumber = student.CreditCardNumber;
+                    s.HMO = student.HMO?.TrimStart().TrimEnd();
+                    s.Addrees = student.Addrees?.TrimStart().TrimEnd();
+                    s.BirthDay = student?.BirthDay;
+                    s.StartDate = student?.StartDate.TrimStart().TrimEnd();
+                    context.SaveChanges();
+                    return true;
                 }
-            
-           
+                else return false;
+            }
+
+
         }
 
         public static int AddStudent(StudentDTO studentDTO)
@@ -186,7 +190,7 @@ namespace Bll
                     student.PhoneNumber = studentDTO.PhoneNumber?.TrimStart().TrimEnd();
                     student.Pignicher = studentDTO.Pignicher?.TrimStart().TrimEnd();
                     student.Comments = studentDTO.Comments?.TrimStart().TrimEnd();
-  //
+                    //
                     student.HMO = studentDTO.HMO?.TrimStart().TrimEnd();
                     student.Addrees = studentDTO.Addrees?.TrimStart().TrimEnd();
                     student.BirthDay = studentDTO?.BirthDay;
@@ -194,8 +198,8 @@ namespace Bll
                     student.StudentKind = studentDTO?.StudentKind;
                     context.Students.Add(student);
                     context.SaveChanges();
-                    
-                    return context.Students.Max(o => o.Id); 
+
+                    return context.Students.Max(o => o.Id);
                 }
             }
             catch (Exception e)
