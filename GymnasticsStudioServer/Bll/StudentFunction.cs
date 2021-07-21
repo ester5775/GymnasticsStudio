@@ -44,10 +44,10 @@ namespace Bll
             using (Gymnastics_Studio_DataEntities GSDE = new Gymnastics_Studio_DataEntities())
             {
                 List<Student> studentList = GSDE.Students.Where(x =>
-                (!string.IsNullOrEmpty(studentDTO.FirstName) && x.FirstName == studentDTO.FirstName)
-                || (!string.IsNullOrEmpty(studentDTO.LastName) && x.LastName == studentDTO.LastName)
-                || (!string.IsNullOrEmpty(studentDTO.PhoneNumber) && x.PhoneNumber == studentDTO.PhoneNumber)
-                || (!string.IsNullOrEmpty(studentDTO.IdentityNumber) && x.PhoneNumber == studentDTO.IdentityNumber)).ToList();
+                (string.IsNullOrEmpty(studentDTO.FirstName) || x.FirstName == studentDTO.FirstName)
+                && (string.IsNullOrEmpty(studentDTO.LastName) || x.LastName == studentDTO.LastName)
+                && (string.IsNullOrEmpty(studentDTO.PhoneNumber) || x.PhoneNumber == studentDTO.PhoneNumber)
+                && (string.IsNullOrEmpty(studentDTO.IdentityNumber) || x.PhoneNumber == studentDTO.IdentityNumber)).ToList();
                 //if (studentDTO.FirstName != "")
                 //    studentList = GetStudentsListByFirstName(studentList, studentDTO.FirstName);
                 //if (studentDTO.LastName != "")
